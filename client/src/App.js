@@ -4,6 +4,7 @@ import './base.css';
 import Button from './components/Button/Button';
 import Checkbox from './components/Checkbox/Checkbox';
 import Dropdown from './components/Dropdown/Dropdown';
+import Input from './components/Input/Input';
 
 function App() {
 	// button related function(s)
@@ -25,24 +26,38 @@ function App() {
 		{ label: '11', value: 'window11' },
 	];
 
+	// input related function(s)
+	const [email, setEmail] = useState('');
+
+	const handleEmailChange = (value) => {
+		setEmail(value);
+	};
+
 	return (
-		<div className="App flex flex-col">
+		<div className="App flex flex-col align-center">
 			<h1>Hello, World!</h1>
 
 			<h3>This is the Button component</h3>
 			<Button className="button button-m" onClick={handleClick}>
 				Click me
 			</Button>
-			<hr />
 
 			<h3>This is the Checkbox component</h3>
 			<Checkbox checked={isChecked} onChange={handleCheckboxChange}>
 				Check this box!
 			</Checkbox>
-			<hr />
 
 			<h3>This is the Dropdown component</h3>
 			<Dropdown options={options} children="window size" />
+
+			<h3>This is the Input component</h3>
+			<Input
+				className="input-stroke padding-s"
+				label="Email"
+				type="email"
+				value={email}
+				onChange={handleEmailChange}
+			/>
 		</div>
 	);
 }
