@@ -8,6 +8,7 @@
 
 .button {
 	color: #ffffff;
+	font-size: 16px;
 	font-weight: bold;
 	background-color: #d06667;
 	border-radius: 5px;
@@ -20,6 +21,7 @@
 
 .button-disabled {
 	color: #ffffff;
+	font-size: 16px;
 	font-weight: bold;
 	background-color: #a39a9b;
 	border-radius: 5px;
@@ -28,6 +30,7 @@
 
 .button-stroke {
 	color: #ffffff;
+	font-size: 16px;
 	font-weight: bold;
 	background-color: transparent;
 	border: 1px solid #a39a9b;
@@ -36,6 +39,7 @@
 
 .button-dropdown {
 	color: #ffffff;
+	font-size: 16px;
 	font-weight: bold;
 	background-color: #4b97e8;
 	border-radius: 5px;

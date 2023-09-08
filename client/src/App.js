@@ -6,6 +6,7 @@ import Checkbox from './components/Checkbox/Checkbox';
 import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
 import Radio from './components/Radio/Radio';
+import KeyFeatureCard from './components/KeyFeatureCard/KeyFeatureCard';
 
 function App() {
 	// button related function(s)
@@ -47,6 +48,15 @@ function App() {
 		{ value: 'model3', label: 'Model 3' },
 	];
 
+	// key feature card related function(s)
+	const handleDataButtonClick = () => {
+		console.log('Data Button clicked!');
+	};
+
+	const handleModelButtonClick = () => {
+		console.log('Model Button clicked!');
+	};
+
 	return (
 		<div className="App flex flex-col align-center gap-m">
 			<h1>Hello, World!</h1>
@@ -82,6 +92,18 @@ function App() {
 			/>
 
 			<h3>This is the Key Feature Card component</h3>
+			<KeyFeatureCard
+				title="Data Preprocessing"
+				body="Split data into different window sizes of interest"
+				buttonText="Preprocess Data"
+				onButtonClick={handleDataButtonClick}
+			/>
+			<KeyFeatureCard
+				title="S-Nitrosylation Site Prediction"
+				body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+				buttonText="Run Model"
+				onButtonClick={handleModelButtonClick}
+			/>
 		</div>
 	);
 }
