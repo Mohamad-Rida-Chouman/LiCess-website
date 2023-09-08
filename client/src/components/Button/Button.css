@@ -33,3 +33,11 @@
 	border: 1px solid #a39a9b;
 	border-radius: 5px;
 }
+
+.button-dropdown {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #4b97e8;
+	border-radius: 5px;
+	cursor: pointer;
+}

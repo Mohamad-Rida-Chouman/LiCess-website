@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import './base.css';
 import Button from './components/Button/Button';
 import Checkbox from './components/Checkbox/Checkbox';
+import Dropdown from './components/Dropdown/Dropdown';
 
 function App() {
 	// button related function(s)
@@ -17,6 +18,13 @@ function App() {
 		setIsChecked(checked);
 	};
 
+	// dropdown related function(s)
+	const options = [
+		{ label: '7', value: 'window7' },
+		{ label: '9', value: 'window9' },
+		{ label: '11', value: 'window11' },
+	];
+
 	return (
 		<div className="App flex flex-col">
 			<h1>Hello, World!</h1>
@@ -25,11 +33,16 @@ function App() {
 			<Button className="button button-m" onClick={handleClick}>
 				Click me
 			</Button>
+			<hr />
 
 			<h3>This is the Checkbox component</h3>
 			<Checkbox checked={isChecked} onChange={handleCheckboxChange}>
 				Check this box!
 			</Checkbox>
+			<hr />
+
+			<h3>This is the Dropdown component</h3>
+			<Dropdown options={options} children="window size" />
 		</div>
 	);
 }
