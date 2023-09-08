@@ -1,0 +1,35 @@
+.button-s {
+	padding: 0.5rem 1rem;
+}
+
+.button-m {
+	padding: 1rem 1.5rem;
+}
+
+.button {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #d06667;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #dc4143;
+}
+
+.button-disabled {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #a39a9b;
+	border-radius: 5px;
+	cursor: not-allowed;
+}
+
+.button-stroke {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: transparent;
+	border: 1px solid #a39a9b;
+	border-radius: 5px;
+}
