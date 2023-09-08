@@ -5,6 +5,7 @@ import Button from './components/Button/Button';
 import Checkbox from './components/Checkbox/Checkbox';
 import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
+import Radio from './components/Radio/Radio';
 
 function App() {
 	// button related function(s)
@@ -33,8 +34,21 @@ function App() {
 		setEmail(value);
 	};
 
+	// radio related function(s)
+	const [selectedRadioOption, setSelectedRadioOption] = useState('');
+
+	const handleRadioOptionChange = (label) => {
+		setSelectedRadioOption(label);
+	};
+
+	const radioOptions = [
+		{ value: 'model1', label: 'Model 1' },
+		{ value: 'model2', label: 'Model 2' },
+		{ value: 'model3', label: 'Model 3' },
+	];
+
 	return (
-		<div className="App flex flex-col align-center">
+		<div className="App flex flex-col align-center gap-m">
 			<h1>Hello, World!</h1>
 
 			<h3>This is the Button component</h3>
@@ -58,6 +72,16 @@ function App() {
 				value={email}
 				onChange={handleEmailChange}
 			/>
+
+			<h3>This is the Radio component</h3>
+			<Radio
+				className="radio"
+				options={radioOptions}
+				selectedOption={selectedRadioOption}
+				onChange={handleRadioOptionChange}
+			/>
+
+			<h3>This is the Key Feature Card component</h3>
 		</div>
 	);
 }
