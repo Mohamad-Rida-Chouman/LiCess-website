@@ -45,3 +45,12 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+.button-navbar {
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #020d17;
+	border-radius: 5px;
+	cursor: pointer;
+}

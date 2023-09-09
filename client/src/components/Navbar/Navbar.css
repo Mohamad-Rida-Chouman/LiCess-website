@@ -1,0 +1,7 @@
+.main-navbar-container {
+	height: 10vh;
+	background-color: #1d2d3b;
+	border-radius: 5px;
+	position: sticky;
+	top: 0;
+}

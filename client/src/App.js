@@ -9,6 +9,7 @@ import Radio from './components/Radio/Radio';
 import KeyFeatureCard from './components/KeyFeatureCard/KeyFeatureCard';
 import githubsvg from './assets/logo.svg';
 import SvgIcon from './components/SvgIcon/SvgIcon';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 	// button related function(s)
@@ -62,6 +63,9 @@ function App() {
 	return (
 		<div className="App flex flex-col align-center gap-m">
 			<h1>Hello, World!</h1>
+
+			<h3>This is the Navbar component</h3>
+			<Navbar />
 
 			<h3>This is the Button component</h3>
 			<Button className="button button-m" onClick={handleClick}>
