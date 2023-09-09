@@ -10,6 +10,7 @@ import KeyFeatureCard from './components/KeyFeatureCard/KeyFeatureCard';
 import githubsvg from './assets/logo.svg';
 import SvgIcon from './components/SvgIcon/SvgIcon';
 import Navbar from './components/Navbar/Navbar';
+import PageTitle from './components/PageTitle/PageTitle';
 
 function App() {
 	// button related function(s)
@@ -68,9 +69,30 @@ function App() {
 			<Navbar />
 
 			<h3>This is the Button component</h3>
-			<Button className="button button-m" onClick={handleClick}>
-				Click me
-			</Button>
+			<div className="buttons-container">
+				<Button className="button button-s" onClick={handleClick}>
+					small
+				</Button>
+				<Button className="button button-m" onClick={handleClick}>
+					big
+				</Button>
+				<Button className="button-stroke button-m" onClick={handleClick}>
+					stroked
+				</Button>
+				<Button
+					className="button-disabled button-m"
+					onClick={handleClick}
+					disabled
+				>
+					disabled
+				</Button>
+				<Button className="button-navbar button-m" onClick={handleClick}>
+					navbar-related
+				</Button>
+				<Button className="button-dropdown button-m" onClick={handleClick}>
+					dropdown
+				</Button>
+			</div>
 
 			<h3>This is the Checkbox component</h3>
 			<Checkbox checked={isChecked} onChange={handleCheckboxChange}>
@@ -111,9 +133,14 @@ function App() {
 				onButtonClick={handleModelButtonClick}
 			/>
 
-			<h3>This is the SvgIcon component</h3>
-			<SvgIcon className="homepage-icon" src={githubsvg} alt="github icon" />
-			<SvgIcon className="footer-icon" src={githubsvg} alt="github icon" />
+			<h3>This is the Svg Icon component (big icon, small icon)</h3>
+			<div className="flex gap-l align-center padding-l">
+				<SvgIcon className="big-icon" src={githubsvg} alt="github icon" />
+				<SvgIcon className="small-icon" src={githubsvg} alt="github icon" />
+			</div>
+
+			<h3>This is the Page Title component</h3>
+			<PageTitle title="Model Page" />
 		</div>
 	);
 }
