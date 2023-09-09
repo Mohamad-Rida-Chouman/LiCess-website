@@ -12,6 +12,7 @@ import SvgIcon from './components/SvgIcon/SvgIcon';
 import Navbar from './components/Navbar/Navbar';
 import PageTitle from './components/PageTitle/PageTitle';
 import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal';
 
 function App() {
 	// button related function(s)
@@ -60,6 +61,17 @@ function App() {
 
 	const handleModelButtonClick = () => {
 		console.log('Model Button clicked!');
+	};
+
+	// modal related function(s)
+	const [isOpen, setIsOpen] = useState(false);
+
+	const openModal = () => {
+		setIsOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsOpen(false);
 	};
 
 	return (
@@ -145,6 +157,15 @@ function App() {
 
 			<h3>This is the Footer component</h3>
 			<Footer />
+
+			<h3>This is the Modal component</h3>
+			<Button className="button-navbar button-s" onClick={openModal}>
+				Open Modal
+			</Button>
+			<Modal isOpen={isOpen} onClose={closeModal}>
+				<h2>Modal Title</h2>
+				<p>This is the modal content.</p>
+			</Modal>
 		</div>
 	);
 }
