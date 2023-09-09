@@ -15,6 +15,7 @@ import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
+import LandingNavbar from './components/LandingNavbar/LandingNavbar';
 
 function App() {
 	// button related function(s)
@@ -186,6 +187,9 @@ function App() {
 			<Modal isOpen={isLoginOpen} onClose={closeLoginModal}>
 				<LoginForm />
 			</Modal>
+
+			<h3>This is the Landing Navbar component</h3>
+			<LandingNavbar />
 		</div>
 	);
 }
