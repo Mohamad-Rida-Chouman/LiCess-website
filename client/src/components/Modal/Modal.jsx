@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 		<>
 			{isOpen && (
 				<div className="modal-overlay" onClick={handleOverlayClick}>
-					<div className="modal">
+					<div className="modal flex justify-center">
 						<button className="close-button" onClick={onClose}>
 							X
 						</button>

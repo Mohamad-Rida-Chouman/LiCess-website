@@ -13,6 +13,7 @@ import Navbar from './components/Navbar/Navbar';
 import PageTitle from './components/PageTitle/PageTitle';
 import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
+import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 
 function App() {
 	// button related function(s)
@@ -158,13 +159,12 @@ function App() {
 			<h3>This is the Footer component</h3>
 			<Footer />
 
-			<h3>This is the Modal component</h3>
+			<h3>This is the Modal + Registration Form component</h3>
 			<Button className="button-navbar button-s" onClick={openModal}>
-				Open Modal
+				Register/Login
 			</Button>
 			<Modal isOpen={isOpen} onClose={closeModal}>
-				<h2>Modal Title</h2>
-				<p>This is the modal content.</p>
+				<RegistrationForm />
 			</Modal>
 		</div>
 	);
