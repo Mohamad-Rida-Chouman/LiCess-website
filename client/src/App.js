@@ -7,7 +7,7 @@ import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
 import Radio from './components/Radio/Radio';
 import KeyFeatureCard from './components/KeyFeatureCard/KeyFeatureCard';
-import githubsvg from './assets/githubsvg.svg';
+import githubsvg from './assets/logo.svg';
 import SvgIcon from './components/SvgIcon/SvgIcon';
 
 function App() {
