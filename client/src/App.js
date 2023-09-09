@@ -7,6 +7,8 @@ import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
 import Radio from './components/Radio/Radio';
 import KeyFeatureCard from './components/KeyFeatureCard/KeyFeatureCard';
+import githubsvg from './assets/githubsvg.svg';
+import SvgIcon from './components/SvgIcon/SvgIcon';
 
 function App() {
 	// button related function(s)
@@ -104,6 +106,10 @@ function App() {
 				buttonText="Run Model"
 				onButtonClick={handleModelButtonClick}
 			/>
+
+			<h3>This is the SvgIcon component</h3>
+			<SvgIcon className="homepage-icon" src={githubsvg} alt="github icon" />
+			<SvgIcon className="footer-icon" src={githubsvg} alt="github icon" />
 		</div>
 	);
 }
