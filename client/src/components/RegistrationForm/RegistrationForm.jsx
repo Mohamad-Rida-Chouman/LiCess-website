@@ -25,15 +25,15 @@ const RegistrationForm = () => {
 	};
 
 	return (
-		<div className="main-registration-container flex gap-m padding-l">
-			<div className="left-registration-container flex align-center padding-l">
+		<div className="main-registration-container flex gap-s padding-l">
+			<div className="left-registration-container flex align-center padding-s">
 				<SvgIcon
 					className="full-icon flex align-center"
 					src={Logo}
 					alt="Logo icon"
 				/>
 			</div>
-			<div className="right-registration-form flex flex-col justify-center align-center gap-m padding-l">
+			<div className="right-registration-form flex flex-col justify-center align-center gap-m padding-s">
 				<h4>Welcome!</h4>
 				<Input
 					className="input-stroke padding-s"

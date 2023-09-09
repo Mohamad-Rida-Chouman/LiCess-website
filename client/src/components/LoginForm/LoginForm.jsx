@@ -21,15 +21,15 @@ const LoginForm = () => {
 	};
 
 	return (
-		<div className="main-login-container flex gap-m padding-l">
-			<div className="left-login-container flex align-center padding-l">
+		<div className="main-login-container flex gap-s padding-l">
+			<div className="left-login-container flex align-center padding-s">
 				<SvgIcon
 					className="full-icon flex align-center"
 					src={Logo}
 					alt="Logo icon"
 				/>
 			</div>
-			<div className="right-login-form flex flex-col justify-center align-center gap-m padding-l">
+			<div className="right-login-form flex flex-col justify-center align-center gap-m padding-s">
 				<h4>Welcome Back!</h4>
 				<Input
 					className="input-stroke padding-s"
