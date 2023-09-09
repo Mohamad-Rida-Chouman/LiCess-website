@@ -11,6 +11,7 @@ import githubsvg from './assets/logo.svg';
 import SvgIcon from './components/SvgIcon/SvgIcon';
 import Navbar from './components/Navbar/Navbar';
 import PageTitle from './components/PageTitle/PageTitle';
+import Footer from './components/Footer/Footer';
 
 function App() {
 	// button related function(s)
@@ -141,6 +142,9 @@ function App() {
 
 			<h3>This is the Page Title component</h3>
 			<PageTitle title="Model Page" />
+
+			<h3>This is the Footer component</h3>
+			<Footer />
 		</div>
 	);
 }
