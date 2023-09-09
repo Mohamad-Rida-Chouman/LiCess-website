@@ -14,6 +14,7 @@ import PageTitle from './components/PageTitle/PageTitle';
 import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+import LoginForm from './components/LoginForm/LoginForm';
 
 function App() {
 	// button related function(s)
@@ -64,15 +65,26 @@ function App() {
 		console.log('Model Button clicked!');
 	};
 
-	// modal related function(s)
-	const [isOpen, setIsOpen] = useState(false);
+	// modal + register related function(s)
+	const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-	const openModal = () => {
-		setIsOpen(true);
+	const openRegisterModal = () => {
+		setIsRegisterOpen(true);
 	};
 
-	const closeModal = () => {
-		setIsOpen(false);
+	const closeRegisterModal = () => {
+		setIsRegisterOpen(false);
+	};
+
+	// modal + login related function(s)
+	const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+	const openLoginModal = () => {
+		setIsLoginOpen(true);
+	};
+
+	const closeLoginModal = () => {
+		setIsLoginOpen(false);
 	};
 
 	return (
@@ -160,11 +172,19 @@ function App() {
 			<Footer />
 
 			<h3>This is the Modal + Registration Form component</h3>
-			<Button className="button-navbar button-s" onClick={openModal}>
-				Register/Login
+			<Button className="button-navbar button-s" onClick={openRegisterModal}>
+				Register
 			</Button>
-			<Modal isOpen={isOpen} onClose={closeModal}>
+			<Modal isOpen={isRegisterOpen} onClose={closeRegisterModal}>
 				<RegistrationForm />
+			</Modal>
+
+			<h3>This is the Modal + Login Form component</h3>
+			<Button className="button-navbar button-s" onClick={openLoginModal}>
+				Login
+			</Button>
+			<Modal isOpen={isLoginOpen} onClose={closeLoginModal}>
+				<LoginForm />
 			</Modal>
 		</div>
 	);
