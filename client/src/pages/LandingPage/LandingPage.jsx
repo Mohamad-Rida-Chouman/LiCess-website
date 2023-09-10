@@ -4,6 +4,12 @@ import './LandingPage.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
 import SvgIcon from '../../components/SvgIcon/SvgIcon';
 import ScrollDown from '../../assets/scrolldown.svg';
+import Chip from '../../assets/chip.svg';
+import Dna from '../../assets/dna.svg';
+import Arrow from '../../assets/arrow.svg';
+import Email from '../../assets/email.svg';
+import Github from '../../assets/github.svg';
+import LinkedIn from '../../assets/linkedin.svg';
 import KeyFeatureCard from '../../components/KeyFeatureCard/KeyFeatureCard';
 
 const LandingPage = () => {
@@ -20,10 +26,10 @@ const LandingPage = () => {
 	};
 
 	return (
-		<div className="main-landing-container">
-			<div className="hero-landing-container">
-				<div className="main-bg"></div>
-				<div className="hero-landing-content flex flex-col justify-between">
+		<div className="main-landing-container width-100">
+			<div className="hero-landing-container width-100">
+				<div className="main-bg width-100"></div>
+				<div className="hero-landing-content flex flex-col justify-between width-100">
 					<div className="landing-navbar padding-l">
 						<LandingNavbar />
 					</div>
@@ -43,12 +49,32 @@ const LandingPage = () => {
 					</div>
 				</div>
 			</div>
-			<div className="briefing-landing-container flex flex-col padding-xl gap-m">
-				<div className="briefing-title-container">
-					<h2 className="briefing-title">What is LiCess?</h2>
+			<div className="briefing-landing-container flex flex-col padding-xl gap-xl">
+				<div className="briefing-title-container flex justify-center align-center gap-s">
+					<h2 className="briefing-title">LiCess</h2>
+					<SvgIcon className="arrow-icon" src={Arrow} alt="Arrow icon" />
+					<p className="font-24">
+						<span className="bold">Li</span>ght Pro
+						<span className="bold">Cess</span>
+					</p>
 				</div>
-				<div className="briefing-1-container flex"></div>
-				<div className="briefing-2-container flex"></div>
+				<div className="briefings-container flex flex-col align-center padding-s gap-xl">
+					<div className="briefing-container flex justify-center align-center gap-m">
+						<SvgIcon className="big-icon" src={Chip} alt="Chip icon" />
+						<p className="briefing-text">
+							LiCess aims to make the process of researching on S-Nitrosylation
+							site prediction easier using AI
+						</p>
+					</div>
+					<div className="briefing-container flex justify-center align-center gap-m">
+						<SvgIcon className="big-icon" src={Dna} alt="DNA icon" />
+						<p className="briefing-text">
+							Predicting S-Nitrosylation sites in proteins helps in
+							understanding the behaviour of certain diseases and thus designing
+							effective drugs
+						</p>
+					</div>
+				</div>
 			</div>
 			<div className="key-features-landing-container flex flex-col align-center padding-xl">
 				<div className="key-features-title-container">
@@ -75,7 +101,19 @@ const LandingPage = () => {
 					/>
 				</div>
 			</div>
-			<div className="footer-landing-container"></div>
+			<div className="footer-landing-container">
+				<div className="footer-bg width-100"></div>
+				<div className="footer-landing-content flex flex-col justify-around width-100 padding-l">
+					<div className="footer-title flex flex-col align-center padding-l">
+						<h1>Where to find me?</h1>
+					</div>
+					<div className="footer-icons flex justify-center gap-m">
+						<SvgIcon className="big-icon" src={Email} alt="email icon" />
+						<SvgIcon className="big-icon" src={Github} alt="github icon" />
+						<SvgIcon className="big-icon" src={LinkedIn} alt="linkedin icon" />
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

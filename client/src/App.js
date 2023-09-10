@@ -91,9 +91,6 @@ function App() {
 
 	return (
 		<div className="App flex flex-col align-center gap-m">
-			<h1>Hello, World!</h1>
-
-			<h3>This is the Landing Page</h3>
 			<LandingPage />
 
 			<h3>This is the Navbar component</h3>

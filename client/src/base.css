@@ -94,8 +94,16 @@
 	padding: 2rem 2.5rem;
 }
 
+.bold {
+	font-weight: 700;
+}
+
+.font-24 {
+	font-size: 24px;
+}
+
 img {
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 100%;
 	object-fit: cover;
 }
