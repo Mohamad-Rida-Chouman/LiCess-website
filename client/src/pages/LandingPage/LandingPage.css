@@ -14,11 +14,20 @@
 	background-image: url('../../assets/main-bg.jpg');
 	background-size: cover;
 	background-position: center;
-	opacity: 0.5;
+	opacity: 0.4;
 	z-index: -1;
 }
 
 .landing-content {
 	position: relative;
 	z-index: 1;
+}
+
+@media (max-width: 768px) {
+	.key-features-container {
+		flex-direction: column;
+	}
+	.feature-card {
+		width: 50%;
+	}
 }
