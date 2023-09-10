@@ -102,6 +102,10 @@
 	font-size: 24px;
 }
 
+.border-underline {
+	border-bottom: 2px solid #4b97e8;
+}
+
 img {
 	width: auto;
 	height: 100%;

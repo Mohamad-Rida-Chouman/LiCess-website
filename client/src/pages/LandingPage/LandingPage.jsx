@@ -51,12 +51,14 @@ const LandingPage = () => {
 			</div>
 			<div className="briefing-landing-container flex flex-col padding-xl gap-xl">
 				<div className="briefing-title-container flex justify-center align-center gap-s">
-					<h2 className="briefing-title">LiCess</h2>
-					<SvgIcon className="arrow-icon" src={Arrow} alt="Arrow icon" />
-					<p className="font-24">
-						<span className="bold">Li</span>ght Pro
-						<span className="bold">Cess</span>
-					</p>
+					<div className="briefing-title border-underline flex align-center justify-center gap-s">
+						<h2>LiCess</h2>
+						<SvgIcon className="arrow-icon" src={Arrow} alt="Arrow icon" />
+						<p className="font-24">
+							<span className="bold">Li</span>ght Pro
+							<span className="bold">Cess</span>
+						</p>
+					</div>
 				</div>
 				<div className="briefings-container flex flex-col align-center padding-s gap-xl">
 					<div className="briefing-container flex justify-center align-center gap-m">
@@ -78,7 +80,9 @@ const LandingPage = () => {
 			</div>
 			<div className="key-features-landing-container flex flex-col align-center padding-xl">
 				<div className="key-features-title-container">
-					<h2 className="key-features-title">What We Provide</h2>
+					<h2 className="key-features-title border-underline">
+						What We Provide
+					</h2>
 				</div>
 				<div className="key-features-container flex justify-center align-center wrap gap-m padding-l">
 					<KeyFeatureCard
