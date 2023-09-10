@@ -1,0 +1,19 @@
+.dashboard-main-container {
+	min-height: 100vh;
+}
+
+.dashboard-subtitle {
+	padding: 0.5rem 2rem;
+}
+
+.dashboard-content-body {
+	flex: 1 0 0;
+}
+
+.dashboard-footer-container {
+	margin-top: auto;
+}
+
+.dashboard-content-headers {
+	border: 1px solid #4b97e8;
+}

@@ -17,6 +17,7 @@ import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import LandingNavbar from './components/LandingNavbar/LandingNavbar';
 import LandingPage from './pages/LandingPage/LandingPage';
+import Dashboard from './pages/DashboardPage/Dashboard';
 
 function App() {
 	// button related function(s)
@@ -91,7 +92,11 @@ function App() {
 
 	return (
 		<div className="App flex flex-col align-center gap-m">
+			<h3>This is the Landing page</h3>
 			<LandingPage />
+
+			<h3>This is the Dashboard page</h3>
+			<Dashboard />
 
 			<h3>This is the Navbar component</h3>
 			<Navbar />
