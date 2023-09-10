@@ -8,7 +8,7 @@ import LinkedInSvg from '../../assets/linkedin.svg';
 
 const Footer = () => {
 	return (
-		<div className="main-footer-container flex align-center justify-around width-90 padding-l">
+		<div className="main-footer-container flex align-center justify-around width-100 padding-l">
 			<div className="left-footer-container flex">Copyrights</div>
 			<div className="right-footer-container flex gap-s">
 				<SvgIcon className="small-icon" src={EmailSvg} alt="email icon" />
