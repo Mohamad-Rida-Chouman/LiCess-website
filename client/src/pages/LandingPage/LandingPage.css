@@ -1,4 +1,5 @@
-.main-landing-container {
+.hero-landing-container,
+.hero-landing-content {
 	position: relative;
 	height: 100vh;
 	width: 100vw;
