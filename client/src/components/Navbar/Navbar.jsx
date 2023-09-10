@@ -23,7 +23,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="main-navbar-container flex justify-between width-90 padding-l">
+		<div className="main-navbar-container flex justify-between width-100 padding-l">
 			<div className="left-navbar-container flex align-center">
 				<SvgIcon
 					className="small-icon flex align-center"
@@ -56,7 +56,7 @@ const Navbar = () => {
 					className="button-navbar button-s"
 					onClick={handleRegisterButtonClick}
 				>
-					Register/Login
+					Your Profile
 				</Button>
 			</div>
 		</div>
