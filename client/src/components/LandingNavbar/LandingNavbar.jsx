@@ -26,6 +26,7 @@ const LandingNavbar = () => {
 					src={LogoSvg}
 					alt="Logo icon"
 				/>
+				<h3>LiCess</h3>
 			</div>
 			<div className="right-landing-navbar-container flex align-center">
 				<Button className="button button-s" onClick={openModal}>
