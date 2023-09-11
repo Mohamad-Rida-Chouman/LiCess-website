@@ -4,6 +4,7 @@ import '../../base.css';
 import Input from '../Input/Input';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Logo from '../../assets/logo.svg';
+import Button from '../Button/Button';
 
 const RegistrationForm = () => {
 	const [name, setName] = useState('');
@@ -22,6 +23,10 @@ const RegistrationForm = () => {
 	};
 	const handleVerifyChange = (value) => {
 		setVerify(value);
+	};
+
+	const handleClick = () => {
+		console.log('Register button clicked');
 	};
 
 	return (
@@ -63,6 +68,9 @@ const RegistrationForm = () => {
 					value={verify}
 					onChange={handleVerifyChange}
 				/>
+				<Button className="button button-s" onClick={handleClick}>
+					Register
+				</Button>
 				<div className="switch-modal-page flex">
 					<p>
 						Already a member? <span className="switch-modal-word">Login</span>
