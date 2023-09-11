@@ -14,6 +14,19 @@
 	margin-top: auto;
 }
 
-.dashboard-content-headers {
-	border: 1px solid #4b97e8;
+.table-data {
+	height: 38vh;
+	overflow-y: auto;
+}
+
+.table-data::-webkit-scrollbar {
+	width: 0.2rem;
+}
+
+.table-data::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.table-data::-webkit-scrollbar-thumb {
+	background: aliceblue;
 }
