@@ -32,7 +32,10 @@ const Dropdown = ({ options, className, children }) => {
 
 	return (
 		<div className={className}>
-			<Button className="button-dropdown button-s" onClick={toggleDropdown}>
+			<Button
+				className="button-dropdown button-s width-100"
+				onClick={toggleDropdown}
+			>
 				{selectedOptions.length > 0
 					? `${selectedOptions.length} ${children}(s) selected`
 					: `Select ${children}(s)`}
