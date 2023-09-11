@@ -43,7 +43,7 @@ const Dropdown = ({ options, className, children }) => {
 			{isOpen && (
 				<ul>
 					{options.map((option) => (
-						<li key={option.value}>
+						<li className="no-style-list" key={option.value}>
 							<Checkbox
 								checked={selectedOptions.includes(option)}
 								onChange={() => handleOptionToggle(option)}
