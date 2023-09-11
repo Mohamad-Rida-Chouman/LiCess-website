@@ -31,7 +31,7 @@ const Dropdown = ({ options, className, children }) => {
 	};
 
 	return (
-		<div className={className}>
+		<div>
 			<Button
 				className="button-dropdown button-s width-100"
 				onClick={toggleDropdown}
@@ -40,25 +40,27 @@ const Dropdown = ({ options, className, children }) => {
 					? `${selectedOptions.length} ${children}(s) selected`
 					: `Select ${children}(s)`}
 			</Button>
-			{isOpen && (
-				<ul>
-					{options.map((option) => (
-						<li className="no-style-list" key={option.value}>
-							<Checkbox
-								checked={selectedOptions.includes(option)}
-								onChange={() => handleOptionToggle(option)}
-							>
-								{option.label}
-							</Checkbox>
-						</li>
-					))}
-				</ul>
-			)}
-			{!isOpen && selectedOptions.length > 0 && (
-				<div>
-					Selected {children}(s): {getSelectedOptionsText()}
-				</div>
-			)}
+			<div className={className}>
+				{isOpen && (
+					<ul>
+						{options.map((option) => (
+							<li className="no-style-list" key={option.value}>
+								<Checkbox
+									checked={selectedOptions.includes(option)}
+									onChange={() => handleOptionToggle(option)}
+								>
+									{option.label}
+								</Checkbox>
+							</li>
+						))}
+					</ul>
+				)}
+				{!isOpen && selectedOptions.length > 0 && (
+					<div>
+						Selected {children}(s): {getSelectedOptionsText()}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };
