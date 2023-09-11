@@ -1,0 +1,42 @@
+.features-main-container {
+	min-height: 100vh;
+}
+
+.features-footer-container {
+	margin-top: auto;
+}
+
+.features-content-left,
+.features-content-mid,
+.features-content-right {
+	flex: 1 0 0;
+	max-height: 55vh;
+}
+
+.features-button-container {
+	margin-top: auto;
+}
+
+.features-dropdown-container {
+	overflow-y: auto;
+	height: 40vh;
+}
+
+.features-content-right {
+	overflow-y: auto;
+}
+
+.features-dropdown-container::-webkit-scrollbar,
+.features-content-right::-webkit-scrollbar {
+	width: 0.2rem;
+}
+
+.features-dropdown-container::-webkit-scrollbar-track,
+.features-content-right::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.features-dropdown-container::-webkit-scrollbar-thumb,
+.features-content-right::-webkit-scrollbar-thumb {
+	background: aliceblue;
+}
