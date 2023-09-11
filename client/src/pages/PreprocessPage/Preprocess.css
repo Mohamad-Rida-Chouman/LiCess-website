@@ -10,7 +10,7 @@
 .preprocess-content-mid,
 .preprocess-content-right {
 	flex: 1 0 0;
-	min-height: 50vh;
+	max-height: 55vh;
 }
 
 .preprocess-button-container {
@@ -22,14 +22,21 @@
 	height: 40vh;
 }
 
-.preprocess-dropdown-container::-webkit-scrollbar {
+.preprocess-content-right {
+	overflow-y: auto;
+}
+
+.preprocess-dropdown-container::-webkit-scrollbar,
+.preprocess-content-right::-webkit-scrollbar {
 	width: 0.2rem;
 }
 
-.preprocess-dropdown-container::-webkit-scrollbar-track {
+.preprocess-dropdown-container::-webkit-scrollbar-track,
+.preprocess-content-right::-webkit-scrollbar-track {
 	background: transparent;
 }
 
-.preprocess-dropdown-container::-webkit-scrollbar-thumb {
+.preprocess-dropdown-container::-webkit-scrollbar-thumb,
+.preprocess-content-right::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
