@@ -24,7 +24,7 @@ const NavbarDropdown = ({ options, className, dropdown }) => {
 	}, []);
 	return (
 		<div>
-			<Button className="button-navbar button-xs" onClick={toggleDropdown}>
+			<div className="button-navbar button-xs" onClick={toggleDropdown}>
 				<SvgIcon
 					className="small-icon flex align-center"
 					src={Hamburger}
@@ -50,7 +50,7 @@ const NavbarDropdown = ({ options, className, dropdown }) => {
 						</ul>
 					)}
 				</div>
-			</Button>
+			</div>
 			{isOpen && <div className="dropdown-overlay" />}
 		</div>
 	);
