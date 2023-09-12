@@ -1,0 +1,19 @@
+.community-main-container {
+	min-height: 100vh;
+}
+
+.community-footer-container {
+	margin-top: auto;
+}
+
+.community-content-container::-webkit-scrollbar {
+	width: 0.2rem;
+}
+
+.community-content-container::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.community-content-container::-webkit-scrollbar-thumb {
+	background: aliceblue;
+}

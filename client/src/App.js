@@ -9,6 +9,7 @@ import Preprocess from './pages/PreprocessPage/Preprocess';
 import Features from './pages/FeaturesPage/Features';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Model from './pages/ModelPage/Model';
+import Community from './pages/CommunityPage/Community';
 
 function App() {
 	return (
@@ -23,7 +24,7 @@ function App() {
 					<Route path="/feature_extraction" element={<Features />} />
 					<Route path="/model_run" element={<Model />} />
 					<Route path="/dashboard" element={<Dashboard />} />
-					{/* <Route path="/community" element={<Community />} /> */}
+					<Route path="/community" element={<Community />} />
 				</Routes>
 			</div>
 		</Router>

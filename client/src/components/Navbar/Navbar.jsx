@@ -12,11 +12,11 @@ const Navbar = () => {
 	};
 
 	const handleCommunityButtonClick = () => {
-		console.log('Dashboard Button clicked!');
+		console.log('Community Button clicked!');
 	};
 
 	const handleLogoutButtonClick = () => {
-		console.log('Dashboard Button clicked!');
+		console.log('Logout Button clicked!');
 	};
 
 	const handleDataButtonClick = () => {
