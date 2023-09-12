@@ -1,13 +1,16 @@
 .button-xs {
 	padding: 0.25rem 0.5rem;
+	border: 0;
 }
 
 .button-s {
 	padding: 0.5rem 1rem;
+	border: 0;
 }
 
 .button-m {
 	padding: 1rem 1.5rem;
+	border: 0;
 }
 
 .button {
@@ -56,5 +59,13 @@
 	font-weight: bold;
 	background-color: #020d17;
 	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button-navbar-dropdown {
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #020d17;
 	cursor: pointer;
 }

@@ -10,7 +10,7 @@ const Button = ({ className, onClick, children, disabled, linkTo }) => {
 	};
 
 	return (
-		<Link to={linkTo}>
+		<Link to={linkTo} className="no-decoration">
 			<button className={className} onClick={handleClick} disabled={disabled}>
 				{children}
 			</button>
