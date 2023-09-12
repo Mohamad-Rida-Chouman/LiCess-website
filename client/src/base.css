@@ -116,3 +116,7 @@ img {
 	height: 100%;
 	object-fit: cover;
 }
+
+Link {
+	text-decoration: none;
+}

@@ -21,6 +21,8 @@ import Dashboard from './pages/DashboardPage/Dashboard';
 import Preprocess from './pages/PreprocessPage/Preprocess';
 import Instructions from './components/Instructions/Instructions';
 import Features from './pages/FeaturesPage/Features';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Model from './pages/ModelPage/Model';
 
 function App() {
 	// button related function(s)
@@ -94,15 +96,39 @@ function App() {
 	};
 
 	return (
-		<div className="App flex flex-col align-center gap-m">
-			{/* <h3>This is the Landing page</h3> */}
-			{/* <LandingPage /> */}
-			{/* <h3>This is the Dashboard page</h3> */}
-			{/* <Dashboard /> */}
-			{/* <h3>This is the Preprocess page</h3>  */}
-			{/* <Preprocess /> */}
-			<Features />
-			{/* <h3>This is the Navbar component</h3>
+		<Router>
+			<div className="App flex flex-col align-center gap-m">
+				<Routes>
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/data_preprocess" element={<Preprocess />} />
+					<Route path="/feature_extraction" element={<Features />} />
+					<Route path="/model_run" element={<Model />} />
+				</Routes>
+			</div>
+		</Router>
+	);
+	// <div className="App flex flex-col align-center gap-m">
+	{
+		/* <h3>This is the Landing page</h3> */
+	}
+	{
+		/* <LandingPage /> */
+	}
+	{
+		/* <h3>This is the Dashboard page</h3> */
+	}
+	{
+		/* <Dashboard /> */
+	}
+	{
+		/* <h3>This is the Preprocess page</h3>  */
+	}
+	<Preprocess />;
+	{
+		/* <Features /> */
+	}
+	{
+		/* <h3>This is the Navbar component</h3>
 			<Navbar />
 
 			<h3>This is the Button component</h3>
@@ -199,9 +225,15 @@ function App() {
 			</Modal>
 
 			<h3>This is the Landing Navbar component</h3>
-			<LandingNavbar /> */}
-		</div>
-	);
+			<LandingNavbar /> */
+	}
+	{
+		/* //{' '} */
+	}
+	{
+		/* </div>; */
+	}
+	// );
 }
 
 export default App;
