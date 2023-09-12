@@ -36,30 +36,27 @@ const Navbar = () => {
 				</Link>
 			</div>
 			<div className="mid-navbar-container flex gap-s justify-center align-center">
-				<Link to="/data_preprocess">
-					<Button
-						className="button-navbar button-s"
-						onClick={handleDataButtonClick}
-					>
-						Preprocess Data
-					</Button>
-				</Link>
-				<Link to="/feature_extraction">
-					<Button
-						className="button-navbar button-s"
-						onClick={handleFeatureButtonClick}
-					>
-						Extract Features
-					</Button>
-				</Link>
-				<Link to="/model_run">
-					<Button
-						className="button-navbar button-s"
-						onClick={handleModelButtonClick}
-					>
-						Run Model
-					</Button>
-				</Link>
+				<Button
+					className="button-navbar button-s"
+					onClick={handleDataButtonClick}
+					linkTo="/data_preprocess"
+				>
+					Preprocess Data
+				</Button>
+				<Button
+					className="button-navbar button-s"
+					onClick={handleFeatureButtonClick}
+					linkTo="/feature_extraction"
+				>
+					Extract Features
+				</Button>
+				<Button
+					className="button-navbar button-s"
+					onClick={handleModelButtonClick}
+					linkTo="/model_run"
+				>
+					Run Model
+				</Button>
 			</div>
 			<div className="right-navbar-container flex align-center">
 				<Button
