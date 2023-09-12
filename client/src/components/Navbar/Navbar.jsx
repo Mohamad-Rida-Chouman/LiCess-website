@@ -4,6 +4,8 @@ import '../../base.css';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Button from '../Button/Button';
 import LogoSvg from '../../assets/logo.svg';
+import Hamburger from '../../assets/hamburger.svg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const handleRegisterButtonClick = () => {
@@ -25,38 +27,50 @@ const Navbar = () => {
 	return (
 		<div className="main-navbar-container flex justify-between width-100 padding-l">
 			<div className="left-navbar-container flex align-center">
-				<SvgIcon
-					className="small-icon flex align-center"
-					src={LogoSvg}
-					alt="Logo icon"
-				/>
+				<Link to="/">
+					<SvgIcon
+						className="small-icon flex align-center"
+						src={LogoSvg}
+						alt="Logo icon"
+					/>
+				</Link>
 			</div>
 			<div className="mid-navbar-container flex gap-s justify-center align-center">
-				<Button
-					className="button-navbar button-s"
-					onClick={handleDataButtonClick}
-				>
-					Preprocess Data
-				</Button>
-				<Button
-					className="button-navbar button-s"
-					onClick={handleFeatureButtonClick}
-				>
-					Extract Features
-				</Button>
-				<Button
-					className="button-navbar button-s"
-					onClick={handleModelButtonClick}
-				>
-					Run Model
-				</Button>
+				<Link to="/data_preprocess">
+					<Button
+						className="button-navbar button-s"
+						onClick={handleDataButtonClick}
+					>
+						Preprocess Data
+					</Button>
+				</Link>
+				<Link to="/feature_extraction">
+					<Button
+						className="button-navbar button-s"
+						onClick={handleFeatureButtonClick}
+					>
+						Extract Features
+					</Button>
+				</Link>
+				<Link to="/model_run">
+					<Button
+						className="button-navbar button-s"
+						onClick={handleModelButtonClick}
+					>
+						Run Model
+					</Button>
+				</Link>
 			</div>
 			<div className="right-navbar-container flex align-center">
 				<Button
 					className="button-navbar button-s"
 					onClick={handleRegisterButtonClick}
 				>
-					Your Profile
+					<SvgIcon
+						className="small-icon flex align-center"
+						src={Hamburger}
+						alt="Hamburger icon"
+					/>
 				</Button>
 			</div>
 		</div>
