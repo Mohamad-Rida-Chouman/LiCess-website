@@ -1,0 +1,24 @@
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: transparent;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	z-index: 15;
+}
+
+.dropdown-menu.open {
+	display: block;
+}
+
+.dropdown-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 10;
+}
