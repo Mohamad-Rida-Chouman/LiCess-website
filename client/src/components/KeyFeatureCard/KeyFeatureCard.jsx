@@ -8,13 +8,15 @@ const KeyFeatureCard = ({ title, body, buttonText, onButtonClick, linkTo }) => {
 		<div className="feature-card flex flex-col justify-center align-center padding-m gap-m">
 			<h3>{title}</h3>
 			<p>{body}</p>
-			<Button
-				className="button button-s width-100"
-				onClick={onButtonClick}
-				linkTo={linkTo}
-			>
-				{buttonText}
-			</Button>
+			<div className="width-100">
+				<Button
+					className="button button-s width-100"
+					onClick={onButtonClick}
+					linkTo={linkTo}
+				>
+					{buttonText}
+				</Button>
+			</div>
 		</div>
 	);
 };

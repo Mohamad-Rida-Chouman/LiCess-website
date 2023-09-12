@@ -27,12 +27,13 @@ const LoginForm = ({ switchToRegister }) => {
 
 	return (
 		<div className="main-login-container flex gap-s padding-l">
-			<div className="left-login-container flex align-center padding-s">
+			<div className="left-registration-container flex flex-col align-center justify-center gap-m padding-s">
 				<SvgIcon
-					className="full-icon flex align-center"
+					className="full-icon flex align-center justify-center width-100"
 					src={Logo}
 					alt="Logo icon"
 				/>
+				<h1 className="flex justify-center">LiCess</h1>
 			</div>
 			<div className="right-login-form flex flex-col justify-center align-center gap-m padding-s">
 				<h4>Welcome Back!</h4>
@@ -57,9 +58,11 @@ const LoginForm = ({ switchToRegister }) => {
 					value={verify}
 					onChange={handleVerifyChange}
 				/>
-				<Button className="button button-s" onClick={handleClick}>
-					Register
-				</Button>
+				<div className="width-100">
+					<Button className="button button-s width-100" onClick={handleClick}>
+						Login
+					</Button>
+				</div>
 				<div className="switch-modal-page flex">
 					<p>
 						Not a member?&nbsp;
