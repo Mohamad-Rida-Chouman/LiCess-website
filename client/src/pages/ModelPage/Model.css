@@ -1,0 +1,48 @@
+.model-main-container {
+	min-height: 100vh;
+}
+
+.model-footer-container {
+	margin-top: auto;
+}
+
+.model-content-left,
+.model-content-mid,
+.model-content-right {
+	flex: 1 0 0;
+	max-height: 55vh;
+}
+
+.model-button-container {
+	margin-top: auto;
+}
+
+.model-radio-container {
+	overflow-y: auto;
+}
+
+.model-content-right {
+	overflow-y: auto;
+}
+
+.model-radio-container::-webkit-scrollbar,
+.model-content-right::-webkit-scrollbar {
+	width: 0.2rem;
+}
+
+.model-radio-container::-webkit-scrollbar-track,
+.model-content-right::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.model-radio-container::-webkit-scrollbar-thumb,
+.model-content-right::-webkit-scrollbar-thumb {
+	background: aliceblue;
+}
+
+.model-data-upload-container,
+.model-features-upload-container,
+.model-content-mid-upper,
+.model-content-mid-lower {
+	flex: 1 0 0;
+}

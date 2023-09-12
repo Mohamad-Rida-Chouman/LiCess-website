@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import './base.css';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
@@ -11,19 +11,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Model from './pages/ModelPage/Model';
 
 function App() {
-	// radio related function(s)
-	const [selectedRadioOption, setSelectedRadioOption] = useState('');
-
-	const handleRadioOptionChange = (label) => {
-		setSelectedRadioOption(label);
-	};
-
-	const radioOptions = [
-		{ value: 'model1', label: 'Model 1' },
-		{ value: 'model2', label: 'Model 2' },
-		{ value: 'model3', label: 'Model 3' },
-	];
-
 	return (
 		<Router>
 			<div className="App flex flex-col align-center gap-m">
