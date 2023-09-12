@@ -90,18 +90,21 @@ const LandingPage = () => {
 						body="Split data into different window sizes of interest"
 						buttonText="Preprocess Data"
 						onButtonClick={handleDataButtonClick}
+						linkTo="/data_preprocess"
 					/>
 					<KeyFeatureCard
 						title="Features Extraction"
 						body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
 						buttonText="Extract Features"
 						onButtonClick={handleFeatureButtonClick}
+						linkTo="/feature_extraction"
 					/>
 					<KeyFeatureCard
 						title="S-Nitrosylation Site Prediction"
 						body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
 						buttonText="Run Model"
 						onButtonClick={handleModelButtonClick}
+						linkTo="/model_run"
 					/>
 				</div>
 			</div>
