@@ -2,7 +2,14 @@ import React from 'react';
 import './Radio.css';
 import '../../base.css';
 
-const Radio = ({ className, options, selectedOption, onChange }) => {
+const Radio = ({
+	className,
+	options,
+	selectedOption,
+	onChange,
+	title,
+	name,
+}) => {
 	const handleOptionChange = (e) => {
 		const selectedValue = e.target.value;
 		const selectedLabel = options.find(
@@ -12,14 +19,16 @@ const Radio = ({ className, options, selectedOption, onChange }) => {
 	};
 
 	return (
-		<div className="flex flex-col">
-			<p>Selected option: {selectedOption}</p>
+		<div className="flex flex-col gap-s">
+			<p className="flex justify-center padding-s border-underline bold">
+				{title}: {selectedOption}
+			</p>
 			{options.map((option) => (
 				<label key={option.value} className="flex align-center">
 					<input
 						className={className}
 						type="radio"
-						name="radioOptions"
+						name={name}
 						value={option.value}
 						checked={selectedOption === option.label}
 						onChange={handleOptionChange}
