@@ -31,15 +31,15 @@ const NavbarDropdown = ({ options, className, dropdown }) => {
 					alt="Hamburger icon"
 				/>
 				<div
-					className={`dropdown-menu ${isOpen ? 'open' : ''}`}
+					className={`grey-background dropdown-menu ${isOpen ? 'open' : ''}`}
 					ref={dropdownRef}
 				>
 					{isOpen && (
-						<ul>
+						<ul className="flex flex-col gap-s">
 							{options.map((option) => (
 								<li className="no-style-list" key={option.value}>
 									<Button
-										className="button-navbar button-s width-100"
+										className="button-navbar-dropdown button-s width-100"
 										linkTo={option.link}
 										onClick={option.click}
 									>
