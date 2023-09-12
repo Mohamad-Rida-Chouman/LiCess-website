@@ -18,6 +18,9 @@ import LoginForm from './components/LoginForm/LoginForm';
 import LandingNavbar from './components/LandingNavbar/LandingNavbar';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Dashboard from './pages/DashboardPage/Dashboard';
+import Preprocess from './pages/PreprocessPage/Preprocess';
+import Instructions from './components/Instructions/Instructions';
+import Features from './pages/FeaturesPage/Features';
 
 function App() {
 	// button related function(s)
@@ -92,13 +95,14 @@ function App() {
 
 	return (
 		<div className="App flex flex-col align-center gap-m">
-			<h3>This is the Landing page</h3>
-			<LandingPage />
-
-			<h3>This is the Dashboard page</h3>
-			<Dashboard />
-
-			<h3>This is the Navbar component</h3>
+			{/* <h3>This is the Landing page</h3> */}
+			{/* <LandingPage /> */}
+			{/* <h3>This is the Dashboard page</h3> */}
+			{/* <Dashboard /> */}
+			{/* <h3>This is the Preprocess page</h3>  */}
+			{/* <Preprocess /> */}
+			<Features />
+			{/* <h3>This is the Navbar component</h3>
 			<Navbar />
 
 			<h3>This is the Button component</h3>
@@ -195,7 +199,7 @@ function App() {
 			</Modal>
 
 			<h3>This is the Landing Navbar component</h3>
-			<LandingNavbar />
+			<LandingNavbar /> */}
 		</div>
 	);
 }
