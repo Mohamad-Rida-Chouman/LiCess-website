@@ -1,15 +1,22 @@
-import React from 'react';
 import './Navbar.css';
 import '../../base.css';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Button from '../Button/Button';
 import LogoSvg from '../../assets/logo.svg';
-import Hamburger from '../../assets/hamburger.svg';
 import { Link } from 'react-router-dom';
+import NavbarDropdown from '../NavbarDropdown/NavbarDropdown';
 
 const Navbar = () => {
-	const handleRegisterButtonClick = () => {
-		console.log('Register Button clicked!');
+	const handleDashboardButtonClick = () => {
+		console.log('Dashboard Button clicked!');
+	};
+
+	const handleCommunityButtonClick = () => {
+		console.log('Dashboard Button clicked!');
+	};
+
+	const handleLogoutButtonClick = () => {
+		console.log('Dashboard Button clicked!');
 	};
 
 	const handleDataButtonClick = () => {
@@ -23,6 +30,27 @@ const Navbar = () => {
 	const handleModelButtonClick = () => {
 		console.log('Model Button clicked!');
 	};
+
+	const options = [
+		{
+			label: 'Dashboard',
+			value: 'dashboard',
+			link: '/dashboard',
+			click: handleDashboardButtonClick,
+		},
+		{
+			label: 'Community',
+			value: 'community',
+			link: '/community',
+			click: handleCommunityButtonClick,
+		},
+		{
+			label: 'Logout',
+			value: 'logout',
+			link: '/',
+			click: handleLogoutButtonClick,
+		},
+	];
 
 	return (
 		<div className="main-navbar-container flex justify-between width-100 padding-l">
@@ -59,16 +87,7 @@ const Navbar = () => {
 				</Button>
 			</div>
 			<div className="right-navbar-container flex align-center">
-				<Button
-					className="button-navbar button-s"
-					onClick={handleRegisterButtonClick}
-				>
-					<SvgIcon
-						className="small-icon flex align-center"
-						src={Hamburger}
-						alt="Hamburger icon"
-					/>
-				</Button>
+				<NavbarDropdown options={options} />
 			</div>
 		</div>
 	);
