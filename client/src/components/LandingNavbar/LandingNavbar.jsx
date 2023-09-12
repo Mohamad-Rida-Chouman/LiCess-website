@@ -6,9 +6,11 @@ import Button from '../Button/Button';
 import LogoSvg from '../../assets/logo.svg';
 import Modal from '../Modal/Modal';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 const LandingNavbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -16,6 +18,15 @@ const LandingNavbar = () => {
 
 	const closeModal = () => {
 		setIsOpen(false);
+		setShowRegistrationModal(false);
+	};
+	const openRegistrationModal = () => {
+		setShowRegistrationModal(true);
+	};
+
+	const openLoginModal = () => {
+		setShowRegistrationModal(false);
+		setIsOpen(true);
 	};
 
 	return (
@@ -33,7 +44,11 @@ const LandingNavbar = () => {
 					Register / Login
 				</Button>
 				<Modal isOpen={isOpen} onClose={closeModal}>
-					<RegistrationForm />
+					{showRegistrationModal ? (
+						<RegistrationForm switchToLogin={openLoginModal} />
+					) : (
+						<LoginForm switchToRegister={openRegistrationModal} />
+					)}
 				</Modal>
 			</div>
 		</div>
