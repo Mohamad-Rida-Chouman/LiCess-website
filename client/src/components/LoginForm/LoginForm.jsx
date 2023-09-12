@@ -6,7 +6,7 @@ import SvgIcon from '../SvgIcon/SvgIcon';
 import Logo from '../../assets/logo.svg';
 import Button from '../Button/Button';
 
-const LoginForm = () => {
+const LoginForm = ({ switchToRegister }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [verify, setVerify] = useState('');
@@ -62,7 +62,10 @@ const LoginForm = () => {
 				</Button>
 				<div className="switch-modal-page flex">
 					<p>
-						Not a member? <span className="switch-modal-word">Register</span>
+						Not a member?&nbsp;
+						<span className="switch-modal-word" onClick={switchToRegister}>
+							Register
+						</span>
 					</p>
 				</div>
 			</div>
