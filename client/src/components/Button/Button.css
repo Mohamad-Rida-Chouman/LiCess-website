@@ -1,3 +1,7 @@
+.button-xs {
+	padding: 0.25rem 0.5rem;
+}
+
 .button-s {
 	padding: 0.5rem 1rem;
 }
