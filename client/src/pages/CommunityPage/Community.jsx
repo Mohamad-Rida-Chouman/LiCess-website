@@ -51,22 +51,22 @@ const Community = () => {
 				<PageTitle title="Community" />
 			</div>
 			<div className="community-content-container gap-m flex flex-col padding-l">
-				{/* <div className="community-content flex flex-col gap-m "> */}
 				{postData.map((data, index) => (
-					<Post
-						key={index}
-						date={data.date}
-						email={data.email}
-						model={data.model}
-						sn={data.sn}
-						sp={data.sp}
-						acc={data.acc}
-						mcc={data.mcc}
-						comment={data.comment}
-						curve={data.curve}
-					/>
+					<div className="community-content flex flex-col gap-m padding-s border">
+						<Post
+							key={index}
+							date={data.date}
+							email={data.email}
+							model={data.model}
+							sn={data.sn}
+							sp={data.sp}
+							acc={data.acc}
+							mcc={data.mcc}
+							comment={data.comment}
+							curve={data.curve}
+						/>
+					</div>
 				))}
-				{/* </div> */}
 			</div>
 			<div className="community-footer-container width-100">
 				<Footer />
