@@ -2,7 +2,7 @@ import React from 'react';
 import './Post.css';
 import '../../base.css';
 
-const Post = ({ date, email, sn, sp, acc, mcc, comment, curve }) => {
+const Post = ({ date, email, model, sn, sp, acc, mcc, comment, curve }) => {
 	return (
 		<div className="main-post-container flex width-100 gap-m">
 			<div className="left-post-container flex flex-col width-100 gap-s">
@@ -12,7 +12,7 @@ const Post = ({ date, email, sn, sp, acc, mcc, comment, curve }) => {
 				</div>
 				<div className="post-content-results">
 					I would like to share with everyone the results I obtained after using
-					the light-gradient boosting model: <br />
+					the {model} model: <br />
 					Sensitivity: {sn}, Specificity: {sp}, Accuracy: {acc}, MCC: {mcc}.
 				</div>
 				<div className="user-comment">{comment}</div>

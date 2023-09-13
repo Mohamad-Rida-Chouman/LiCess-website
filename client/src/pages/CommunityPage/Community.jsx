@@ -11,6 +11,7 @@ const Community = () => {
 		{
 			date: '2023-09-11',
 			email: 'user1@example.com',
+			model: 'Light-Gradient Boosting',
 			sn: 0.85,
 			sp: 0.92,
 			acc: 0.88,
@@ -21,6 +22,7 @@ const Community = () => {
 		{
 			date: '2023-09-12',
 			email: 'user2@example.com',
+			model: 'Extreme-Gradient Boosting',
 			sn: 0.78,
 			sp: 0.95,
 			acc: 0.91,
@@ -31,6 +33,7 @@ const Community = () => {
 		{
 			date: '2023-09-13',
 			email: 'user3@example.com',
+			model: 'Random Forest',
 			sn: 0.92,
 			sp: 0.88,
 			acc: 0.89,
@@ -54,6 +57,7 @@ const Community = () => {
 						key={index}
 						date={data.date}
 						email={data.email}
+						model={data.model}
 						sn={data.sn}
 						sp={data.sp}
 						acc={data.acc}
