@@ -40,3 +40,16 @@
 .preprocess-content-right::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
+
+@media (max-width: 768px) {
+	.preprocess-content-container {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.preprocess-content-left,
+	.preprocess-content-mid,
+	.preprocess-content-right {
+		gap: 1rem;
+	}
+}

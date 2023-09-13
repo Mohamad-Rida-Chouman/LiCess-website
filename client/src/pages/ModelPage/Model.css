@@ -46,3 +46,16 @@
 .model-content-mid-lower {
 	flex: 1 0 0;
 }
+
+@media (max-width: 768px) {
+	.model-content-container {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.model-content-left,
+	.model-content-mid-lower,
+	.model-content-right {
+		gap: 1rem;
+	}
+}

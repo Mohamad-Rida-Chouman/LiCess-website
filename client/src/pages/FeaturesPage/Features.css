@@ -40,3 +40,16 @@
 .features-content-right::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
+
+@media (max-width: 768px) {
+	.features-content-container {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.features-content-left,
+	.features-content-mid,
+	.features-content-right {
+		gap: 1rem;
+	}
+}
