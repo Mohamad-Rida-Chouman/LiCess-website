@@ -34,26 +34,29 @@ const PostForm = () => {
 
 	return (
 		<div className="main-post-form-container">
-			<div className="post-template-container flex flex-col gap-m padding-m">
+			<div className="post-template-main-container flex flex-col gap-m padding-m">
 				<div className="post-template-title">
 					<h3>Your post will look like this:</h3>
 				</div>
-				<div className="post-template">
-					{postData.map((data) => (
-						<Post
-							date={data.date}
-							email={data.email}
-							model={data.model}
-							sn={data.sn}
-							sp={data.sp}
-							acc={data.acc}
-							mcc={data.mcc}
-							comment={data.comment}
-							curve={data.curve}
-						/>
-					))}
+				<div className="post-template-container">
+					<div className="post-template width-100 border padding-s gap-m">
+						{postData.map((data) => (
+							<Post
+								date={data.date}
+								email={data.email}
+								model={data.model}
+								sn={data.sn}
+								sp={data.sp}
+								acc={data.acc}
+								mcc={data.mcc}
+								comment={data.comment}
+								curve={data.curve}
+							/>
+						))}
+					</div>
 				</div>
-				<div className="user-comment flex flex-col gap-m">
+
+				<div className="user-comment flex flex-col gap-m width-100">
 					<h4>What are your thoughts on the results obtained?</h4>
 					<Input
 						className="input-form justify-start padding-s width-100"
@@ -63,9 +66,9 @@ const PostForm = () => {
 						onChange={handleUserCommentChange}
 					/>
 				</div>
-				<div className="post-submit-container">
+				<div className="post-submit-container flex width-100">
 					<Button
-						className="button button-m"
+						className="button button-m width-100"
 						onClick={handleSubmitClick}
 						linkTo="/community"
 					>
