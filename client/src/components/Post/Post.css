@@ -2,3 +2,10 @@
 .right-post-container {
 	flex: 1 0 0;
 }
+
+.post-template,
+.main-post-container,
+.left-post-container,
+.curve-container {
+	height: 100%;
+}
