@@ -63,11 +63,15 @@ const PostForm = () => {
 						onChange={handleUserCommentChange}
 					/>
 				</div>
-				{/* <div className="post-submit-container">
-					<Button className="button button-m" onClick={handleSubmitClick}>
+				<div className="post-submit-container">
+					<Button
+						className="button button-m"
+						onClick={handleSubmitClick}
+						linkTo="/community"
+					>
 						Share Post
 					</Button>
-				</div> */}
+				</div>
 			</div>
 		</div>
 	);
