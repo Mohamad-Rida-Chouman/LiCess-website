@@ -53,18 +53,20 @@ const Community = () => {
 			<div className="community-content-container gap-m flex flex-col padding-l">
 				{postData.map((data, index) => (
 					<div className="community-content flex flex-col gap-m padding-s border">
-						<Post
-							key={index}
-							date={data.date}
-							email={data.email}
-							model={data.model}
-							sn={data.sn}
-							sp={data.sp}
-							acc={data.acc}
-							mcc={data.mcc}
-							comment={data.comment}
-							curve={data.curve}
-						/>
+						<div className="community-post">
+							<Post
+								key={index}
+								date={data.date}
+								email={data.email}
+								model={data.model}
+								sn={data.sn}
+								sp={data.sp}
+								acc={data.acc}
+								mcc={data.mcc}
+								comment={data.comment}
+								curve={data.curve}
+							/>
+						</div>
 					</div>
 				))}
 			</div>
