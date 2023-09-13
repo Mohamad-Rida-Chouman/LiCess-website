@@ -13,9 +13,9 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, comment, curve }) => {
 				<div className="post-content-results">
 					I would like to share with everyone the results I obtained after using
 					the <span className="bold">{model}</span> model: <br />
-					<span className="bold">Sensitivity:</span> {sn},{' '}
-					<span className="bold">Specificity:</span> {sp},{' '}
-					<span className="bold">Accuracy:</span> {acc},{' '}
+					<span className="bold">Sensitivity:</span> {sn},
+					<span className="bold">Specificity:</span> {sp},
+					<span className="bold">Accuracy:</span> {acc},
 					<span className="bold">MCC:</span> {mcc}.
 				</div>
 				<div className="user-comment">{comment}</div>
@@ -23,8 +23,10 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, comment, curve }) => {
 					For any questions, please reach to me on my email!
 				</div>
 			</div>
-			<div className="right-post-container flex justify-center align-center width-100">
-				<div className="curve-container">{curve}</div>
+			<div className="right-post-container flex justify-center align-center">
+				<div className="curve-container flex justify-center align-center">
+					{curve}
+				</div>
 			</div>
 		</div>
 	);
