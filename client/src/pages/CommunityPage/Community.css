@@ -6,6 +6,11 @@
 	margin-top: auto;
 }
 
+.community-content-container {
+	max-height: 55vh;
+	overflow-y: auto;
+}
+
 .community-content-container::-webkit-scrollbar {
 	width: 0.2rem;
 }

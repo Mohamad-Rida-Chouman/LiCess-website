@@ -48,6 +48,7 @@ const Community = () => {
 				<PageTitle title="Community" />
 			</div>
 			<div className="community-content-container gap-m flex flex-col padding-l">
+				{/* <div className="community-content flex flex-col gap-m "> */}
 				{postData.map((data, index) => (
 					<Post
 						key={index}
@@ -61,6 +62,7 @@ const Community = () => {
 						curve={data.curve}
 					/>
 				))}
+				{/* </div> */}
 			</div>
 			<div className="community-footer-container width-100">
 				<Footer />
