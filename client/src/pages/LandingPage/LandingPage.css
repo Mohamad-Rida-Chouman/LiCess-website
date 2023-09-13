@@ -27,17 +27,24 @@
 	z-index: -1;
 }
 
+.mid-bg {
+	position: absolute;
+	height: 100%;
+	background-image: url('../../assets/mid-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.3;
+	z-index: -1;
+}
+
 .landing-content {
 	position: relative;
 	z-index: 1;
 }
 
-.briefing-landing-container {
-	background-color: #80868b;
-}
-
-.briefing-landing-container {
-	height: 50vh;
+.landing-mid-container {
+	position: relative;
+	min-height: 100vh;
 }
 
 @media (max-width: 768px) {
@@ -70,12 +77,12 @@
 
 .footer-landing-container {
 	position: relative;
-	height: 50vh;
+	height: 100%;
 }
 
 .footer-bg {
 	position: absolute;
-	height: 50vh;
+	height: 100%;
 	background-image: url('../../assets/footer-bg.jpg');
 	background-size: cover;
 	background-position: center;
@@ -84,5 +91,5 @@
 }
 
 .footer-landing-content {
-	height: 50vh;
+	height: 40vh;
 }
