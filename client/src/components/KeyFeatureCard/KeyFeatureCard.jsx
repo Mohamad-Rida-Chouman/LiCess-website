@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 
 const KeyFeatureCard = ({ title, body, buttonText, onButtonClick, linkTo }) => {
 	return (
-		<div className="feature-card flex flex-col justify-center align-center padding-m gap-m">
+		<div className="feature-card flex flex-col align-center justify-between padding-m gap-m width-100">
 			<h3>{title}</h3>
 			<p>{body}</p>
 			<div className="width-100">
