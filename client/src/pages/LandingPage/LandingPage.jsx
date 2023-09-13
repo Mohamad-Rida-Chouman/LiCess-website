@@ -40,10 +40,12 @@ const LandingPage = () => {
 						<LandingNavbar />
 					</div>
 					<div className="landing-headline-container flex flex-col align-center padding-l">
-						<h1 className="landing-headline width-25">
-							Unlocking Protein Secrets: AI-Powered S-Nitrosylation Site
-							Prediction Unveiled!
+						<h1 className="landing-headline flex justify-center align-center width-50">
+							Unlocking Protein Secrets:
 						</h1>
+						<h3 className="landing-subheadline flex justify-center align-center width-50">
+							AI-Powered S-Nitrosylation Site Prediction Unveiled!
+						</h3>
 					</div>
 					<div className="landing-scroll-down flex flex-col align-center padding-l">
 						<p>Scroll Down</p>
