@@ -4,6 +4,19 @@
 	height: 100vh;
 }
 
+.key-features-container {
+	height: 100%;
+	align-items: stretch;
+}
+
+.key-feature-container {
+	width: 30%;
+}
+
+.feature-card {
+	height: 100%;
+}
+
 .main-bg {
 	position: absolute;
 	height: 100vh;
@@ -23,12 +36,35 @@
 	background-color: #80868b;
 }
 
+.landing-scroll-down {
+	cursor: pointer;
+}
+
+.briefing-landing-container {
+	height: 50vh;
+}
+
 @media (max-width: 768px) {
 	.key-features-container {
 		flex-direction: column;
-	}
-	.feature-card {
 		width: 75%;
+	}
+
+	.key-feature-container {
+		width: 100%;
+	}
+
+	.landing-headline {
+		width: 75%;
+	}
+
+	.feature-card {
+		width: 100% !important;
+	}
+
+	.key-features-landing-container,
+	.briefing-landing-container {
+		height: 100%;
 	}
 }
 
