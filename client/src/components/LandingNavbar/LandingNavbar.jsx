@@ -40,8 +40,8 @@ const LandingNavbar = () => {
 				<h3>LiCess</h3>
 			</div>
 			<div className="right-landing-navbar-container flex align-center">
-				<Button className="button button-s" onClick={openModal}>
-					Register / Login
+				<Button className="button button-m" onClick={openModal}>
+					Get Started
 				</Button>
 				<Modal isOpen={isOpen} onClose={closeModal}>
 					{showRegistrationModal ? (
