@@ -56,76 +56,80 @@ const LandingPage = () => {
 					</div>
 				</div>
 			</div>
-			<div
-				ref={ref}
-				className="briefing-landing-container flex flex-col padding-xl gap-xl"
-			>
-				<div className="briefing-title-container flex justify-center align-center gap-s">
-					<div className="briefing-title border-underline flex align-center justify-center gap-s">
-						<h2>LiCess</h2>
-						<SvgIcon className="arrow-icon" src={Arrow} alt="Arrow icon" />
-						<p className="font-24">
-							<span className="bold">Li</span>ght Pro
-							<span className="bold">Cess</span>
-						</p>
+			<div className="landing-mid-container flex flex-col">
+				<div className="mid-bg width-100"></div>
+				<div
+					ref={ref}
+					className="briefing-landing-container flex flex-col padding-xl gap-xl"
+				>
+					<div className="briefing-title-container flex justify-center align-center gap-s">
+						<div className="briefing-title border-underline flex align-center justify-center gap-s">
+							<h2>LiCess</h2>
+							<SvgIcon className="arrow-icon" src={Arrow} alt="Arrow icon" />
+							<p className="font-24">
+								<span className="bold">Li</span>ght Pro
+								<span className="bold">Cess</span>
+							</p>
+						</div>
+					</div>
+					<div className="briefings-container flex flex-col align-center padding-s gap-xl">
+						<div className="briefing-container flex justify-center align-center gap-m">
+							<SvgIcon className="big-icon" src={Chip} alt="Chip icon" />
+							<p className="briefing-text">
+								LiCess aims to make the process of researching on
+								S-Nitrosylation site prediction easier using AI
+							</p>
+						</div>
+						<div className="briefing-container flex justify-center align-center gap-m">
+							<SvgIcon className="big-icon" src={Dna} alt="DNA icon" />
+							<p className="briefing-text">
+								Predicting S-Nitrosylation sites in proteins helps in
+								understanding the behaviour of certain diseases and thus
+								designing effective drugs
+							</p>
+						</div>
 					</div>
 				</div>
-				<div className="briefings-container flex flex-col align-center padding-s gap-xl">
-					<div className="briefing-container flex justify-center align-center gap-m">
-						<SvgIcon className="big-icon" src={Chip} alt="Chip icon" />
-						<p className="briefing-text">
-							LiCess aims to make the process of researching on S-Nitrosylation
-							site prediction easier using AI
-						</p>
+				<div className="key-features-landing-container flex flex-col align-center padding-xl">
+					<div className="key-features-title-container">
+						<h2 className="key-features-title border-underline">
+							What We Provide
+						</h2>
 					</div>
-					<div className="briefing-container flex justify-center align-center gap-m">
-						<SvgIcon className="big-icon" src={Dna} alt="DNA icon" />
-						<p className="briefing-text">
-							Predicting S-Nitrosylation sites in proteins helps in
-							understanding the behaviour of certain diseases and thus designing
-							effective drugs
-						</p>
+					<div className="key-features-container flex justify-center wrap gap-m padding-l">
+						<div className="key-feature-container">
+							<KeyFeatureCard
+								title="Data Preprocessing"
+								body="Split data into different window sizes of interest"
+								buttonText="Preprocess Data"
+								onButtonClick={handleDataButtonClick}
+								linkTo="/data_preprocess"
+							/>
+						</div>
+
+						<div className="key-feature-container">
+							<KeyFeatureCard
+								title="Features Extraction"
+								body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+								buttonText="Extract Features"
+								onButtonClick={handleFeatureButtonClick}
+								linkTo="/feature_extraction"
+							/>
+						</div>
+
+						<div className="key-feature-container">
+							<KeyFeatureCard
+								title="S-Nitrosylation Site Prediction"
+								body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+								buttonText="Run Model"
+								onButtonClick={handleModelButtonClick}
+								linkTo="/model_run"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div className="key-features-landing-container flex flex-col align-center padding-xl">
-				<div className="key-features-title-container">
-					<h2 className="key-features-title border-underline">
-						What We Provide
-					</h2>
-				</div>
-				<div className="key-features-container flex justify-center wrap gap-m padding-l">
-					<div className="key-feature-container">
-						<KeyFeatureCard
-							title="Data Preprocessing"
-							body="Split data into different window sizes of interest"
-							buttonText="Preprocess Data"
-							onButtonClick={handleDataButtonClick}
-							linkTo="/data_preprocess"
-						/>
-					</div>
 
-					<div className="key-feature-container">
-						<KeyFeatureCard
-							title="Features Extraction"
-							body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
-							buttonText="Extract Features"
-							onButtonClick={handleFeatureButtonClick}
-							linkTo="/feature_extraction"
-						/>
-					</div>
-
-					<div className="key-feature-container">
-						<KeyFeatureCard
-							title="S-Nitrosylation Site Prediction"
-							body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
-							buttonText="Run Model"
-							onButtonClick={handleModelButtonClick}
-							linkTo="/model_run"
-						/>
-					</div>
-				</div>
-			</div>
 			<div className="footer-landing-container">
 				<div className="footer-bg width-100"></div>
 				<div className="footer-landing-content flex flex-col justify-around width-100 padding-l">
