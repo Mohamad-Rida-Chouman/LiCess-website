@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../../base.css';
 import './LandingPage.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
@@ -25,6 +25,12 @@ const LandingPage = () => {
 		console.log('Model Button clicked!');
 	};
 
+	const ref = useRef(null);
+
+	const handleScrollClick = () => {
+		ref.current?.scrollIntoView({ behavior: 'smooth' });
+	};
+
 	return (
 		<div className="main-landing-container width-100">
 			<div className="hero-landing-container width-100">
@@ -33,8 +39,8 @@ const LandingPage = () => {
 					<div className="landing-navbar padding-l">
 						<LandingNavbar />
 					</div>
-					<div className="landing-headline flex flex-col align-center padding-l">
-						<h1 className="width-25">
+					<div className="landing-headline-container flex flex-col align-center padding-l">
+						<h1 className="landing-headline width-25">
 							Unlocking Protein Secrets: AI-Powered S-Nitrosylation Site
 							Prediction Unveiled!
 						</h1>
@@ -42,14 +48,18 @@ const LandingPage = () => {
 					<div className="landing-scroll-down flex flex-col align-center padding-l">
 						<p>Scroll Down</p>
 						<SvgIcon
-							className="small-icon"
+							className="small-icon pointer"
 							src={ScrollDown}
 							alt="scroll down icon"
+							onClick={handleScrollClick}
 						/>
 					</div>
 				</div>
 			</div>
-			<div className="briefing-landing-container flex flex-col padding-xl gap-xl">
+			<div
+				ref={ref}
+				className="briefing-landing-container flex flex-col padding-xl gap-xl"
+			>
 				<div className="briefing-title-container flex justify-center align-center gap-s">
 					<div className="briefing-title border-underline flex align-center justify-center gap-s">
 						<h2>LiCess</h2>
@@ -84,28 +94,36 @@ const LandingPage = () => {
 						What We Provide
 					</h2>
 				</div>
-				<div className="key-features-container flex justify-center align-center wrap gap-m padding-l">
-					<KeyFeatureCard
-						title="Data Preprocessing"
-						body="Split data into different window sizes of interest"
-						buttonText="Preprocess Data"
-						onButtonClick={handleDataButtonClick}
-						linkTo="/data_preprocess"
-					/>
-					<KeyFeatureCard
-						title="Features Extraction"
-						body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
-						buttonText="Extract Features"
-						onButtonClick={handleFeatureButtonClick}
-						linkTo="/feature_extraction"
-					/>
-					<KeyFeatureCard
-						title="S-Nitrosylation Site Prediction"
-						body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
-						buttonText="Run Model"
-						onButtonClick={handleModelButtonClick}
-						linkTo="/model_run"
-					/>
+				<div className="key-features-container flex justify-center wrap gap-m padding-l">
+					<div className="key-feature-container">
+						<KeyFeatureCard
+							title="Data Preprocessing"
+							body="Split data into different window sizes of interest"
+							buttonText="Preprocess Data"
+							onButtonClick={handleDataButtonClick}
+							linkTo="/data_preprocess"
+						/>
+					</div>
+
+					<div className="key-feature-container">
+						<KeyFeatureCard
+							title="Features Extraction"
+							body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+							buttonText="Extract Features"
+							onButtonClick={handleFeatureButtonClick}
+							linkTo="/feature_extraction"
+						/>
+					</div>
+
+					<div className="key-feature-container">
+						<KeyFeatureCard
+							title="S-Nitrosylation Site Prediction"
+							body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+							buttonText="Run Model"
+							onButtonClick={handleModelButtonClick}
+							linkTo="/model_run"
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="footer-landing-container">

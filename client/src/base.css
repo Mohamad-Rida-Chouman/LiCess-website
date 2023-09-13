@@ -106,6 +106,10 @@
 	border-bottom: 2px solid #4b97e8;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 .grey-background {
 	background-color: #1d2d3b;
 	border-radius: 5px;
