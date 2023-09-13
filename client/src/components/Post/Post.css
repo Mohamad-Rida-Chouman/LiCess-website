@@ -1,0 +1,4 @@
+.left-post-container,
+.right-post-container {
+	flex: 1 0 0;
+}
