@@ -4,6 +4,11 @@
 	height: 100vh;
 }
 
+.landing-headline,
+.landing-subheadline {
+	text-align: center;
+}
+
 .key-features-container {
 	height: 100%;
 	align-items: stretch;
@@ -57,7 +62,8 @@
 		width: 100%;
 	}
 
-	.landing-headline {
+	.landing-headline,
+	.landing-subheadline {
 		width: 75%;
 	}
 
