@@ -57,9 +57,26 @@
 	color: #ffffff;
 	font-size: 14px;
 	font-weight: bold;
-	background-color: #020d17;
+	background-color: transparent;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.button-navbar:hover {
+	background-color: #ffffff2a;
+}
+
+.button-sidebar {
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #d06667;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button-sidebar:hover {
+	background-color: #dc4143;
 }
 
 .button-navbar-dropdown {
