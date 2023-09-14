@@ -12,10 +12,6 @@
 	height: 35vh;
 }
 
-.right-post-container {
-	position: relative;
-}
-
 @media (max-width: 768px) {
 	.main-post-container {
 		flex-direction: column;
