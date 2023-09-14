@@ -85,6 +85,27 @@ const Navbar = () => {
 				>
 					Run Model
 				</Button>
+				<Button
+					className="button-navbar button-s width-100"
+					onClick={handleDashboardButtonClick}
+					linkTo="/dashboard"
+				>
+					Dashboard
+				</Button>
+				<Button
+					className="button-navbar button-s width-100"
+					onClick={handleCommunityButtonClick}
+					linkTo="/community"
+				>
+					Community
+				</Button>
+				<Button
+					className="button-navbar button-s width-100"
+					onClick={handleLogoutButtonClick}
+					linkTo="/"
+				>
+					Logout
+				</Button>
 			</div>
 			<div className="right-navbar-container flex align-center">
 				<NavbarDropdown options={options} />
