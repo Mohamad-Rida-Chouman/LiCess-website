@@ -5,3 +5,17 @@
 	position: sticky;
 	top: 0;
 }
+
+.right-navbar-container {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.mid-navbar-container {
+		display: none;
+	}
+
+	.right-navbar-container {
+		display: flex;
+	}
+}
