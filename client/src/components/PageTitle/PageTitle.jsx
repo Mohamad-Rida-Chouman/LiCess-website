@@ -4,7 +4,7 @@ import '../../base.css';
 
 const PageTitle = ({ title }) => {
 	return (
-		<div className="page-title-container flex width-90 justify-start align-center padding-l">
+		<div className="page-title-container flex width-90 justify-start align-center padding-m">
 			<h2>{title}</h2>
 		</div>
 	);
