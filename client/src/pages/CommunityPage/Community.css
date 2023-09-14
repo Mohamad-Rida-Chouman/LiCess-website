@@ -9,12 +9,10 @@
 .community-content-container {
 	max-height: 55vh;
 	overflow-y: auto;
-	position: relative;
 }
 
 .community-content {
 	height: 100%;
-	position: relative;
 }
 
 .community-content-container::-webkit-scrollbar {
