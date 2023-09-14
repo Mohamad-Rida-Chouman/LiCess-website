@@ -4,12 +4,14 @@
 	top: 100%;
 	right: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	padding: 10px;
-	z-index: 15;
+	padding: 5px;
+	z-index: 200;
 }
 
 .dropdown-menu.open {
-	display: block;
+	display: flex;
+	width: 100%;
+	left: 0;
 }
 
 .dropdown-overlay {
