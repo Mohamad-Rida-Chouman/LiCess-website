@@ -59,7 +59,11 @@ const LoginForm = ({ switchToRegister }) => {
 					onChange={handleVerifyChange}
 				/>
 				<div className="width-100">
-					<Button className="button button-s width-100" onClick={handleClick}>
+					<Button
+						className="button button-s width-100"
+						onClick={handleClick}
+						linkTo="/dashboard"
+					>
 						Login
 					</Button>
 				</div>
