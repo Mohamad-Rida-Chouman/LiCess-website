@@ -33,6 +33,24 @@ const Navbar = () => {
 
 	const options = [
 		{
+			label: 'Preprocess Data',
+			value: 'preprocessData',
+			link: '/data_preprocess',
+			click: handleLogoutButtonClick,
+		},
+		{
+			label: 'Extract Features',
+			value: 'extractFeatures',
+			link: '/feature_extraction',
+			click: handleLogoutButtonClick,
+		},
+		{
+			label: 'Run Model',
+			value: 'runModel',
+			link: '/model_run',
+			click: handleLogoutButtonClick,
+		},
+		{
 			label: 'Dashboard',
 			value: 'dashboard',
 			link: '/dashboard',
@@ -63,7 +81,7 @@ const Navbar = () => {
 					/>
 				</Link>
 			</div>
-			<div className="mid-navbar-container flex gap-s justify-center align-center">
+			<div className="mid-navbar-container flex justify-center align-center">
 				<Button
 					className="button-navbar button-s"
 					onClick={handleDataButtonClick}
