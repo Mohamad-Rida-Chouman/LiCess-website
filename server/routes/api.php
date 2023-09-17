@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -22,6 +23,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
 });
+
+Route::resource('tasks', TaskController::class);
+
 
 // Route::get('/email/verify', function () {
 //     return view('auth.verify-email');
