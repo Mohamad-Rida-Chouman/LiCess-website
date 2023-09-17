@@ -41,12 +41,10 @@ class TaskController extends Controller
         return response()->json($task, 200);
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, $id)
     {
+        $task = Task::find($id);
         $validator = Validator::make( $request->all(), [
-            'user_id' => 'required|numeric',
-            'task_name' => 'required|string',
-            'date' => 'required|date',
             'state' => 'required|string',
         ]);
 
@@ -54,7 +52,9 @@ class TaskController extends Controller
             return response()->json($validator->errors(), 500);
         }
 
-        $task = Task::create($request->all());
+        $task -> state = $request -> input('state');
+        $task -> save();
+
         return response()->json($task, 200);
     }
 
