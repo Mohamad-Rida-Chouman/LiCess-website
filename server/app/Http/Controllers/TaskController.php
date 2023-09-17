@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +22,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make( $request->all(), [
-            'user_id' => 'required|number',
+            'user_id' => 'required|numeric',
             'task_name' => 'required|string',
             'date' => 'required|date',
             'state' => 'required|string',
@@ -43,7 +44,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $validator = Validator::make( $request->all(), [
-            'user_id' => 'required|number',
+            'user_id' => 'required|numeric',
             'task_name' => 'required|string',
             'date' => 'required|date',
             'state' => 'required|string',
