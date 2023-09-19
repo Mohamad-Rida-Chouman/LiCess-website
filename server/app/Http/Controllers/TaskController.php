@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
@@ -62,5 +65,44 @@ class TaskController extends Controller
     {
         $task->delete();
         return response()->json('',200);
+    }
+
+    public function createPreprocessingTask(Request $request) {
+        $user_id=1;
+
+        $fastapath = $request -> fasta -> path();
+        $sitesCsvPath = $request -> sitesCsv -> path();
+        $windowSize = $request -> windowSize;
+
+        $data = [
+            'user_id' => $user_id,
+            'task_name' => 'Data Preprocessing',
+            'date' => date("Y-m-d"),
+            'state' => 'Pending',
+        ];
+        $task = Task::create($data);
+
+        $new_client = new \GuzzleHttp\Client();
+
+        $response = $new_client->post( 'http://127.0.0.1:5000/dataset?windowSize='.$windowSize, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . Session::get('SesTok'),
+            ],
+            'multipart' => [
+                [
+                    'name'     => 'fastaContent',
+                    'filename' => 'fasta.fasta',
+                    'contents' => fopen( $fastapath, 'r' ),
+                ],
+                [
+                    'name'     => 'dataContent',
+                    'filename' => 'data.csv',
+                    'contents' => fopen( $sitesCsvPath, 'r' ),
+                ],
+            ]
+        ]);
+        
+        return ($response);
     }
 }
