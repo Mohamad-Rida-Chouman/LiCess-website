@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('task_id');
             $table->string('data_type');
             $table->string('label');
-            $table->text('data');
+            $table->longText('data');
             $table->timestamps();
         });
     }
