@@ -11,7 +11,7 @@ class Result extends Model
 
     protected $fillable = [
         'task_id',
-        'task_type',
+        'data_type',
         'label',
         'data'
     ];
