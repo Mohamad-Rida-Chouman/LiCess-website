@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,7 @@ class TaskController extends Controller
             'state' => 'Pending',
         ];
         $task = Task::create($data);
+        $task_id = json_decode($task, true)['id'];
 
         $new_client = new \GuzzleHttp\Client();
 
@@ -102,7 +104,21 @@ class TaskController extends Controller
                 ],
             ]
         ]);
+
+        $output = json_decode($response ->getBody()->getContents(), true)['output'];
+
+        $resultData = [
+            'task_id' => $task_id,
+            'data_type' => 'csv',
+            'label' => 'w_'.$windowSize.'.csv',
+            'data' => serialize($output)
+        ];
+        $result = Result::create($resultData);
         
-        return ($response);
+        $task -> state = 'Completed';
+        $task -> save();
+
+        return ($task);
+
     }
 }
