@@ -3,6 +3,7 @@ body {
 	color: #ffffff;
 	margin: 0;
 	font-family: 'Roboto Flex', sans-serif;
+	font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
