@@ -13,6 +13,11 @@
 	max-height: 55vh;
 }
 
+.data-upload-container,
+.fasta-upload-container {
+	flex: 1 0 0;
+}
+
 .preprocess-button-container {
 	margin-top: auto;
 }
