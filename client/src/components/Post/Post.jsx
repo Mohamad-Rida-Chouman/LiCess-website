@@ -7,8 +7,8 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, comment, curve }) => {
 		<div className="main-post-container flex width-100 gap-m">
 			<div className="left-post-container flex flex-col width-100 gap-m">
 				<div className="post-info-container flex flex-col width-100">
-					<div className="post-date">{date}</div>
-					<div className="post-owner">{email}</div>
+					<div className="post-date notice-font">{date}</div>
+					<div className="post-owner notice-font">{email}</div>
 				</div>
 				<div className="post-content-results">
 					I would like to share with everyone the results I obtained after using
