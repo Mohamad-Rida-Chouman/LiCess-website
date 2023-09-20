@@ -7,21 +7,6 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 
 const PostForm = () => {
-	const postData = [
-		{
-			date: '2023-09-11',
-			email: 'user1@example.com',
-			model: 'Light-Gradient Boosting',
-			sn: 0.85,
-			sp: 0.92,
-			acc: 0.88,
-			mcc: 0.75,
-			comment:
-				'Your comment goes here. Would be great if you mentioned which window size and features were used.',
-			curve: <img src={AUCCurve} alt="Curve 1" />,
-		},
-	];
-
 	const [userComment, setUserComment] = useState('');
 
 	const handleUserCommentChange = (value) => {
@@ -31,6 +16,28 @@ const PostForm = () => {
 	const handleSubmitClick = () => {
 		console.log('Share button clicked');
 	};
+
+	const postData = [
+		{
+			date: '2023-09-11',
+			email: 'user1@example.com',
+			model: 'Light-Gradient Boosting',
+			sn: 0.85,
+			sp: 0.92,
+			acc: 0.88,
+			mcc: 0.75,
+			comment: (
+				<Input
+					className="input-form justify-start padding-s width-100"
+					type="text"
+					label="What are your thoughts on the results obtained?"
+					value={userComment}
+					onChange={handleUserCommentChange}
+				/>
+			),
+			curve: <img src={AUCCurve} alt="Curve 1" />,
+		},
+	];
 
 	return (
 		<div className="main-post-form-container">
@@ -56,7 +63,7 @@ const PostForm = () => {
 					</div>
 				</div>
 
-				<div className="user-comment flex flex-col gap-m width-100">
+				{/* <div className="user-comment flex flex-col gap-m width-100">
 					<h4>What are your thoughts on the results obtained?</h4>
 					<Input
 						className="input-form justify-start padding-s width-100"
@@ -65,7 +72,7 @@ const PostForm = () => {
 						value={userComment}
 						onChange={handleUserCommentChange}
 					/>
-				</div>
+				</div> */}
 				<div className="post-submit-container flex width-100">
 					<Button
 						className="button button-m width-100"
