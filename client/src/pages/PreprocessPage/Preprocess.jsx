@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../base.css';
 import './Preprocess.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -41,6 +41,18 @@ const Preprocess = () => {
 		console.log('Upload button clicked');
 	};
 
+	const [dataFile, setDataFile] = useState([]);
+
+	const [fastaFile, setFastaFile] = useState([]);
+
+	const handleDataChange = (e) => {
+		setDataFile([...dataFile, e.target.files[0]]);
+	};
+
+	const handleFastaChange = (e) => {
+		setFastaFile([...fastaFile, e.target.files[0]]);
+	};
+
 	return (
 		<div className="preprocess-main-container width-100 flex flex-col gap-l padding-l">
 			<div className="preprocess-navbar-container">
@@ -59,6 +71,7 @@ const Preprocess = () => {
 							>
 								Upload Sites Data
 							</Button>
+							<input type="file" onChange={handleDataChange} />
 						</div>
 						<div className="data-preview-container">Data Preview</div>
 					</div>
@@ -70,6 +83,7 @@ const Preprocess = () => {
 							>
 								Upload Fasta Data
 							</Button>
+							<input type="file" onChange={handleFastaChange} />
 						</div>
 						<div className="fasta-preview-container">Fasta Preview</div>
 					</div>
