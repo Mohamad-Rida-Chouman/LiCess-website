@@ -57,7 +57,7 @@ const Preprocess = () => {
 								className="button-dropdown button-s justify-center flex width-100"
 								onClick={handleUploadDataClick}
 							>
-								Upload Data
+								Upload Sites Data
 							</Button>
 						</div>
 						<div className="data-preview-container">Data Preview</div>
@@ -68,7 +68,7 @@ const Preprocess = () => {
 								className="button-dropdown button-s justify-center flex width-100"
 								onClick={handleUploadFastaClick}
 							>
-								Upload Fasta
+								Upload Fasta Data
 							</Button>
 						</div>
 						<div className="fasta-preview-container">Fasta Preview</div>
