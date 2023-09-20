@@ -58,3 +58,7 @@
 		gap: 1rem;
 	}
 }
+
+.input-button {
+	display: none;
+}
