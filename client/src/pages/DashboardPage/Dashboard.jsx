@@ -1,97 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../base.css';
 import './Dashboard.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import axios from 'axios';
 
 const Dashboard = () => {
-	const tableData = [
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-		{
-			type: 'Type 1',
-			date: '2023-09-11',
-			state: 'Pending',
-			download: 'Link 1',
-			shareResult: 'Link 2',
-		},
-		{
-			type: 'Type 2',
-			date: '2023-09-12',
-			state: 'Completed',
-			download: 'Link 3',
-			shareResult: 'Link 4',
-		},
-	];
+	const [tasks, setTasks] = useState([]);
+	useEffect(() => {
+		loadTasks();
+	}, []);
+
+	const URL = 'http://127.0.0.1:8000/api/taskByUser';
+
+	async function loadTasks() {
+		try {
+			const response = await axios.get(URL);
+			if (response) {
+				const tasks_array = response.data.map((task) => ({
+					task_name: task.task_name,
+					date: task.date,
+					state: task.state,
+				}));
+				setTasks(tasks_array);
+			}
+		} catch {
+			console.log('failed to load tasks');
+		}
+	}
 
 	return (
 		<div className="dashboard-main-container width-100 flex flex-col gap-l padding-l">
@@ -116,10 +53,10 @@ const Dashboard = () => {
 						</tr>
 					</thead>
 					<tbody className="table-data flex flex-col gap-m">
-						{tableData.map((rowData, index) => (
+						{tasks.map((rowData, index) => (
 							<tr key={index} className="flex justify-between gap-s width-100">
 								<td className="flex justify-start align-center width-100">
-									{rowData.type}
+									{rowData.task_name}
 								</td>
 								<td className="flex justify-start align-center width-100">
 									{rowData.date}
