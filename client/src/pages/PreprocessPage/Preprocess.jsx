@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import '../../base.css';
 import './Preprocess.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -52,6 +52,9 @@ const Preprocess = () => {
 	const handleFastaChange = (e) => {
 		setFastaFile([...fastaFile, e.target.files[0]]);
 	};
+
+	const inputDataFile = useRef(null);
+	const inputFastaFile = useRef(null);
 
 	return (
 		<div className="preprocess-main-container width-100 flex flex-col gap-l padding-l">
