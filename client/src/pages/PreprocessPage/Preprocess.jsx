@@ -111,7 +111,10 @@ const Preprocess = () => {
 				</div>
 				<div className="preprocess-content-mid flex flex-col justify-between">
 					<div className="preprocess-dropdown-button-container">
-						<ReactSelectDropdown optionList={optionList} />
+						<ReactSelectDropdown
+							optionList={optionList}
+							parentCallback={handleCallback}
+						/>
 						{/* <Dropdown
 							parentCallback={handleCallback}
 							className="preprocess-dropdown-container flex flex-col width-100"
