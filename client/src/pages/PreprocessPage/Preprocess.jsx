@@ -9,6 +9,12 @@ import Dropdown from '../../components/Dropdown/Dropdown';
 import Instructions from '../../components/Instructions/Instructions';
 
 const Preprocess = () => {
+	const [selectedWindows, setSelectedWindows] = useState([]);
+
+	const handleCallback = (childData) => {
+		setSelectedWindows(childData);
+	};
+
 	const options = [
 		{ label: '7', value: 'window7' },
 		{ label: '9', value: 'window9' },
@@ -31,7 +37,8 @@ const Preprocess = () => {
 	];
 
 	const handlePreprocessClick = () => {
-		console.log('Preprocess button clicked');
+		const selectedLabels = selectedWindows.map((option) => option.label);
+		console.log(selectedLabels);
 	};
 
 	const [dataFile, setDataFile] = useState([]);
@@ -57,6 +64,7 @@ const Preprocess = () => {
 			<div className="preprocess-title">
 				<PageTitle title="Data Pre-processing" />
 			</div>
+
 			<div className="preprocess-content-container gap-s flex">
 				<div className="preprocess-content-left flex flex-col">
 					<div className="data-upload-container flex flex-col">
@@ -103,9 +111,11 @@ const Preprocess = () => {
 				<div className="preprocess-content-mid flex flex-col justify-between">
 					<div className="preprocess-dropdown-button-container">
 						<Dropdown
+							parentCallback={handleCallback}
 							className="preprocess-dropdown-container flex flex-col width-100"
 							options={options}
 							children="window size"
+							selectedOptions={selectedWindows}
 						/>
 					</div>
 					<div className="preprocess-button-container">
