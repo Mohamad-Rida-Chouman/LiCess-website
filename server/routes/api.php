@@ -27,6 +27,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::resource('tasks', TaskController::class);
 Route::post('tasks/{id}', [TaskController::class, 'update']);
 Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
+Route::get('/tasks/user/{user_id}', [TaskController::class, 'getTasksByUserId']);
 
 
 // Route::get('/email/verify', function () {
