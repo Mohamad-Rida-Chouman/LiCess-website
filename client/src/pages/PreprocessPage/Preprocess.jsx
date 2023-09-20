@@ -7,6 +7,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Instructions from '../../components/Instructions/Instructions';
+import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 
 const Preprocess = () => {
 	const [selectedWindows, setSelectedWindows] = useState([]);
@@ -15,7 +16,7 @@ const Preprocess = () => {
 		setSelectedWindows(childData);
 	};
 
-	const options = [
+	const optionList = [
 		{ label: '7', value: 'window7' },
 		{ label: '9', value: 'window9' },
 		{ label: '11', value: 'window11' },
@@ -110,13 +111,14 @@ const Preprocess = () => {
 				</div>
 				<div className="preprocess-content-mid flex flex-col justify-between">
 					<div className="preprocess-dropdown-button-container">
-						<Dropdown
+						<ReactSelectDropdown optionList={optionList} />
+						{/* <Dropdown
 							parentCallback={handleCallback}
 							className="preprocess-dropdown-container flex flex-col width-100"
 							options={options}
 							children="window size"
 							selectedOptions={selectedWindows}
-						/>
+						/> */}
 					</div>
 					<div className="preprocess-button-container">
 						<Button
