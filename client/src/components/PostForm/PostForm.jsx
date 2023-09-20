@@ -7,12 +7,6 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 
 const PostForm = () => {
-	const [userComment, setUserComment] = useState('');
-
-	const handleUserCommentChange = (value) => {
-		setUserComment(value);
-	};
-
 	const handleSubmitClick = () => {
 		console.log('Share button clicked');
 	};
@@ -26,15 +20,6 @@ const PostForm = () => {
 			sp: 0.92,
 			acc: 0.88,
 			mcc: 0.75,
-			comment: (
-				<Input
-					className="input-form justify-start padding-s width-100"
-					type="text"
-					label="What are your thoughts on the results obtained?"
-					value={userComment}
-					onChange={handleUserCommentChange}
-				/>
-			),
 			curve: <img src={AUCCurve} alt="Curve 1" />,
 		},
 	];
@@ -56,23 +41,12 @@ const PostForm = () => {
 								sp={data.sp}
 								acc={data.acc}
 								mcc={data.mcc}
-								comment={data.comment}
 								curve={data.curve}
 							/>
 						))}
 					</div>
 				</div>
 
-				{/* <div className="user-comment flex flex-col gap-m width-100">
-					<h4>What are your thoughts on the results obtained?</h4>
-					<Input
-						className="input-form justify-start padding-s width-100"
-						type="text"
-						label="Add a Comment"
-						value={userComment}
-						onChange={handleUserCommentChange}
-					/>
-				</div> */}
 				<div className="post-submit-container flex width-100">
 					<Button
 						className="button button-m width-100"
