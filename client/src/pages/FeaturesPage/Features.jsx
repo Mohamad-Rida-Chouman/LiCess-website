@@ -42,7 +42,7 @@ const Features = () => {
 						className="button-dropdown button-s justify-center flex width-100"
 						onClick={handleUploadClick}
 					>
-						Upload Features
+						Upload Preprocessed Data
 					</Button>
 				</div>
 				<div className="features-content-mid flex flex-col justify-between">
