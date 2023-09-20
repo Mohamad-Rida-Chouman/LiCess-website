@@ -68,6 +68,13 @@ class TaskController extends Controller
         return response()->json('',200);
     }
 
+    public function getTasksByUserId()
+    {
+        $user_id = 1;
+        $tasks = Task::where('user_id', $user_id)->get();
+        return response()->json($tasks);
+    }
+
     public function createPreprocessingTask(Request $request) {
         $user_id=1;
 
