@@ -74,7 +74,10 @@ const Preprocess = () => {
 								ref={inputDataFile}
 							/>
 						</div>
-						<div className="data-preview-container">Data Preview</div>
+						<div className="data-preview-container">
+							<strong>Uploaded File:</strong>{' '}
+							{dataFile.map((x) => x.name).join(', ')}
+						</div>
 					</div>
 					<div className="fasta-upload-container flex flex-col">
 						<div className="fasta-upload-button-container">
@@ -91,7 +94,10 @@ const Preprocess = () => {
 								ref={inputFastaFile}
 							/>
 						</div>
-						<div className="fasta-preview-container">Fasta Preview</div>
+						<div className="fasta-preview-container">
+							<strong>Uploaded File:</strong>{' '}
+							{fastaFile.map((x) => x.name).join(', ')}
+						</div>
 					</div>
 				</div>
 				<div className="preprocess-content-mid flex flex-col justify-between">
