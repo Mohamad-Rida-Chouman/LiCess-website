@@ -78,6 +78,7 @@ const Preprocess = () => {
 								className="input-button"
 								type="file"
 								onChange={handleDataChange}
+								ref={inputDataFile}
 							/>
 						</div>
 						<div className="data-preview-container">Data Preview</div>
@@ -94,6 +95,7 @@ const Preprocess = () => {
 								className="input-button"
 								type="file"
 								onChange={handleFastaChange}
+								ref={inputFastaFile}
 							/>
 						</div>
 						<div className="fasta-preview-container">Fasta Preview</div>
