@@ -18,7 +18,9 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, comment, curve }) => {
 					<span className="bold">Accuracy:</span> {acc},
 					<span className="bold">MCC:</span> {mcc}.
 				</div>
-				<div className="user-comment">User's Comment:{comment}</div>
+				<div className="user-comment">
+					User's Comment: <br /> {comment}
+				</div>
 				<div className="post-footer">
 					For any questions, please reach to me on my email!
 				</div>
