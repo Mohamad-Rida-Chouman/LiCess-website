@@ -34,13 +34,6 @@ const Preprocess = () => {
 		console.log('Preprocess button clicked');
 	};
 
-	const handleUploadDataClick = () => {
-		console.log('Upload button clicked');
-	};
-	const handleUploadFastaClick = () => {
-		console.log('Upload button clicked');
-	};
-
 	const [dataFile, setDataFile] = useState([]);
 
 	const [fastaFile, setFastaFile] = useState([]);
