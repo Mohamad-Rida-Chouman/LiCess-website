@@ -34,7 +34,10 @@ const Preprocess = () => {
 		console.log('Preprocess button clicked');
 	};
 
-	const handleUploadClick = () => {
+	const handleUploadDataClick = () => {
+		console.log('Upload button clicked');
+	};
+	const handleUploadFastaClick = () => {
 		console.log('Upload button clicked');
 	};
 
@@ -48,12 +51,28 @@ const Preprocess = () => {
 			</div>
 			<div className="preprocess-content-container gap-s flex">
 				<div className="preprocess-content-left flex flex-col">
-					<Button
-						className="button-dropdown button-s justify-center flex width-100"
-						onClick={handleUploadClick}
-					>
-						Upload Data
-					</Button>
+					<div className="data-upload-container">
+						<div className="data-upload-button-container">
+							<Button
+								className="button-dropdown button-s justify-center flex width-100"
+								onClick={handleUploadDataClick}
+							>
+								Upload Data
+							</Button>
+						</div>
+						<div className="data-preview-container">Data Preview</div>
+					</div>
+					<div className="fasta-upload-container">
+						<div className="fasta-upload-button-container">
+							<Button
+								className="button-dropdown button-s justify-center flex width-100"
+								onClick={handleUploadFastaClick}
+							>
+								Upload Fasta
+							</Button>
+						</div>
+						<div className="fasta-preview-container">Fasta Preview</div>
+					</div>
 				</div>
 				<div className="preprocess-content-mid flex flex-col justify-between">
 					<div className="preprocess-dropdown-button-container">
