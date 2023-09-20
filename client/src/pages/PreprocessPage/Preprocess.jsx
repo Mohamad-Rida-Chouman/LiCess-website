@@ -71,7 +71,11 @@ const Preprocess = () => {
 							>
 								Upload Sites Data
 							</Button>
-							<input type="file" onChange={handleDataChange} />
+							<input
+								className="input-button"
+								type="file"
+								onChange={handleDataChange}
+							/>
 						</div>
 						<div className="data-preview-container">Data Preview</div>
 					</div>
@@ -83,7 +87,11 @@ const Preprocess = () => {
 							>
 								Upload Fasta Data
 							</Button>
-							<input type="file" onChange={handleFastaChange} />
+							<input
+								className="input-button"
+								type="file"
+								onChange={handleFastaChange}
+							/>
 						</div>
 						<div className="fasta-preview-container">Fasta Preview</div>
 					</div>
