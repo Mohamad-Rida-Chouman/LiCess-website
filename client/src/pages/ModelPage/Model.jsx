@@ -59,7 +59,7 @@ const Model = () => {
 							className="button-dropdown button-s justify-center flex width-100"
 							onClick={handleDataUploadClick}
 						>
-							Upload Data
+							Upload Preprocessed Data
 						</Button>
 					</div>
 					<div className="model-features-upload-container">
@@ -67,7 +67,7 @@ const Model = () => {
 							className="button-dropdown button-s justify-center flex width-100"
 							onClick={handleFeaturesUploadClick}
 						>
-							Upload Features
+							Upload Extracted Features
 						</Button>
 					</div>
 				</div>
