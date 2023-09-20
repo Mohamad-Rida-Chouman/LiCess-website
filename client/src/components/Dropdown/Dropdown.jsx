@@ -3,7 +3,7 @@ import './Dropdown.css';
 import Checkbox from '../Checkbox/Checkbox';
 import Button from '../Button/Button';
 
-const Dropdown = ({ options, className, children }) => {
+const Dropdown = ({ options, className, children, parentCallback }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -20,6 +20,7 @@ const Dropdown = ({ options, className, children }) => {
 		}
 
 		setSelectedOptions(updatedOptions);
+		parentCallback(updatedOptions);
 	};
 
 	const toggleDropdown = () => {
