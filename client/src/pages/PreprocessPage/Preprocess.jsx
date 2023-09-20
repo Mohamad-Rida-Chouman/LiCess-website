@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Instructions from '../../components/Instructions/Instructions';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
+import axios from 'axios';
 
 const Preprocess = () => {
 	const [selectedWindows, setSelectedWindows] = useState([]);
@@ -37,14 +38,42 @@ const Preprocess = () => {
 		{ label: '41', value: 'window41' },
 	];
 
-	const handlePreprocessClick = () => {
-		const selectedLabels = selectedWindows.map((option) => option.label);
-		console.log(selectedLabels);
-	};
+	const URL = 'http://127.0.0.1:8000/api/preprocess';
 
 	const [dataFile, setDataFile] = useState([]);
 
 	const [fastaFile, setFastaFile] = useState([]);
+
+	const handlePreprocessClick = () => {
+		const selectedLabels = selectedWindows.map((option) => option.label);
+
+		selectedLabels.forEach((w) => {
+			console.log(w);
+		});
+
+		console.log(fastaFile[0]);
+
+		const requests = selectedLabels.map((w) => {
+			const formData = new FormData();
+			formData.append('sitesCsv', dataFile[0]);
+			formData.append('fasta', fastaFile[0]);
+			formData.append('windowSize', w);
+			return axios({
+				method: 'post',
+				url: URL,
+				data: formData,
+				headers: { 'Content-Type': 'multipart/form-data' },
+			});
+		});
+
+		Promise.all(requests)
+			.then((responses) => {
+				console.log(responses);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	const handleDataChange = (e) => {
 		setDataFile([...dataFile, e.target.files[0]]);
