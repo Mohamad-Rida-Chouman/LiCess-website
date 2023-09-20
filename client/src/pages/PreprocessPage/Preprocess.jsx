@@ -51,7 +51,7 @@ const Preprocess = () => {
 			</div>
 			<div className="preprocess-content-container gap-s flex">
 				<div className="preprocess-content-left flex flex-col">
-					<div className="data-upload-container">
+					<div className="data-upload-container flex flex-col">
 						<div className="data-upload-button-container">
 							<Button
 								className="button-dropdown button-s justify-center flex width-100"
@@ -62,7 +62,7 @@ const Preprocess = () => {
 						</div>
 						<div className="data-preview-container">Data Preview</div>
 					</div>
-					<div className="fasta-upload-container">
+					<div className="fasta-upload-container flex flex-col">
 						<div className="fasta-upload-button-container">
 							<Button
 								className="button-dropdown button-s justify-center flex width-100"
