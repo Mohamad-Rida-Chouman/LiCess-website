@@ -39,20 +39,20 @@ const Features = () => {
 			console.log(feature);
 		});
 
-		if (fileContent[0].name.length < 8) {
-			const window = fileContent[0].name.substring(2, 3);
-			console.log(window);
-		} else {
-			const window = fileContent[0].name.substring(2, 4);
-			console.log(window);
-		}
-
 		await Promise.all(
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
 				formData.append('fileContent', fileContent[0]);
-				formData.append('windowSize', window);
-				return axios.post(BASE_URL.feature, formData).then((res) => {
+				if (fileContent[0].name.length < 8) {
+					const window = fileContent[0].name.substring(2, 3);
+					formData.append('windowSize', window);
+					console.log(window);
+				} else {
+					const window = fileContent[0].name.substring(2, 4);
+					formData.append('windowSize', window);
+					console.log(window);
+				}
+				return axios.post(BASE_URL + feature, formData).then((res) => {
 					console.log(res);
 				});
 			})
