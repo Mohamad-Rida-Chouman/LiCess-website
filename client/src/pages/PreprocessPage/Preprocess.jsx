@@ -10,7 +10,7 @@ import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelec
 import axios from 'axios';
 
 const Preprocess = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [modalOpen, setModalOpen] = useState(false);
 
 	const [selectedWindows, setSelectedWindows] = useState([]);
 
@@ -46,6 +46,7 @@ const Preprocess = () => {
 	const [fastaFile, setFastaFile] = useState();
 
 	const handlePreprocessClick = async () => {
+		setModalOpen(true);
 		const selectedLabels = selectedWindows.map((option) => option.label);
 
 		selectedLabels.forEach((w) => {
