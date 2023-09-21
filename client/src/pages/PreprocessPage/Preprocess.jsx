@@ -44,7 +44,7 @@ const Preprocess = () => {
 
 	const [fastaFile, setFastaFile] = useState([]);
 
-	const handlePreprocessClick = () => {
+	const handlePreprocessClick = async () => {
 		const selectedLabels = selectedWindows.map((option) => option.label);
 
 		selectedLabels.forEach((w) => {
@@ -53,26 +53,38 @@ const Preprocess = () => {
 
 		console.log(fastaFile[0]);
 
-		const requests = selectedLabels.map((w) => {
-			const formData = new FormData();
-			formData.append('sitesCsv', dataFile[0]);
-			formData.append('fasta', fastaFile[0]);
-			formData.append('windowSize', w);
-			return axios({
-				method: 'post',
-				url: URL,
-				data: formData,
-				headers: { 'Content-Type': 'multipart/form-data' },
-			});
-		});
-
-		Promise.all(requests)
-			.then((responses) => {
-				console.log(responses);
+		await Promise.all(
+			selectedLabels.map((w) => {
+				let formData = new FormData();
+				formData.append('sitesCsv', dataFile[0]);
+				formData.append('fasta', fastaFile[0]);
+				formData.append('windowSize', w);
+				return axios.post(URL, formData).then((res) => {
+					console.log(res);
+				});
 			})
-			.catch((error) => {
-				console.log(error);
-			});
+		);
+
+		// const requests = selectedLabels.map((w) => {
+		// 	const formData = new FormData();
+		// 	formData.append('sitesCsv', dataFile[0]);
+		// 	formData.append('fasta', fastaFile[0]);
+		// 	formData.append('windowSize', w);
+		// 	return axios({
+		// 		method: 'post',
+		// 		url: URL,
+		// 		data: formData,
+		// 		headers: { 'Content-Type': 'multipart/form-data' },
+		// 	});
+		// });
+
+		// Promise.all(requests)
+		// 	.then((responses) => {
+		// 		console.log(responses);
+		// 	})
+		// 	.catch((error) => {
+		// 		console.log(error);
+		// 	});
 	};
 
 	const handleDataChange = (e) => {
