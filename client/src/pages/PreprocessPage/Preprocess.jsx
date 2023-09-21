@@ -11,6 +11,9 @@ import axios from 'axios';
 import Modal from '../../components/Modal/Modal';
 
 const Preprocess = () => {
+	const [dataFileUploaded, setDataFileUploaded] = useState(false);
+	const [fastaFileUploaded, setFastaFileUploaded] = useState(false);
+
 	const [modalOpen, setModalOpen] = useState(false);
 
 	const [selectedWindows, setSelectedWindows] = useState([]);
@@ -50,12 +53,6 @@ const Preprocess = () => {
 		setModalOpen(true);
 		const selectedLabels = selectedWindows.map((option) => option.label);
 
-		selectedLabels.forEach((w) => {
-			console.log(w);
-		});
-
-		console.log(fastaFile[0]);
-
 		await Promise.all(
 			selectedLabels.map((w) => {
 				let formData = new FormData();
@@ -67,14 +64,24 @@ const Preprocess = () => {
 				});
 			})
 		);
+		setDataFile();
+		setFastaFile();
+		setDataFileUploaded(false);
+		setFastaFileUploaded(false);
+		inputDataFile.current.value = null;
+		inputFastaFile.current.value = null;
 	};
 
 	const handleDataChange = (e) => {
-		setDataFile(e.target.files[0]);
+		const file = e.target.files[0];
+		setDataFile(file);
+		setDataFileUploaded(true);
 	};
 
 	const handleFastaChange = (e) => {
-		setFastaFile(e.target.files[0]);
+		const file = e.target.files[0];
+		setFastaFile(file);
+		setFastaFileUploaded(true);
 	};
 
 	const inputDataFile = useRef(null);
@@ -109,7 +116,9 @@ const Preprocess = () => {
 						</div>
 						<div className="data-preview-container">
 							<strong>Uploaded File:</strong>
-							{dataFile ? dataFile.name : 'No file selected'}
+							<span id="uploadedFileName">
+								{dataFile ? dataFile.name : 'No file selected'}
+							</span>
 						</div>
 					</div>
 					<div className="fasta-upload-container flex flex-col">
