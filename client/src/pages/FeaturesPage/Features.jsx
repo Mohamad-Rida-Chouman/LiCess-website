@@ -28,28 +28,28 @@ const Features = () => {
 		{ label: 'AAI', value: 'aai' },
 	];
 
-	const URL = 'http://127.0.0.1:8000/api/preprocess';
+	const BASE_URL = 'http://127.0.0.1:8000/api/';
 
 	const [dataFile, setDataFile] = useState([]);
 
 	const [fastaFile, setFastaFile] = useState([]);
 
-	const handlePreprocessClick = async () => {
-		const selectedLabels = selectedFeatures.map((option) => option.label);
+	const handleFeaturesClick = async () => {
+		const selectedLabels = selectedFeatures.map((option) => option.value);
 
-		selectedLabels.forEach((w) => {
-			console.log(w);
+		selectedLabels.forEach((feature) => {
+			console.log(feature);
 		});
 
 		console.log(fastaFile[0]);
 
 		await Promise.all(
-			selectedLabels.map((w) => {
+			selectedLabels.map((feature) => {
 				let formData = new FormData();
 				formData.append('sitesCsv', dataFile[0]);
 				formData.append('fasta', fastaFile[0]);
-				formData.append('windowSize', w);
-				return axios.post(URL, formData).then((res) => {
+				formData.append('windowSize', feature);
+				return axios.post(BASE_URL.feature, formData).then((res) => {
 					console.log(res);
 				});
 			})
@@ -90,10 +90,6 @@ const Features = () => {
 
 	const handleUploadClick = () => {
 		console.log('Upload button clicked');
-	};
-
-	const handleFeaturesClick = () => {
-		console.log('Features button clicked');
 	};
 
 	return (
