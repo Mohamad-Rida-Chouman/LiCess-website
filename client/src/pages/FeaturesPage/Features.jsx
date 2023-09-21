@@ -9,6 +9,7 @@ import Dropdown from '../../components/Dropdown/Dropdown';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import Instructions from '../../components/Instructions/Instructions';
 import axios from 'axios';
+import Papa from 'papaparse';
 
 const Features = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState([]);
@@ -28,7 +29,7 @@ const Features = () => {
 		{ label: 'AAI', value: 'aai' },
 	];
 
-	const BASE_URL = 'http://127.0.0.1:8000/api/';
+	const BASE_URL = 'http://127.0.0.1:8000/api/featureExtract';
 
 	const [fileContent, setFileContent] = useState([]);
 
@@ -39,23 +40,25 @@ const Features = () => {
 			console.log(feature);
 		});
 
+		console.log(fileContent);
+
 		await Promise.all(
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
 				formData.append('fileContent', fileContent[0]);
-				if (fileContent[0].name.length < 8) {
-					const window = fileContent[0].name.substring(2, 3);
-					formData.append('windowSize', window);
-					console.log(window);
-				} else {
-					const window = fileContent[0].name.substring(2, 4);
-					formData.append('windowSize', window);
-					console.log(window);
-				}
+				// if (fileContent[0].name.length < 8) {
+				// 	const window = fileContent[0].name.substring(2, 3);
+				// 	formData.append('windowSize', window);
+				// 	console.log(window);
+				// } else {
+				// 	const window = fileContent[0].name.substring(2, 4);
+				// 	formData.append('windowSize', window);
+				// 	console.log(window);
+				// }
 				formData.append('feature', feature);
-				return axios.post(BASE_URL + feature, formData).then((res) => {
-					console.log(res);
-				});
+				// return axios.post(BASE_URL, formData).then((res) => {
+				// 	console.log(res);
+				// });
 			})
 		);
 
@@ -83,6 +86,7 @@ const Features = () => {
 
 	const handleFileContentChange = (e) => {
 		setFileContent([...fileContent, e.target.files[0]]);
+		console.log(e.target.files[0]);
 	};
 
 	const inputFileContent = useRef(null);
@@ -108,6 +112,7 @@ const Features = () => {
 						type="file"
 						onChange={handleFileContentChange}
 						ref={inputFileContent}
+						accept=".csv"
 					/>
 				</div>
 				<div className="features-content-mid flex flex-col justify-between">
