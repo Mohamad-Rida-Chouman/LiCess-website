@@ -64,27 +64,6 @@ const Preprocess = () => {
 				});
 			})
 		);
-
-		// const requests = selectedLabels.map((w) => {
-		// 	const formData = new FormData();
-		// 	formData.append('sitesCsv', dataFile[0]);
-		// 	formData.append('fasta', fastaFile[0]);
-		// 	formData.append('windowSize', w);
-		// 	return axios({
-		// 		method: 'post',
-		// 		url: URL,
-		// 		data: formData,
-		// 		headers: { 'Content-Type': 'multipart/form-data' },
-		// 	});
-		// });
-
-		// Promise.all(requests)
-		// 	.then((responses) => {
-		// 		console.log(responses);
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
 	};
 
 	const handleDataChange = (e) => {
