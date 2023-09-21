@@ -39,9 +39,9 @@ const Preprocess = () => {
 
 	const URL = 'http://127.0.0.1:8000/api/preprocess';
 
-	const [dataFile, setDataFile] = useState(null);
+	const [dataFile, setDataFile] = useState();
 
-	const [fastaFile, setFastaFile] = useState(null);
+	const [fastaFile, setFastaFile] = useState();
 
 	const handlePreprocessClick = async () => {
 		const selectedLabels = selectedWindows.map((option) => option.label);
@@ -66,11 +66,11 @@ const Preprocess = () => {
 	};
 
 	const handleDataChange = (e) => {
-		setDataFile(dataFile, e.target.files[0]);
+		setDataFile(e.target.files[0]);
 	};
 
 	const handleFastaChange = (e) => {
-		setFastaFile(fastaFile, e.target.files[0]);
+		setFastaFile(e.target.files[0]);
 	};
 
 	const inputDataFile = useRef(null);
