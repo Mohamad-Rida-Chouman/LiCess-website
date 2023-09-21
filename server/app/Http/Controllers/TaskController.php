@@ -128,4 +128,57 @@ class TaskController extends Controller
         return ($task);
 
     }
+
+    public function createFeatureTask(Request $request) {
+        $user_id=1;
+
+        $fileContentpath = $request -> fileContent -> path();
+        $windowSize = $request -> windowSize;
+        $feature = $request -> feature;
+
+        $data = [
+            'user_id' => $user_id,
+            'task_name' => 'Feature Extraction',
+            'date' => date("Y-m-d"),
+            'state' => 'Pending',
+        ];
+        $task = Task::create($data);
+        $task_id = json_decode($task, true)['id'];
+
+        $new_client = new \GuzzleHttp\Client();
+
+        $response = $new_client->post( 'http://127.0.0.1:5000/'.$feature, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . Session::get('SesTok'),
+            ],
+            'multipart' => [
+                [
+                    'name'     => 'fileContent',
+                    'filename' => 'preprocessedData.csv',
+                    'contents' => fopen( $fileContentpath, 'r' ),
+                ],
+                [
+                    'name'     => 'windowSize',
+                    'contents' => $windowSize,
+                ],
+            ]
+        ]);
+
+        $output = json_decode($response ->getBody()->getContents(), true)['output'];
+
+        $resultData = [
+            'task_id' => $task_id,
+            'data_type' => 'csv',
+            'label' => 'w_'.$windowSize.'_'.$feature.'.csv',
+            'data' => serialize($output)
+        ];
+        $result = Result::create($resultData);
+        
+        $task -> state = 'Completed';
+        $task -> save();
+
+        return ($task);
+
+    }
 }
