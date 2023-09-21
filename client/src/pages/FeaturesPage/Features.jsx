@@ -13,6 +13,7 @@ import Papa from 'papaparse';
 
 const Features = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState([]);
+	const [windowSize, setWindowSize] = useState([]);
 
 	const handleCallback = (childData) => {
 		setSelectedFeatures(childData);
@@ -28,6 +29,17 @@ const Features = () => {
 		{ label: 'Binary', value: 'binary' },
 		{ label: 'AAI', value: 'aai' },
 	];
+
+	const handleFileContentChange = (event) => {
+		setFileContent([...fileContent, event.target.files[0]]);
+		Papa.parse(event.target.files[0], {
+			header: true,
+			skipEmptyLines: true,
+			complete: function (results) {
+				setWindowSize(results.data[0].window.length);
+			},
+		});
+	};
 
 	const BASE_URL = 'http://127.0.0.1:8000/api/featureExtract';
 
@@ -46,19 +58,11 @@ const Features = () => {
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
 				formData.append('fileContent', fileContent[0]);
-				// if (fileContent[0].name.length < 8) {
-				// 	const window = fileContent[0].name.substring(2, 3);
-				// 	formData.append('windowSize', window);
-				// 	console.log(window);
-				// } else {
-				// 	const window = fileContent[0].name.substring(2, 4);
-				// 	formData.append('windowSize', window);
-				// 	console.log(window);
-				// }
+				formData.append('windowSize', windowSize);
 				formData.append('feature', feature);
-				// return axios.post(BASE_URL, formData).then((res) => {
-				// 	console.log(res);
-				// });
+				return axios.post(BASE_URL, formData).then((res) => {
+					console.log(res);
+				});
 			})
 		);
 
@@ -84,10 +88,10 @@ const Features = () => {
 		// 	});
 	};
 
-	const handleFileContentChange = (e) => {
-		setFileContent([...fileContent, e.target.files[0]]);
-		console.log(e.target.files[0]);
-	};
+	// const handleFileContentChange = (e) => {
+	// 	setFileContent([...fileContent, e.target.files[0]]);
+	// 	console.log(e.target.files[0]);
+	// };
 
 	const inputFileContent = useRef(null);
 
