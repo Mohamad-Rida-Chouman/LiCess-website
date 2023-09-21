@@ -30,9 +30,7 @@ const Features = () => {
 
 	const BASE_URL = 'http://127.0.0.1:8000/api/';
 
-	const [dataFile, setDataFile] = useState([]);
-
-	const [fastaFile, setFastaFile] = useState([]);
+	const [fileContent, setFileContent] = useState([]);
 
 	const handleFeaturesClick = async () => {
 		const selectedLabels = selectedFeatures.map((option) => option.value);
@@ -41,14 +39,19 @@ const Features = () => {
 			console.log(feature);
 		});
 
-		console.log(fastaFile[0]);
+		if (fileContent[0].name.length < 8) {
+			const window = fileContent[0].name.substring(2, 3);
+			console.log(window);
+		} else {
+			const window = fileContent[0].name.substring(2, 4);
+			console.log(window);
+		}
 
 		await Promise.all(
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
-				formData.append('sitesCsv', dataFile[0]);
-				formData.append('fasta', fastaFile[0]);
-				formData.append('windowSize', feature);
+				formData.append('fileContent', fileContent[0]);
+				formData.append('windowSize', window);
 				return axios.post(BASE_URL.feature, formData).then((res) => {
 					console.log(res);
 				});
@@ -77,20 +80,11 @@ const Features = () => {
 		// 	});
 	};
 
-	const handleDataChange = (e) => {
-		setDataFile([...dataFile, e.target.files[0]]);
+	const handleFileContentChange = (e) => {
+		setFileContent([...fileContent, e.target.files[0]]);
 	};
 
-	const handleFastaChange = (e) => {
-		setFastaFile([...fastaFile, e.target.files[0]]);
-	};
-
-	const inputDataFile = useRef(null);
-	const inputFastaFile = useRef(null);
-
-	const handleUploadClick = () => {
-		console.log('Upload button clicked');
-	};
+	const inputFileContent = useRef(null);
 
 	return (
 		<div className="features-main-container width-100 flex flex-col gap-l padding-l">
@@ -104,10 +98,16 @@ const Features = () => {
 				<div className="features-content-left flex flex-col">
 					<Button
 						className="button-dropdown button-s justify-center flex width-100"
-						onClick={handleUploadClick}
+						onClick={() => inputFileContent.current.click()}
 					>
 						Upload Preprocessed Data
 					</Button>
+					<input
+						className="input-button"
+						type="file"
+						onChange={handleFileContentChange}
+						ref={inputFileContent}
+					/>
 				</div>
 				<div className="features-content-mid flex flex-col justify-between">
 					<div className="features-dropdown-button-container">
