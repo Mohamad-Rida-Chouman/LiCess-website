@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button';
 import Instructions from '../../components/Instructions/Instructions';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import axios from 'axios';
+import Modal from '../../components/Modal/Modal';
 
 const Preprocess = () => {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -148,6 +149,11 @@ const Preprocess = () => {
 						>
 							Preprocess Data
 						</Button>
+						{modalOpen && (
+							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+								<h3>You will be notified by e-mail upon completion.</h3>
+							</Modal>
+						)}
 					</div>
 				</div>
 				<div className="preprocess-content-right grey-background padding-s">
