@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import axios from 'axios';
+import Button from '../../components/Button/Button';
 
 const Dashboard = () => {
 	const [tasks, setTasks] = useState([]);
@@ -30,6 +31,9 @@ const Dashboard = () => {
 		}
 	}
 
+	const handleDownloadClick = () => {
+		console.log('Download pressed');
+	};
 	return (
 		<div className="dashboard-main-container width-100 flex flex-col gap-l padding-l">
 			<div className="dashboard-navbar-container">
@@ -62,13 +66,46 @@ const Dashboard = () => {
 									{rowData.date}
 								</td>
 								<td className="flex justify-start align-center width-100">
-									{rowData.state}
+									{rowData.state === 'Pending' ? (
+										<span className="yellow-text">{rowData.state}</span>
+									) : rowData.state === 'Completed' ? (
+										<span className="green-text">{rowData.state}</span>
+									) : (
+										<span className="red-text">{rowData.state}</span>
+									)}
 								</td>
 								<td className="flex justify-start align-center width-100">
-									{rowData.download}
+									{rowData.state === 'Completed' ? (
+										<Button
+											className="button button-s"
+											onClick={handleDownloadClick}
+										>
+											Download
+										</Button>
+									) : (
+										<Button
+											className="button-disabled button-s"
+											disabled
+											onClick={handleDownloadClick}
+										>
+											Download
+										</Button>
+									)}
 								</td>
 								<td className="flex justify-start align-center width-100">
-									{rowData.shareResult}
+									{rowData.task_name === 'Model Prediction' &&
+									rowData.state === 'Completed' ? (
+										<Button className="button button-s">Share Results</Button>
+									) : rowData.task_name === 'Model Prediction' &&
+									  rowData.state !== 'Pending' ? (
+										<Button className="button-disabled button-s" disabled>
+											Share Results
+										</Button>
+									) : (
+										<Button className="button-stroke button-s" disabled>
+											Not Shareable
+										</Button>
+									)}
 								</td>
 							</tr>
 						))}
