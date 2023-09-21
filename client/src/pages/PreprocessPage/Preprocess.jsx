@@ -100,6 +100,7 @@ const Preprocess = () => {
 								type="file"
 								onChange={handleDataChange}
 								ref={inputDataFile}
+								accept=".csv"
 							/>
 						</div>
 						<div className="data-preview-container">
