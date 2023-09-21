@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import '../../base.css';
 import './Features.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -8,8 +8,15 @@ import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import Instructions from '../../components/Instructions/Instructions';
+import axios from 'axios';
 
 const Features = () => {
+	const [selectedFeatures, setSelectedFeatures] = useState([]);
+
+	const handleCallback = (childData) => {
+		setSelectedFeatures(childData);
+	};
+
 	const optionList = [
 		{ label: 'AAC', value: 'aac' },
 		{ label: 'DPC', value: 'dpc' },
@@ -20,6 +27,66 @@ const Features = () => {
 		{ label: 'Binary', value: 'binary' },
 		{ label: 'AAI', value: 'aai' },
 	];
+
+	const URL = 'http://127.0.0.1:8000/api/preprocess';
+
+	const [dataFile, setDataFile] = useState([]);
+
+	const [fastaFile, setFastaFile] = useState([]);
+
+	const handlePreprocessClick = async () => {
+		const selectedLabels = selectedFeatures.map((option) => option.label);
+
+		selectedLabels.forEach((w) => {
+			console.log(w);
+		});
+
+		console.log(fastaFile[0]);
+
+		await Promise.all(
+			selectedLabels.map((w) => {
+				let formData = new FormData();
+				formData.append('sitesCsv', dataFile[0]);
+				formData.append('fasta', fastaFile[0]);
+				formData.append('windowSize', w);
+				return axios.post(URL, formData).then((res) => {
+					console.log(res);
+				});
+			})
+		);
+
+		// const requests = selectedLabels.map((w) => {
+		// 	const formData = new FormData();
+		// 	formData.append('sitesCsv', dataFile[0]);
+		// 	formData.append('fasta', fastaFile[0]);
+		// 	formData.append('windowSize', w);
+		// 	return axios({
+		// 		method: 'post',
+		// 		url: URL,
+		// 		data: formData,
+		// 		headers: { 'Content-Type': 'multipart/form-data' },
+		// 	});
+		// });
+
+		// Promise.all(requests)
+		// 	.then((responses) => {
+		// 		console.log(responses);
+		// 	})
+		// 	.catch((error) => {
+		// 		console.log(error);
+		// 	});
+	};
+
+	const handleDataChange = (e) => {
+		setDataFile([...dataFile, e.target.files[0]]);
+	};
+
+	const handleFastaChange = (e) => {
+		setFastaFile([...fastaFile, e.target.files[0]]);
+	};
+
+	const inputDataFile = useRef(null);
+	const inputFastaFile = useRef(null);
 
 	const handleUploadClick = () => {
 		console.log('Upload button clicked');
@@ -51,6 +118,7 @@ const Features = () => {
 						<ReactSelectDropdown
 							optionList={optionList}
 							parentCallback={handleCallback}
+							placeholder="Select Feature(s)"
 						/>
 						{/* <Dropdown
 							className="features-dropdown-container flex flex-col width-100"
