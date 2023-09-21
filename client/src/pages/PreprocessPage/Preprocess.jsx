@@ -155,6 +155,7 @@ const Preprocess = () => {
 						<ReactSelectDropdown
 							optionList={optionList}
 							parentCallback={handleCallback}
+							placeholder="Select Window Size(s)"
 						/>
 						{/* <Dropdown
 							parentCallback={handleCallback}
