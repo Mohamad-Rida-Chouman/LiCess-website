@@ -66,11 +66,11 @@ const Preprocess = () => {
 	};
 
 	const handleDataChange = (e) => {
-		setDataFile([...dataFile, e.target.files[0]]);
+		setDataFile([dataFile, e.target.files[0]]);
 	};
 
 	const handleFastaChange = (e) => {
-		setFastaFile([...fastaFile, e.target.files[0]]);
+		setFastaFile([fastaFile, e.target.files[0]]);
 	};
 
 	const inputDataFile = useRef(null);
