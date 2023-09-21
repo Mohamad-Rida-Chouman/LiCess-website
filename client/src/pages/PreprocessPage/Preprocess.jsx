@@ -120,6 +120,7 @@ const Preprocess = () => {
 								type="file"
 								onChange={handleFastaChange}
 								ref={inputFastaFile}
+								accept=".fasta"
 							/>
 						</div>
 						<div className="fasta-preview-container">
