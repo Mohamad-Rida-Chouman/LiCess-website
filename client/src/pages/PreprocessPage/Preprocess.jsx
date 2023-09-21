@@ -5,7 +5,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
-import Dropdown from '../../components/Dropdown/Dropdown';
 import Instructions from '../../components/Instructions/Instructions';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import axios from 'axios';
@@ -136,13 +135,6 @@ const Preprocess = () => {
 							parentCallback={handleCallback}
 							placeholder="Select Window Size(s)"
 						/>
-						{/* <Dropdown
-							parentCallback={handleCallback}
-							className="preprocess-dropdown-container flex flex-col width-100"
-							options={options}
-							children="window size"
-							selectedOptions={selectedWindows}
-						/> */}
 					</div>
 					<div className="preprocess-button-container">
 						<Button
