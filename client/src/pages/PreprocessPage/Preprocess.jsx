@@ -55,8 +55,8 @@ const Preprocess = () => {
 		await Promise.all(
 			selectedLabels.map((w) => {
 				let formData = new FormData();
-				formData.append('sitesCsv', dataFile[0]);
-				formData.append('fasta', fastaFile[0]);
+				formData.append('sitesCsv', dataFile);
+				formData.append('fasta', fastaFile);
 				formData.append('windowSize', w);
 				return axios.post(URL, formData).then((res) => {
 					console.log(res);
