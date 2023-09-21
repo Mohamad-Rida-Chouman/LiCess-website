@@ -6,10 +6,11 @@ import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
+import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import Instructions from '../../components/Instructions/Instructions';
 
 const Features = () => {
-	const options = [
+	const optionList = [
 		{ label: 'AAC', value: 'aac' },
 		{ label: 'DPC', value: 'dpc' },
 		{ label: 'APAAC', value: 'apaac' },
@@ -20,12 +21,12 @@ const Features = () => {
 		{ label: 'AAI', value: 'aai' },
 	];
 
-	const handleFeaturesClick = () => {
-		console.log('Features button clicked');
-	};
-
 	const handleUploadClick = () => {
 		console.log('Upload button clicked');
+	};
+
+	const handleFeaturesClick = () => {
+		console.log('Features button clicked');
 	};
 
 	return (
@@ -47,11 +48,15 @@ const Features = () => {
 				</div>
 				<div className="features-content-mid flex flex-col justify-between">
 					<div className="features-dropdown-button-container">
-						<Dropdown
+						<ReactSelectDropdown
+							optionList={optionList}
+							parentCallback={handleCallback}
+						/>
+						{/* <Dropdown
 							className="features-dropdown-container flex flex-col width-100"
 							options={options}
 							children="feature"
-						/>
+						/> */}
 					</div>
 					<div className="features-button-container">
 						<Button
