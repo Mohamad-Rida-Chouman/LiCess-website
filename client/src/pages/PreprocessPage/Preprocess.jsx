@@ -10,6 +10,8 @@ import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelec
 import axios from 'axios';
 
 const Preprocess = () => {
+	const [isOpen, setIsOpen] = useState(false);
+
 	const [selectedWindows, setSelectedWindows] = useState([]);
 
 	const handleCallback = (childData) => {
