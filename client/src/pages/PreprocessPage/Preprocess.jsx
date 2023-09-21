@@ -66,11 +66,11 @@ const Preprocess = () => {
 	};
 
 	const handleDataChange = (e) => {
-		setDataFile([dataFile, e.target.files[0]]);
+		setDataFile(dataFile, e.target.files[0]);
 	};
 
 	const handleFastaChange = (e) => {
-		setFastaFile([fastaFile, e.target.files[0]]);
+		setFastaFile(fastaFile, e.target.files[0]);
 	};
 
 	const inputDataFile = useRef(null);
@@ -104,8 +104,8 @@ const Preprocess = () => {
 							/>
 						</div>
 						<div className="data-preview-container">
-							<strong>Uploaded File:</strong>{' '}
-							{dataFile.map((x) => x.name).join(', ')}
+							<strong>Uploaded File:</strong>
+							{dataFile ? dataFile.name : 'No file selected'}
 						</div>
 					</div>
 					<div className="fasta-upload-container flex flex-col">
@@ -125,8 +125,8 @@ const Preprocess = () => {
 							/>
 						</div>
 						<div className="fasta-preview-container">
-							<strong>Uploaded File:</strong>{' '}
-							{fastaFile.map((x) => x.name).join(', ')}
+							<strong>Uploaded File:</strong>
+							{fastaFile ? fastaFile.name : 'No file selected'}
 						</div>
 					</div>
 				</div>
