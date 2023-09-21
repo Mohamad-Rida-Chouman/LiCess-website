@@ -18,7 +18,7 @@ const ReactSelectDropdown = (props) => {
 					className="dropdown-select"
 					closeMenuOnSelect={false}
 					options={props.optionList}
-					placeholder="Select Window Size(s)"
+					placeholder={props.placeholder}
 					value={selectedOptions}
 					onChange={handleSelect}
 					isSearchable={true}
