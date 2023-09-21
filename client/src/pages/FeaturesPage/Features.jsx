@@ -52,6 +52,7 @@ const Features = () => {
 					formData.append('windowSize', window);
 					console.log(window);
 				}
+				formData.append('feature', feature);
 				return axios.post(BASE_URL + feature, formData).then((res) => {
 					console.log(res);
 				});
