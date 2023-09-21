@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::post('tasks/{id}', [TaskController::class, 'update']);
 Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
+Route::get('send-mail',[MailController::class,'index']);
 
 
 // Route::get('/email/verify', function () {
