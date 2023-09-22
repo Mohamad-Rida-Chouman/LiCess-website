@@ -48,12 +48,6 @@ const Features = () => {
 	const handleFeaturesClick = async () => {
 		const selectedLabels = selectedFeatures.map((option) => option.value);
 
-		selectedLabels.forEach((feature) => {
-			console.log(feature);
-		});
-
-		console.log(fileContent);
-
 		await Promise.all(
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
@@ -65,33 +59,7 @@ const Features = () => {
 				});
 			})
 		);
-
-		// const requests = selectedLabels.map((w) => {
-		// 	const formData = new FormData();
-		// 	formData.append('sitesCsv', dataFile[0]);
-		// 	formData.append('fasta', fastaFile[0]);
-		// 	formData.append('windowSize', w);
-		// 	return axios({
-		// 		method: 'post',
-		// 		url: URL,
-		// 		data: formData,
-		// 		headers: { 'Content-Type': 'multipart/form-data' },
-		// 	});
-		// });
-
-		// Promise.all(requests)
-		// 	.then((responses) => {
-		// 		console.log(responses);
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
 	};
-
-	// const handleFileContentChange = (e) => {
-	// 	setFileContent([...fileContent, e.target.files[0]]);
-	// 	console.log(e.target.files[0]);
-	// };
 
 	const inputFileContent = useRef(null);
 
