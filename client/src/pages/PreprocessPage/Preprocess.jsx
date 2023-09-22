@@ -97,7 +97,7 @@ const Preprocess = () => {
 			</div>
 
 			<div className="preprocess-content-container gap-s flex">
-				<div className="preprocess-content-right grey-background padding-s">
+				<div className="preprocess-content-left grey-background padding-s">
 					<Instructions>
 						This is a brief instruction on how to preprocess the data:
 						<br />
@@ -136,7 +136,7 @@ const Preprocess = () => {
 						nisi asperiores dolore voluptatem quos.
 					</Instructions>
 				</div>
-				<div className="preprocess-content-left flex flex-col">
+				<div className="preprocess-content-mid flex flex-col">
 					<div className="data-upload-container flex flex-col">
 						<div className="data-upload-button-container">
 							<Button
@@ -182,7 +182,7 @@ const Preprocess = () => {
 						</div>
 					</div>
 				</div>
-				<div className="preprocess-content-mid flex flex-col justify-between">
+				<div className="preprocess-content-right flex flex-col justify-between">
 					<div className="preprocess-dropdown-button-container">
 						<ReactSelectDropdown
 							optionList={optionList}
