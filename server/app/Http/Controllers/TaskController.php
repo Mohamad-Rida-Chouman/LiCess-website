@@ -112,20 +112,28 @@ class TaskController extends Controller
             ]
         ]);
 
-        $output = json_decode($response ->getBody()->getContents(), true)['output'];
+        if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
+            $task -> state = 'Failed';
+            $task -> save();
 
-        $resultData = [
-            'task_id' => $task_id,
-            'data_type' => 'csv',
-            'label' => 'w_'.$windowSize.'.csv',
-            'data' => serialize($output)
-        ];
-        $result = Result::create($resultData);
-        
-        $task -> state = 'Completed';
-        $task -> save();
+            return ($task);
+        }
+        else{
+            $output = json_decode($response ->getBody()->getContents(), true)['output'];
 
-        return ($task);
+            $resultData = [
+                'task_id' => $task_id,
+                'data_type' => 'csv',
+                'label' => 'w_'.$windowSize.'.csv',
+                'data' => serialize($output)
+            ];
+            $result = Result::create($resultData);
+            
+            $task -> state = 'Completed';
+            $task -> save();
+
+            return ($task);
+        }
 
     }
 
