@@ -9,10 +9,6 @@ import Instructions from '../../components/Instructions/Instructions';
 import Radio from '../../components/Radio/Radio';
 
 const Model = () => {
-	const handleModelClick = () => {
-		console.log('Model button clicked');
-	};
-
 	// Functions related to "upload data" button:
 	const [dataFile, setDataFile] = useState();
 	const [dataFileUploaded, setDataFileUploaded] = useState(false);
@@ -21,6 +17,13 @@ const Model = () => {
 		const file = e.target.files[0];
 		setDataFile(file);
 		setDataFileUploaded(true);
+	};
+
+	// Functions related to "upload features" button:
+	const [featureFile, setFeatureFile] = useState([]);
+
+	const handleModelClick = () => {
+		console.log('Model button clicked');
 	};
 
 	const handleFeaturesUploadClick = () => {
