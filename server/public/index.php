@@ -4,7 +4,8 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
-
+$seconds = 3600;
+set_time_limit($seconds);
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
