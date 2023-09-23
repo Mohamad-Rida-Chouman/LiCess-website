@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button';
 import Instructions from '../../components/Instructions/Instructions';
 import Radio from '../../components/Radio/Radio';
 import Modal from '../../components/Modal/Modal';
+import axios from 'axios';
 
 const Model = () => {
 	// Functions related to "upload data" button:
@@ -76,6 +77,20 @@ const Model = () => {
 			selectedRadioRunOption == 'Train + Test'
 		) {
 			const URL = 'http://127.0.0.1:8000/api/modelLGBM';
+			setModalOpen(true);
+			let formData = new FormData();
+			featureFile.forEach((file) => {
+				formData.append('files[]', file);
+			});
+			formData.append('dataFile', dataFile);
+			const response = await axios.post(URL, formData);
+			console.log(response.data);
+			setDataFile();
+			setFeatureFile();
+			setDataFileUploaded(false);
+			setFeatureFileUploaded(false);
+			dataFileContent.current.value = null;
+			featureFilesContent.current.value = null;
 		}
 	};
 
@@ -126,7 +141,7 @@ const Model = () => {
 							accept=".csv"
 							multiple
 						/>
-						<div className="features-preview-container">
+						{/* <div className="features-preview-container">
 							<strong>Uploaded Files:</strong>
 							{featureFile.length > 0 ? (
 								<span>
@@ -140,7 +155,7 @@ const Model = () => {
 							) : (
 								<span>No files selected</span>
 							)}
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div className="model-content-mid flex flex-col justify-between">
