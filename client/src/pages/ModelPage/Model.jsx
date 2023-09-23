@@ -26,7 +26,8 @@ const Model = () => {
 	const featureFilesContent = useRef(null);
 
 	const handleFeaturesUploadClick = (e) => {
-		setFeatureFile([...featureFile, e.target.files[0]]);
+		const files = Array.from(e.target.files);
+		setFeatureFile(files);
 		setFeatureFileUploaded(true);
 	};
 
@@ -105,12 +106,19 @@ const Model = () => {
 							multiple
 						/>
 						<div className="features-preview-container">
-							<strong>Uploaded File(s):</strong>
-							<span id="uploadedFileName">
-								{featureFilesContent
-									? featureFilesContent.name
-									: 'No file selected'}
-							</span>
+							<strong>Uploaded Files:</strong>
+							{featureFile.length > 0 ? (
+								<span>
+									{featureFile.map((file, index) => (
+										<React.Fragment key={index}>
+											{file.name}
+											{index !== featureFile.length - 1 ? ', ' : ''}
+										</React.Fragment>
+									))}
+								</span>
+							) : (
+								<span>No files selected</span>
+							)}
 						</div>
 					</div>
 				</div>
