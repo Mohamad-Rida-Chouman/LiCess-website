@@ -254,4 +254,17 @@ class TaskController extends Controller
 
         return ($task);
     }
+
+    public function getResultByTaskId($task_id)
+    {
+        $user_id = 1;
+        $task = Task::where('id', $task_id)->get();
+        $task_user = $task[0]->user_id;
+        if($task_user != $user_id){
+            return ("The task creator (user) must log in");
+        }
+        $result = Result::where('task_id', $task_id)->get();
+        return ($result[0]);
+    }
+
 }
