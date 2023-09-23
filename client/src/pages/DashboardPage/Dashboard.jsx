@@ -39,7 +39,9 @@ const Dashboard = () => {
 		try {
 			const response = await axios.get(URL_SingleTask + task_id);
 			if (response) {
-				console.log(response);
+				const array = response.data.data.split('|').slice(0, 8);
+				console.log(array);
+				// console.log(response.data.data);
 			}
 		} catch {
 			console.log('failed to load tasks');
