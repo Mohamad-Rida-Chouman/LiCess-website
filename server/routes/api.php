@@ -31,6 +31,7 @@ Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
 Route::post('modelLGBM', [TaskController::class, 'createLGBMTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
+Route::get('resultByTask/{task_id}', [TaskController::class, 'getResultByTaskId']);
 Route::get('send-mail',[MailController::class,'index']);
 
 
