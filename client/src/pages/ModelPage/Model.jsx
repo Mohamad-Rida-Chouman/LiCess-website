@@ -21,6 +21,7 @@ const Model = () => {
 
 	// Functions related to "upload features" button:
 	const [featureFile, setFeatureFile] = useState([]);
+	const [featureFileUploaded, setFeatureFileUploaded] = useState(false);
 
 	const handleModelClick = () => {
 		console.log('Model button clicked');
