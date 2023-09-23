@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Model.css';
 import '../../base.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -12,6 +12,7 @@ const Model = () => {
 	// Functions related to "upload data" button:
 	const [dataFile, setDataFile] = useState();
 	const [dataFileUploaded, setDataFileUploaded] = useState(false);
+	const dataFileContent = useRef(null);
 
 	const handleDataUploadClick = (e) => {
 		const file = e.target.files[0];
@@ -22,11 +23,10 @@ const Model = () => {
 	// Functions related to "upload features" button:
 	const [featureFile, setFeatureFile] = useState([]);
 	const [featureFileUploaded, setFeatureFileUploaded] = useState(false);
+	const featureFilesContent = useRef(null);
 
 	const handleFeaturesUploadClick = (e) => {
-		const files = e.target.files[0];
-		const fileArray = Array.from(files);
-		setFeatureFile(fileArray);
+		setFeatureFile([...featureFile, e.target.files[0]]);
 		setFeatureFileUploaded(true);
 	};
 
@@ -78,10 +78,26 @@ const Model = () => {
 					<div className="model-features-upload-container">
 						<Button
 							className="button-dropdown button-s justify-center flex width-100"
-							onClick={handleFeaturesUploadClick}
+							onClick={() => featureFilesContent.current.click()}
 						>
 							Upload Extracted Features
 						</Button>
+						<input
+							className="input-button"
+							type="file"
+							onChange={handleFeaturesUploadClick}
+							ref={featureFilesContent}
+							accept=".csv"
+							multiple
+						/>
+						<div className="features-preview-container">
+							<strong>Uploaded File(s):</strong>
+							<span id="uploadedFileName">
+								{featureFilesContent
+									? featureFilesContent.name
+									: 'No file selected'}
+							</span>
+						</div>
 					</div>
 				</div>
 				<div className="model-content-mid flex flex-col justify-between">
