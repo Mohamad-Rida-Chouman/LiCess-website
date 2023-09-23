@@ -95,10 +95,10 @@ const Dashboard = () => {
 									)}
 								</td>
 								<td className="flex justify-start align-center width-100">
-									{rowData.task_name === 'Model Prediction' &&
+									{rowData.task_name.startsWith('Model') &&
 									rowData.state === 'Completed' ? (
 										<Button className="button button-s">Share Results</Button>
-									) : rowData.task_name === 'Model Prediction' &&
+									) : rowData.task_name.startsWith('Model') &&
 									  rowData.state !== 'Pending' ? (
 										<Button className="button-disabled button-s" disabled>
 											Share Results
