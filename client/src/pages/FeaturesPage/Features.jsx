@@ -5,7 +5,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
-import Dropdown from '../../components/Dropdown/Dropdown';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import Instructions from '../../components/Instructions/Instructions';
 import axios from 'axios';
@@ -94,11 +93,6 @@ const Features = () => {
 							parentCallback={handleCallback}
 							placeholder="Select Feature(s)"
 						/>
-						{/* <Dropdown
-							className="features-dropdown-container flex flex-col width-100"
-							options={options}
-							children="feature"
-						/> */}
 					</div>
 					<div className="features-button-container">
 						<Button
