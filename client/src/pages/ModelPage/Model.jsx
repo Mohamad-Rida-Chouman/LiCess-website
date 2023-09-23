@@ -69,6 +69,7 @@ const Model = () => {
 			featureFile == [] ||
 			dataFile == null
 		) {
+			setModalOpenEmptyParams(true);
 		}
 		if (
 			selectedRadioModelOption == 'Light-Gradient Boosting' &&
