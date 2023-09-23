@@ -120,8 +120,8 @@ class TaskController extends Controller
         }
         else
         {
-            $output = json_decode($response ->getBody()->getContents(), true)['output'];
-
+            $output = json_decode($response ->getBody(), true)['output'][0];
+            
             $resultData = [
                 'task_id' => $task_id,
                 'data_type' => 'csv',
@@ -174,7 +174,7 @@ class TaskController extends Controller
             ]
         ]);
 
-        if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
+        if(json_decode($response ->getBody(), true)['code'][0] == 500){
             $task -> state = 'Failed';
             $task -> save();
 
@@ -182,12 +182,12 @@ class TaskController extends Controller
         }
         else
         {
-            $output = json_decode($response ->getBody()->getContents(), true)['output'];
+            $output = json_decode($response ->getBody(), true)['output'][0];
 
             $resultData = [
                 'task_id' => $task_id,
                 'data_type' => 'csv',
-                'label' => 'w_'.$windowSize.'_'.$feature.'.csv',
+                'label' => $feature.'_'.$windowSize.'.csv',
                 'data' => serialize($output)
             ];
             $result = Result::create($resultData);
