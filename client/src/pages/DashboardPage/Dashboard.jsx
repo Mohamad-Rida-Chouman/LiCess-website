@@ -33,9 +33,19 @@ const Dashboard = () => {
 		}
 	}
 
-	const handleDownloadClick = (task_id) => {
-		console.log('Download pressed on task: ', task_id);
+	const URL_SingleTask = 'http://127.0.0.1:8000/api/resultByTask/';
+
+	const handleDownloadClick = async (task_id) => {
+		try {
+			const response = await axios.get(URL_SingleTask + task_id);
+			if (response) {
+				console.log(response);
+			}
+		} catch {
+			console.log('failed to load tasks');
+		}
 	};
+
 	return (
 		<div className="dashboard-main-container width-100 flex flex-col gap-l padding-l">
 			<div className="dashboard-navbar-container">
