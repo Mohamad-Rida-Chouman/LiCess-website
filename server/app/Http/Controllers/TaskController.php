@@ -204,6 +204,14 @@ class TaskController extends Controller
 
         $filesArray = [];
 
+        $preprocessedData = $request->file('dataFile');
+
+        $filesArray[] = [
+            'name' => 'files',
+            'contents' => fopen($preprocessedData->path(), 'r'),
+            'filename' => $preprocessedData->getClientOriginalName(),
+        ];
+
         foreach ($request->file('files') as $file) {
             $filesArray[] = [
                 'name' => 'files',
