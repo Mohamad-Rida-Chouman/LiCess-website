@@ -20,10 +20,12 @@ const Dashboard = () => {
 			const response = await axios.get(URL);
 			if (response) {
 				const tasks_array = response.data.map((task) => ({
+					task_id: task.id,
 					task_name: task.task_name,
 					date: task.date,
 					state: task.state,
 				}));
+				tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
 				setTasks(tasks_array);
 			}
 		} catch {
@@ -31,8 +33,8 @@ const Dashboard = () => {
 		}
 	}
 
-	const handleDownloadClick = () => {
-		console.log('Download pressed');
+	const handleDownloadClick = (task_id) => {
+		console.log('Download pressed on task: ', task_id);
 	};
 	return (
 		<div className="dashboard-main-container width-100 flex flex-col gap-l padding-l">
@@ -78,7 +80,7 @@ const Dashboard = () => {
 									{rowData.state === 'Completed' ? (
 										<Button
 											className="button button-s"
-											onClick={handleDownloadClick}
+											onClick={() => handleDownloadClick(rowData.task_id)}
 										>
 											Download
 										</Button>
