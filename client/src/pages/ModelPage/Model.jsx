@@ -10,11 +10,13 @@ import Radio from '../../components/Radio/Radio';
 
 const Model = () => {
 	const handleModelClick = () => {
-		console.log('Features button clicked');
+		console.log('Model button clicked');
 	};
 
-	const handleDataUploadClick = () => {
-		console.log('data upload button clicked');
+	const handleDataUploadClick = (e) => {
+		const file = e.target.files[0];
+		setDataFile(file);
+		setDataFileUploaded(true);
 	};
 
 	const handleFeaturesUploadClick = () => {
