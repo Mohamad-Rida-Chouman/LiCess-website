@@ -198,4 +198,62 @@ class TaskController extends Controller
             return ($task);
         }
     }
+
+    public function createLGBMTask(Request $request) {
+        $user_id=1;
+
+        $filesArray = [];
+
+        foreach ($request->file('files') as $file) {
+            $filesArray[] = [
+                'name' => 'files',
+                'contents' => fopen($file->path(), 'r'),
+                'filename' => $file->getClientOriginalName(),
+            ];
+        }
+
+        $data = [
+            'user_id' => $user_id,
+            'task_name' => 'Model: LGBM',
+            'date' => date("Y-m-d"),
+            'state' => 'Pending',
+        ];
+        $task = Task::create($data);
+        $task_id = json_decode($task, true)['id'];
+
+        $new_client = new \GuzzleHttp\Client();
+
+        $response = $new_client->post( 'http://127.0.0.1:6000/python-api', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . Session::get('SesTok'),
+            ],
+            'multipart' => $filesArray,
+        ]);
+
+        return ($response);
+        if(json_decode($response ->getBody()->getContents(), true)['error'][0] == 500){
+            $task -> state = 'Failed';
+            $task -> save();
+
+            return ($task);
+        }
+        else
+        {
+            $output = json_decode($response ->getBody()->getContents(), true)['output'];
+
+            $resultData = [
+                'task_id' => $task_id,
+                'data_type' => 'json',
+                'label' => 'model_'.$model.'.csv',
+                'data' => serialize($output)
+            ];
+            $result = Result::create($resultData);
+            
+            $task -> state = 'Completed';
+            $task -> save();
+
+            return ($task);
+        }
+    }
 }
