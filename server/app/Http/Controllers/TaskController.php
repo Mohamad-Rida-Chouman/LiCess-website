@@ -239,29 +239,19 @@ class TaskController extends Controller
             'multipart' => $filesArray,
         ]);
 
-        return ($response);
-        if(json_decode($response ->getBody()->getContents(), true)['error'][0] == 500){
-            $task -> state = 'Failed';
-            $task -> save();
-
-            return ($task);
-        }
-        else
-        {
-            $output = json_decode($response ->getBody()->getContents(), true)['output'];
-
-            $resultData = [
+        $result = json_decode($response->getBody()->getContents(), true);
+        $result_text = implode(" ", $result);
+        $resultData = [
                 'task_id' => $task_id,
                 'data_type' => 'json',
-                'label' => 'model_'.$model.'.csv',
-                'data' => serialize($output)
+                'label' => 'model_lgbm',
+                'data' => $result_text
             ];
-            $result = Result::create($resultData);
-            
-            $task -> state = 'Completed';
-            $task -> save();
+        $resultInstance = Result::create($resultData);
+        
+        $task -> state = 'Completed';
+        $task -> save();
 
-            return ($task);
-        }
+        return ($task);
     }
 }
