@@ -70,11 +70,25 @@ const Model = () => {
 					<div className="model-data-upload-container">
 						<Button
 							className="button-dropdown button-s justify-center flex width-100"
-							onClick={handleDataUploadClick}
+							onClick={() => dataFileContent.current.click()}
 						>
 							Upload Preprocessed Data
 						</Button>
+						<input
+							className="input-button"
+							type="file"
+							onChange={handleDataUploadClick}
+							ref={dataFileContent}
+							accept=".csv"
+						/>
+						<div className="data-preview-container">
+							<strong>Uploaded File:</strong>
+							<span id="uploadedFileName">
+								{dataFile ? dataFile.name : 'No file selected'}
+							</span>
+						</div>
 					</div>
+
 					<div className="model-features-upload-container">
 						<Button
 							className="button-dropdown button-s justify-center flex width-100"
