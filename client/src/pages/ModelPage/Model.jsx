@@ -23,12 +23,15 @@ const Model = () => {
 	const [featureFile, setFeatureFile] = useState([]);
 	const [featureFileUploaded, setFeatureFileUploaded] = useState(false);
 
-	const handleModelClick = () => {
-		console.log('Model button clicked');
+	const handleFeaturesUploadClick = (e) => {
+		const files = e.target.files[0];
+		const fileArray = Array.from(files);
+		setFeatureFile(fileArray);
+		setFeatureFileUploaded(true);
 	};
 
-	const handleFeaturesUploadClick = () => {
-		console.log('feature upload button clicked');
+	const handleModelClick = () => {
+		console.log('Model button clicked');
 	};
 
 	const [selectedRadioModelOption, setSelectedRadioModelOption] = useState('');
