@@ -13,6 +13,9 @@ const Model = () => {
 		console.log('Model button clicked');
 	};
 
+	// Functions related to "upload data" button:
+	const [dataFile, setDataFile] = useState();
+
 	const handleDataUploadClick = (e) => {
 		const file = e.target.files[0];
 		setDataFile(file);
