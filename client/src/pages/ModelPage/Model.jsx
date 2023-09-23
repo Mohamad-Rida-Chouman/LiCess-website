@@ -31,9 +31,13 @@ const Model = () => {
 		setFeatureFileUploaded(true);
 	};
 
-	const handleModelClick = () => {
-		console.log('Model button clicked');
-	};
+	//Functions related to "model" radio button:
+	const radioModelOptions = [
+		{ value: 'lgbm', label: 'Light-Gradient Boosting' },
+		{ value: 'xgb', label: 'Extreme-Gradient Boosting' },
+		{ value: 'rf', label: 'Random Forest' },
+		{ value: 'ensemble', label: 'Ensemble' },
+	];
 
 	const [selectedRadioModelOption, setSelectedRadioModelOption] = useState('');
 
@@ -41,12 +45,7 @@ const Model = () => {
 		setSelectedRadioModelOption(label);
 	};
 
-	const radioModelOptions = [
-		{ value: 'model1', label: 'Light-Gradient Boosting' },
-		{ value: 'model2', label: 'Extreme-Gradient Boosting' },
-		{ value: 'model3', label: 'Random Forest' },
-		{ value: 'model4', label: 'Ensemble' },
-	];
+	//Functions related to "run type" radio button:
 	const [selectedRadioRunOption, setSelectedRadioRunOption] = useState('');
 
 	const handleRadioRunOptionChange = (label) => {
@@ -57,6 +56,10 @@ const Model = () => {
 		{ value: 'trainTest', label: 'Train + Test' },
 		{ value: 'testOnly', label: 'Test Only' },
 	];
+
+	const handleModelClick = () => {
+		console.log('Model button clicked');
+	};
 
 	return (
 		<div className="model-main-container width-100 flex flex-col gap-l padding-l">
