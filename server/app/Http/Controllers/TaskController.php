@@ -240,7 +240,7 @@ class TaskController extends Controller
         ]);
 
         $result = json_decode($response->getBody()->getContents(), true);
-        $result_text = implode(" ", $result);
+        $result_text = implode("|", $result);
         $resultData = [
                 'task_id' => $task_id,
                 'data_type' => 'json',
