@@ -7,6 +7,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
 import Instructions from '../../components/Instructions/Instructions';
 import Radio from '../../components/Radio/Radio';
+import Modal from '../../components/Modal/Modal';
 
 const Model = () => {
 	// Functions related to "upload data" button:
@@ -57,8 +58,24 @@ const Model = () => {
 		{ value: 'testOnly', label: 'Test Only' },
 	];
 
-	const handleModelClick = () => {
-		console.log('Model button clicked');
+	//Functions related to modal:
+	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const handleModelClick = async () => {
+		if (
+			selectedRadioModelOption == '' ||
+			selectedRadioRunOption == '' ||
+			featureFile == [] ||
+			dataFile == null
+		) {
+		}
+		if (
+			selectedRadioModelOption == 'Light-Gradient Boosting' &&
+			selectedRadioRunOption == 'Train + Test'
+		) {
+			const URL = 'http://127.0.0.1:8000/api/modelLGBM';
+		}
 	};
 
 	return (
@@ -156,6 +173,24 @@ const Model = () => {
 							>
 								Run Model
 							</Button>
+							{modalOpenEmptyParams && (
+								<Modal
+									isOpen={modalOpenEmptyParams}
+									onClose={() => setModalOpenEmptyParams(false)}
+								>
+									<h3>
+										Please check the uploaded files and make sure to choose a
+										model and run type.
+									</h3>
+								</Modal>
+							)}
+							{modalOpen && (
+								<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+									<h3>
+										This process might take a while. Please check the dashboard!
+									</h3>
+								</Modal>
+							)}
 						</div>
 					</div>
 				</div>
