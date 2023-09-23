@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import axios from 'axios';
 import Button from '../../components/Button/Button';
+import { saveAs } from 'file-saver';
 
 const Dashboard = () => {
 	const [tasks, setTasks] = useState([]);
@@ -39,9 +40,48 @@ const Dashboard = () => {
 		try {
 			const response = await axios.get(URL_SingleTask + task_id);
 			if (response) {
-				const array = response.data.data.split('|').slice(0, 8);
-				console.log(array);
-				// console.log(response.data.data);
+				if (response.data.data_type == 'json') {
+					const array = response.data.data.split('|').slice(0, 8);
+					const resultsText =
+						'Model: ' +
+						array[0] +
+						'\nAccuracy: ' +
+						array[1] +
+						'\nSensitifity: ' +
+						array[2] +
+						'\nSpecificity: ' +
+						array[3] +
+						'\nMCC: ' +
+						array[4] +
+						'\nAUC: ' +
+						array[5] +
+						'\nFPR: ' +
+						array[6] +
+						'\nTPR: ' +
+						array[7] +
+						'\nConfusion Matrix: ' +
+						array[8];
+					const blob = new Blob([resultsText], {
+						type: 'text/plain;charset=utf-8',
+					});
+					saveAs(blob, array[0] + '.txt');
+				} else {
+					const data = response.data.data.match(/s:\d+:"(.*)"/)[1];
+					const jsonData = JSON.parse(data);
+					const columns = Object.keys(jsonData);
+					let csvContent = columns.join(',') + '\n';
+					const numRows = jsonData[columns[0]].length;
+					for (let i = 0; i < numRows; i++) {
+						let row = columns
+							.map(function (column) {
+								return jsonData[column][i];
+							})
+							.join(',');
+						csvContent += row + '\n';
+					}
+					const blob = new Blob([csvContent], { type: 'text/csv' });
+					saveAs(blob, response.data.label);
+				}
 			}
 		} catch {
 			console.log('failed to load tasks');
