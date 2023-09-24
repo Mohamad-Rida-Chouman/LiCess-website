@@ -174,7 +174,7 @@ class TaskController extends Controller
             ]
         ]);
 
-        if(json_decode($response ->getBody(), true)['code'][0] == 500){
+        if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
             $task -> state = 'Failed';
             $task -> save();
 
@@ -195,7 +195,7 @@ class TaskController extends Controller
             $task -> state = 'Completed';
             $task -> save();
 
-            return ($task);
+            return ($result);
         }
     }
 
