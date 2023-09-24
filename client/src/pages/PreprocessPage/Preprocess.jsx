@@ -68,8 +68,8 @@ const Preprocess = () => {
 		setFastaFile();
 		setDataFileUploaded(false);
 		setFastaFileUploaded(false);
-		inputDataFile.current = null;
-		inputFastaFile.current = null;
+		document.getElementById('inputDataButton').value = null;
+		document.getElementById('inputFastaButton').value = null;
 	};
 
 	const handleDataChange = (e) => {
@@ -148,6 +148,7 @@ const Preprocess = () => {
 							<input
 								className="input-button"
 								type="file"
+								id="inputDataButton"
 								onChange={handleDataChange}
 								ref={inputDataFile}
 								accept=".csv"
@@ -171,6 +172,7 @@ const Preprocess = () => {
 							<input
 								className="input-button"
 								type="file"
+								id="inputFastaButton"
 								onChange={handleFastaChange}
 								ref={inputFastaFile}
 								accept=".fasta"
