@@ -141,9 +141,9 @@ const Model = () => {
 							accept=".csv"
 							multiple
 						/>
-						{/* <div className="features-preview-container">
+						<div className="features-preview-container">
 							<strong>Uploaded Files:</strong>
-							{featureFile.length > 0 ? (
+							{featureFile != null ? (
 								<span>
 									{featureFile.map((file, index) => (
 										<React.Fragment key={index}>
@@ -155,7 +155,7 @@ const Model = () => {
 							) : (
 								<span>No files selected</span>
 							)}
-						</div> */}
+						</div>
 					</div>
 				</div>
 				<div className="model-content-mid flex flex-col justify-between">
