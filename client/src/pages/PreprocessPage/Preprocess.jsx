@@ -199,9 +199,22 @@ const Preprocess = () => {
 						>
 							Preprocess Data
 						</Button>
+						{modalOpenEmptyParams && (
+							<Modal
+								isOpen={modalOpenEmptyParams}
+								onClose={() => setModalOpenEmptyParams(false)}
+							>
+								<h3>
+									Please check the uploaded files and make sure to choose a at
+									least one window size.
+								</h3>
+							</Modal>
+						)}
 						{modalOpen && (
 							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-								<h3>You will be notified by e-mail upon completion.</h3>
+								<h3>
+									This process might take a while. Please check the dashboard!
+								</h3>
 							</Modal>
 						)}
 					</div>
