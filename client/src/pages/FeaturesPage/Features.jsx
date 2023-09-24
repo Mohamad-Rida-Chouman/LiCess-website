@@ -88,68 +88,11 @@ const Features = () => {
 				<PageTitle title="Feature Extraction" />
 			</div>
 			<div className="features-content-container gap-s flex">
-				<div className="features-content-left flex flex-col">
-					<div className="data-upload-button-container">
-						<Button
-							className="button-dropdown button-s justify-center flex width-100"
-							onClick={() => inputFileContent.current.click()}
-						>
-							Upload Preprocessed Data
-						</Button>
-						<input
-							className="input-button"
-							type="file"
-							id="inputButton"
-							onChange={handleFileContentChange}
-							ref={inputFileContent}
-							accept=".csv"
-						/>
-					</div>
-					<div className="data-preview-container">
-						<strong>Uploaded File:</strong>
-						<span id="uploadedDataFileName">
-							{fileContent ? fileContent.name : 'No file selected'}
-						</span>
-					</div>
-				</div>
-				<div className="features-content-mid flex flex-col justify-between">
-					<div className="features-dropdown-button-container">
-						<ReactSelectDropdown
-							optionList={optionList}
-							parentCallback={handleCallback}
-							placeholder="Select Feature(s)"
-						/>
-					</div>
-					<div className="features-button-container">
-						<Button
-							className="button button-m flex justify-center width-100"
-							onClick={handleFeaturesClick}
-						>
-							Extract Features
-						</Button>
-						{modalOpenEmptyParams && (
-							<Modal
-								isOpen={modalOpenEmptyParams}
-								onClose={() => setModalOpenEmptyParams(false)}
-							>
-								<h3>
-									Please check the uploaded file and make sure to choose a at
-									least one feature.
-								</h3>
-							</Modal>
-						)}
-						{modalOpen && (
-							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-								<h3>
-									This process might take a while. Please check the dashboard!
-								</h3>
-							</Modal>
-						)}
-					</div>
-				</div>
-				<div className="features-content-right grey-background padding-s">
+				<div className="features-content-left grey-background padding-s">
 					<Instructions>
-						This is a brief instruction on how to extract features:
+						<span className="bold">
+							This is a brief instruction on how to extract features:
+						</span>
 						<br />
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eaque
 						corrupti neque molestiae quod, possimus enim unde ab. Facilis
@@ -185,6 +128,66 @@ const Features = () => {
 						tenetur amet placeat, id incidunt esse molestias. Maxime quis nam,
 						nisi asperiores dolore voluptatem quos.
 					</Instructions>
+				</div>
+
+				<div className="features-content-mid flex flex-col justify-between">
+					<div className="features-dropdown-button-container">
+						<ReactSelectDropdown
+							optionList={optionList}
+							parentCallback={handleCallback}
+							placeholder="Select Feature(s)"
+						/>
+					</div>
+					<div className="features-button-container">
+						<Button
+							className="button button-m flex justify-center width-100"
+							onClick={handleFeaturesClick}
+						>
+							Extract Features
+						</Button>
+						{modalOpenEmptyParams && (
+							<Modal
+								isOpen={modalOpenEmptyParams}
+								onClose={() => setModalOpenEmptyParams(false)}
+							>
+								<h3>
+									Please check the uploaded file and make sure to choose a at
+									least one feature.
+								</h3>
+							</Modal>
+						)}
+						{modalOpen && (
+							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+								<h3>
+									This process might take a while. Please check the dashboard!
+								</h3>
+							</Modal>
+						)}
+					</div>
+				</div>
+				<div className="features-content-right flex flex-col">
+					<div className="data-upload-button-container">
+						<Button
+							className="button-dropdown button-s justify-center flex width-100"
+							onClick={() => inputFileContent.current.click()}
+						>
+							Upload Preprocessed Data
+						</Button>
+						<input
+							className="input-button"
+							type="file"
+							id="inputButton"
+							onChange={handleFileContentChange}
+							ref={inputFileContent}
+							accept=".csv"
+						/>
+					</div>
+					<div className="data-preview-container">
+						<strong>Uploaded File:</strong>
+						<span id="uploadedDataFileName">
+							{fileContent ? fileContent.name : 'No file selected'}
+						</span>
+					</div>
 				</div>
 			</div>
 			<div className="features-footer-container width-100">
