@@ -68,8 +68,8 @@ const Preprocess = () => {
 		setFastaFile();
 		setDataFileUploaded(false);
 		setFastaFileUploaded(false);
-		inputDataFile.current.value = null;
-		inputFastaFile.current.value = null;
+		inputDataFile.current = null;
+		inputFastaFile.current = null;
 	};
 
 	const handleDataChange = (e) => {
