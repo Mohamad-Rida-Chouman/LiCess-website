@@ -72,19 +72,29 @@ const Features = () => {
 			</div>
 			<div className="features-content-container gap-s flex">
 				<div className="features-content-left flex flex-col">
-					<Button
-						className="button-dropdown button-s justify-center flex width-100"
-						onClick={() => inputFileContent.current.click()}
-					>
-						Upload Preprocessed Data
-					</Button>
-					<input
-						className="input-button"
-						type="file"
-						onChange={handleFileContentChange}
-						ref={inputFileContent}
-						accept=".csv"
-					/>
+					<div className="data-upload-button-container">
+						<Button
+							className="button-dropdown button-s justify-center flex width-100"
+							onClick={() => inputFileContent.current.click()}
+						>
+							Upload Preprocessed Data
+						</Button>
+						<input
+							className="input-button"
+							type="file"
+							onChange={handleFileContentChange}
+							ref={inputFileContent}
+							accept=".csv"
+						/>
+					</div>
+					<div className="data-preview-container">
+						<strong>Uploaded File:</strong>
+						<span id="uploadedDataFileName">
+							{fileContent && fileContent[0]
+								? fileContent[0].name
+								: 'No file selected'}
+						</span>
+					</div>
 				</div>
 				<div className="features-content-mid flex flex-col justify-between">
 					<div className="features-dropdown-button-container">
