@@ -51,7 +51,7 @@ const Preprocess = () => {
 	const [fastaFile, setFastaFile] = useState();
 
 	const handlePreprocessClick = async () => {
-		if (selectedWindows.length == 0 || dataFile == null || fastaFile == null) {
+		if (selectedWindows.length === 0 || dataFile == null || fastaFile == null) {
 			setModalOpenEmptyParams(true);
 		} else {
 			setModalOpen(true);
@@ -141,7 +141,43 @@ const Preprocess = () => {
 						nisi asperiores dolore voluptatem quos.
 					</Instructions>
 				</div>
-				<div className="preprocess-content-mid flex flex-col">
+
+				<div className="preprocess-content-mid flex flex-col justify-between">
+					<div className="preprocess-dropdown-button-container">
+						<ReactSelectDropdown
+							optionList={optionList}
+							parentCallback={handleCallback}
+							placeholder="Select Window Size(s)"
+						/>
+					</div>
+					<div className="preprocess-button-container">
+						<Button
+							className="button button-m flex justify-center width-100"
+							onClick={handlePreprocessClick}
+						>
+							Preprocess Data
+						</Button>
+						{modalOpenEmptyParams && (
+							<Modal
+								isOpen={modalOpenEmptyParams}
+								onClose={() => setModalOpenEmptyParams(false)}
+							>
+								<h3>
+									Please check the uploaded files and make sure to choose a at
+									least one window size.
+								</h3>
+							</Modal>
+						)}
+						{modalOpen && (
+							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+								<h3>
+									This process might take a while. Please check the dashboard!
+								</h3>
+							</Modal>
+						)}
+					</div>
+				</div>
+				<div className="preprocess-content-right flex flex-col">
 					<div className="data-upload-container flex flex-col">
 						<div className="data-upload-button-container">
 							<Button
@@ -187,41 +223,6 @@ const Preprocess = () => {
 							<strong>Uploaded File:</strong>
 							{fastaFile ? fastaFile.name : 'No file selected'}
 						</div>
-					</div>
-				</div>
-				<div className="preprocess-content-right flex flex-col justify-between">
-					<div className="preprocess-dropdown-button-container">
-						<ReactSelectDropdown
-							optionList={optionList}
-							parentCallback={handleCallback}
-							placeholder="Select Window Size(s)"
-						/>
-					</div>
-					<div className="preprocess-button-container">
-						<Button
-							className="button button-m flex justify-center width-100"
-							onClick={handlePreprocessClick}
-						>
-							Preprocess Data
-						</Button>
-						{modalOpenEmptyParams && (
-							<Modal
-								isOpen={modalOpenEmptyParams}
-								onClose={() => setModalOpenEmptyParams(false)}
-							>
-								<h3>
-									Please check the uploaded files and make sure to choose a at
-									least one window size.
-								</h3>
-							</Modal>
-						)}
-						{modalOpen && (
-							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-								<h3>
-									This process might take a while. Please check the dashboard!
-								</h3>
-							</Modal>
-						)}
 					</div>
 				</div>
 			</div>
