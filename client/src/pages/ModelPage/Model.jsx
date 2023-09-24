@@ -89,8 +89,8 @@ const Model = () => {
 			setFeatureFile();
 			setDataFileUploaded(false);
 			setFeatureFileUploaded(false);
-			dataFileContent.current.value = null;
-			featureFilesContent.current.value = null;
+			dataFileContent.current = null;
+			featureFilesContent.current = null;
 		}
 	};
 
