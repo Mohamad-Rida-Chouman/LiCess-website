@@ -13,6 +13,7 @@ import Papa from 'papaparse';
 const Features = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState([]);
 	const [windowSize, setWindowSize] = useState([]);
+	const [dataFileUploaded, setDataFileUploaded] = useState(false);
 
 	const handleCallback = (childData) => {
 		setSelectedFeatures(childData);
@@ -30,8 +31,10 @@ const Features = () => {
 	];
 
 	const handleFileContentChange = (event) => {
-		setFileContent([...fileContent, event.target.files[0]]);
-		Papa.parse(event.target.files[0], {
+		const file = event.target.files[0];
+		setFileContent(file);
+		setDataFileUploaded(true);
+		Papa.parse(file, {
 			header: true,
 			skipEmptyLines: true,
 			complete: function (results) {
@@ -42,7 +45,9 @@ const Features = () => {
 
 	const BASE_URL = 'http://127.0.0.1:8000/api/featureExtract';
 
-	const [fileContent, setFileContent] = useState([]);
+	const [fileContent, setFileContent] = useState();
+
+	const inputFileContent = useRef(null);
 
 	const handleFeaturesClick = async () => {
 		const selectedLabels = selectedFeatures.map((option) => option.value);
@@ -50,7 +55,7 @@ const Features = () => {
 		await Promise.all(
 			selectedLabels.map((feature) => {
 				let formData = new FormData();
-				formData.append('fileContent', fileContent[0]);
+				formData.append('fileContent', fileContent);
 				formData.append('windowSize', windowSize);
 				formData.append('feature', feature);
 				return axios.post(BASE_URL, formData).then((res) => {
@@ -58,9 +63,10 @@ const Features = () => {
 				});
 			})
 		);
+		setFileContent();
+		setDataFileUploaded(false);
+		document.getElementById('inputButton').value = null;
 	};
-
-	const inputFileContent = useRef(null);
 
 	return (
 		<div className="features-main-container width-100 flex flex-col gap-l padding-l">
@@ -82,6 +88,7 @@ const Features = () => {
 						<input
 							className="input-button"
 							type="file"
+							id="inputButton"
 							onChange={handleFileContentChange}
 							ref={inputFileContent}
 							accept=".csv"
@@ -90,9 +97,7 @@ const Features = () => {
 					<div className="data-preview-container">
 						<strong>Uploaded File:</strong>
 						<span id="uploadedDataFileName">
-							{fileContent && fileContent[0]
-								? fileContent[0].name
-								: 'No file selected'}
+							{fileContent ? fileContent.name : 'No file selected'}
 						</span>
 					</div>
 				</div>
