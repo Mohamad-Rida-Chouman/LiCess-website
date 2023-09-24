@@ -150,8 +150,9 @@ const Dashboard = () => {
 									{rowData.task_name.startsWith('Model') &&
 									rowData.state === 'Completed' ? (
 										<Button className="button button-s">Share Results</Button>
-									) : rowData.task_name.startsWith('Model') &&
-									  rowData.state !== 'Pending' ? (
+									) : (rowData.task_name.startsWith('Model') &&
+											rowData.state == 'Pending') ||
+									  rowData.state == 'Failed' ? (
 										<Button className="button-disabled button-s" disabled>
 											Share Results
 										</Button>
