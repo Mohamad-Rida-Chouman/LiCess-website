@@ -41,7 +41,7 @@ const Dashboard = () => {
 			const response = await axios.get(URL_SingleTask + task_id);
 			if (response) {
 				if (response.data.data_type == 'json') {
-					const array = response.data.data.split('|').slice(0, 8);
+					const array = response.data.data.split('|').slice(0, 9);
 					const resultsText =
 						'Model: ' +
 						array[0] +
