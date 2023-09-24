@@ -9,10 +9,11 @@ import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelec
 import Instructions from '../../components/Instructions/Instructions';
 import axios from 'axios';
 import Papa from 'papaparse';
+import Modal from '../../components/Modal/Modal';
 
 const Features = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState([]);
-	const [windowSize, setWindowSize] = useState([]);
+	const [windowSize, setWindowSize] = useState();
 	const [dataFileUploaded, setDataFileUploaded] = useState(false);
 
 	const handleCallback = (childData) => {
@@ -50,23 +51,33 @@ const Features = () => {
 	const inputFileContent = useRef(null);
 
 	const handleFeaturesClick = async () => {
-		const selectedLabels = selectedFeatures.map((option) => option.value);
+		console.log(selectedFeatures.length);
+		if (selectedFeatures.length == 0 || fileContent == null) {
+			setModalOpenEmptyParams(true);
+		} else {
+			setModalOpen(true);
 
-		await Promise.all(
-			selectedLabels.map((feature) => {
-				let formData = new FormData();
-				formData.append('fileContent', fileContent);
-				formData.append('windowSize', windowSize);
-				formData.append('feature', feature);
-				return axios.post(BASE_URL, formData).then((res) => {
-					console.log(res);
-				});
-			})
-		);
-		setFileContent();
-		setDataFileUploaded(false);
-		document.getElementById('inputButton').value = null;
+			const selectedLabels = selectedFeatures.map((option) => option.value);
+
+			await Promise.all(
+				selectedLabels.map((feature) => {
+					let formData = new FormData();
+					formData.append('fileContent', fileContent);
+					formData.append('windowSize', windowSize);
+					formData.append('feature', feature);
+					return axios.post(BASE_URL, formData).then((res) => {
+						console.log(res);
+					});
+				})
+			);
+			setFileContent();
+			setDataFileUploaded(false);
+			document.getElementById('inputButton').value = null;
+		}
 	};
+
+	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
+	const [modalOpen, setModalOpen] = useState(false);
 
 	return (
 		<div className="features-main-container width-100 flex flex-col gap-l padding-l">
@@ -122,8 +133,8 @@ const Features = () => {
 								onClose={() => setModalOpenEmptyParams(false)}
 							>
 								<h3>
-									Please check the uploaded files and make sure to choose a
-									model and run type.
+									Please check the uploaded file and make sure to choose a at
+									least one feature.
 								</h3>
 							</Modal>
 						)}
