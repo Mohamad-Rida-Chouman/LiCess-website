@@ -116,6 +116,24 @@ const Features = () => {
 						>
 							Extract Features
 						</Button>
+						{modalOpenEmptyParams && (
+							<Modal
+								isOpen={modalOpenEmptyParams}
+								onClose={() => setModalOpenEmptyParams(false)}
+							>
+								<h3>
+									Please check the uploaded files and make sure to choose a
+									model and run type.
+								</h3>
+							</Modal>
+						)}
+						{modalOpen && (
+							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+								<h3>
+									This process might take a while. Please check the dashboard!
+								</h3>
+							</Modal>
+						)}
 					</div>
 				</div>
 				<div className="features-content-right grey-background padding-s">
