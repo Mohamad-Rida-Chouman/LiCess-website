@@ -15,6 +15,7 @@ const Preprocess = () => {
 	const [fastaFileUploaded, setFastaFileUploaded] = useState(false);
 
 	const [modalOpen, setModalOpen] = useState(false);
+	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
 
 	const [selectedWindows, setSelectedWindows] = useState([]);
 
@@ -50,26 +51,30 @@ const Preprocess = () => {
 	const [fastaFile, setFastaFile] = useState();
 
 	const handlePreprocessClick = async () => {
-		setModalOpen(true);
-		const selectedLabels = selectedWindows.map((option) => option.label);
+		if (selectedWindows.length == 0 || dataFile == null || fastaFile == null) {
+			setModalOpenEmptyParams(true);
+		} else {
+			setModalOpen(true);
+			const selectedLabels = selectedWindows.map((option) => option.label);
 
-		await Promise.all(
-			selectedLabels.map((w) => {
-				let formData = new FormData();
-				formData.append('sitesCsv', dataFile);
-				formData.append('fasta', fastaFile);
-				formData.append('windowSize', w);
-				return axios.post(URL, formData).then((res) => {
-					console.log(res);
-				});
-			})
-		);
-		setDataFile();
-		setFastaFile();
-		setDataFileUploaded(false);
-		setFastaFileUploaded(false);
-		document.getElementById('inputDataButton').value = null;
-		document.getElementById('inputFastaButton').value = null;
+			await Promise.all(
+				selectedLabels.map((w) => {
+					let formData = new FormData();
+					formData.append('sitesCsv', dataFile);
+					formData.append('fasta', fastaFile);
+					formData.append('windowSize', w);
+					return axios.post(URL, formData).then((res) => {
+						console.log(res);
+					});
+				})
+			);
+			setDataFile();
+			setFastaFile();
+			setDataFileUploaded(false);
+			setFastaFileUploaded(false);
+			document.getElementById('inputDataButton').value = null;
+			document.getElementById('inputFastaButton').value = null;
+		}
 	};
 
 	const handleDataChange = (e) => {
