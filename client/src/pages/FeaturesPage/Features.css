@@ -22,22 +22,22 @@
 	height: 40vh;
 }
 
-.features-content-right {
+.features-content-left {
 	overflow-y: auto;
 }
 
 .features-dropdown-container::-webkit-scrollbar,
-.features-content-right::-webkit-scrollbar {
+.features-content-left::-webkit-scrollbar {
 	width: 0.2rem;
 }
 
 .features-dropdown-container::-webkit-scrollbar-track,
-.features-content-right::-webkit-scrollbar-track {
+.features-content-left::-webkit-scrollbar-track {
 	background: transparent;
 }
 
 .features-dropdown-container::-webkit-scrollbar-thumb,
-.features-content-right::-webkit-scrollbar-thumb {
+.features-content-left::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
 
