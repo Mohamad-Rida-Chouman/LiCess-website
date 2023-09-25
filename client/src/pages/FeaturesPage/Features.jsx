@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../../base.css';
 import './Features.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -44,12 +45,14 @@ const Features = () => {
 		});
 	};
 
-	const BASE_URL = 'http://127.0.0.1:8000/api/featureExtract';
+	const API_URL = process.env.REACT_APP_API_URL;
+	const BASE_URL = API_URL + '/api/featureExtract';
 
 	const [fileContent, setFileContent] = useState();
 
 	const inputFileContent = useRef(null);
 
+	const location = useLocation();
 	const handleFeaturesClick = async () => {
 		console.log(selectedFeatures.length);
 		if (selectedFeatures.length == 0 || fileContent == null) {
@@ -59,10 +62,14 @@ const Features = () => {
 
 			const selectedLabels = selectedFeatures.map((option) => option.value);
 
+			setDataFileUploaded(false);
+			document.getElementById('inputButton').value = null;
+			const fileContentCopy = fileContent;
+			setFileContent();
 			await Promise.all(
 				selectedLabels.map((feature) => {
 					let formData = new FormData();
-					formData.append('fileContent', fileContent);
+					formData.append('fileContent', fileContentCopy);
 					formData.append('windowSize', windowSize);
 					formData.append('feature', feature);
 					return axios.post(BASE_URL, formData).then((res) => {
@@ -70,9 +77,6 @@ const Features = () => {
 					});
 				})
 			);
-			setFileContent();
-			setDataFileUploaded(false);
-			document.getElementById('inputButton').value = null;
 		}
 	};
 
