@@ -253,30 +253,49 @@ class TaskController extends Controller
         $task = Task::create($data);
         $task_id = json_decode($task, true)['id'];
 
-        $new_client = new \GuzzleHttp\Client();
+        $client = new Client();
 
-        $response = $new_client->post( 'http://127.0.0.1:6000/python-api', [
+        $promise = $client->postAsync( 'http://127.0.0.1:6000/python-api', [
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . Session::get('SesTok'),
             ],
             'multipart' => $filesArray,
-        ]);
+        ])->then(
+            function ($response) {
+                $res = json_decode($response->getBody()->getContents(), true);
+                return($res);
+            },
+            function ($exception) {
+                $res = array('output' => $exception->getMessage(), 'error' => 500);
+                return($res);
+            }
+        );
 
-        $result = json_decode($response->getBody()->getContents(), true);
-        $result_text = implode("|", $result);
-        $resultData = [
-                'task_id' => $task_id,
-                'data_type' => 'json',
-                'label' => 'model_lgbm',
-                'data' => $result_text
-            ];
-        $resultInstance = Result::create($resultData);
-        
-        $task -> state = 'Completed';
-        $task -> save();
+        $response = $promise->wait();
+        $code = $response["error"];
 
-        return ($task);
+        if($code == 500){
+            $task -> state = 'Failed';
+            $task -> save();
+            return ($task);
+        }else{
+            $result = $response;
+            $result_text = implode("|", $result);
+            $resultData = [
+                    'task_id' => $task_id,
+                    'data_type' => 'json',
+                    'label' => 'model_lgbm',
+                    'data' => $result_text
+                ];
+            $resultInstance = Result::create($resultData);
+            
+            $task -> state = 'Completed';
+            $task -> save();
+    
+            return ($task);
+        }
+       
     }
 
     public function getResultByTaskId($task_id)
