@@ -80,11 +80,9 @@ const Model = () => {
 			const dataFileCopy = dataFile;
 			const featureFileCopy = featureFile;
 			setDataFile();
-			setFeatureFile();
+			setFeatureFile([]);
 			setDataFileUploaded(false);
 			setFeatureFileUploaded(false);
-			dataFileContent.current = null;
-			featureFilesContent.current = null;
 			let formData = new FormData();
 			featureFileCopy.forEach((file) => {
 				formData.append('files[]', file);
@@ -213,7 +211,7 @@ const Model = () => {
 							accept=".csv"
 						/>
 						<div className="data-preview-container">
-							<strong>Uploaded File:</strong>
+							<strong>Uploaded File: </strong>
 							<span id="uploadedFileName">
 								{dataFile ? dataFile.name : 'No file selected'}
 							</span>
@@ -236,7 +234,7 @@ const Model = () => {
 							multiple
 						/>
 						<div className="features-preview-container">
-							<strong>Uploaded Files:</strong>
+							<strong>Uploaded Files: </strong>
 							{featureFile.length != 0 ? (
 								<span>
 									{featureFile.map((file, index) => (
