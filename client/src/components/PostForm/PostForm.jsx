@@ -54,7 +54,9 @@ const PostForm = (props) => {
 							sp={resultsToShare.data[3]}
 							acc={resultsToShare.data[1]}
 							mcc={resultsToShare.data[4]}
-							curve={resultsToShare.data[5]}
+							auc={resultsToShare.data[5]}
+							fpr={resultsToShare.data[6]}
+							tpr={resultsToShare.data[7]}
 						/>
 					)}
 				</div>
