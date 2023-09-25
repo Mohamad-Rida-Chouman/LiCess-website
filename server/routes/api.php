@@ -31,7 +31,7 @@ Route::resource('posts', PostController::class);
 Route::post('tasks/{id}', [TaskController::class, 'update']);
 Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
-Route::post('modelLGBM', [TaskController::class, 'createLGBMTask']);
+Route::post('model', [TaskController::class, 'createModelTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
 Route::get('resultByTask/{task_id}', [TaskController::class, 'getResultByTaskId']);
 Route::get('shareableResult/{task_id}', [TaskController::class, 'getShareableResult']);
