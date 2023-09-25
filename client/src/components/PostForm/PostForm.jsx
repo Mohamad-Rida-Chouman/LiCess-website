@@ -1,45 +1,62 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PostForm.css';
 import '../../base.css';
 import Post from '../Post/Post';
-import AUCCurve from '../../assets/aucCurve.jpg';
-import Input from '../Input/Input';
 import Button from '../Button/Button';
+import axios from 'axios';
+import { createRoutesFromChildren } from 'react-router';
 
-const PostForm = () => {
+const PostForm = (props) => {
+	const task_id = props.taskId;
+	useEffect(() => {
+		console.log('task id is: ' + task_id);
+		loadShareableResults();
+	}, []);
+
+	const [resultsToShare, setResultsToShare] = useState();
+
 	const handleSubmitClick = () => {
 		console.log('Share button clicked');
 	};
 
-	const postData = [
-		{
-			date: '2023-09-11',
-			email: 'user1@example.com',
-			model: 'Light-Gradient Boosting',
-			sn: 0.85,
-			sp: 0.92,
-			acc: 0.88,
-			mcc: 0.75,
-			curve: <img src={AUCCurve} alt="Curve 1" />,
-		},
-	];
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL_ShareableResults = API_URL + '/api/shareableResult/' + task_id;
+
+	const loadShareableResults = async () => {
+		try {
+			const response = await axios.get(URL_ShareableResults);
+			if (response) {
+				const result = {
+					email: response.data[0].email,
+					date: response.data[0].date,
+					model: response.data[0].model,
+					data: response.data[0].data,
+				};
+				const results_data = result.data.split('|').slice(0, 8);
+				result.data = results_data;
+				setResultsToShare(result);
+			}
+		} catch {
+			console.log('Failed');
+		}
+	};
 
 	return (
 		<div className="main-post-form-container">
 			<div className="post-template-main-container flex flex-col gap-m padding-m">
 				<div className="post-template width-100 padding-s gap-m">
-					{postData.map((data) => (
+					{resultsToShare && (
 						<Post
-							date={data.date}
-							email={data.email}
-							model={data.model}
-							sn={data.sn}
-							sp={data.sp}
-							acc={data.acc}
-							mcc={data.mcc}
-							curve={data.curve}
+							date={resultsToShare.date}
+							email={resultsToShare.email}
+							model={resultsToShare.model}
+							sn={resultsToShare.data[2]}
+							sp={resultsToShare.data[3]}
+							acc={resultsToShare.data[1]}
+							mcc={resultsToShare.data[4]}
+							curve={resultsToShare.data[5]}
 						/>
-					))}
+					)}
 				</div>
 				<div className="post-submit-container flex justify-center width-100">
 					<Button
