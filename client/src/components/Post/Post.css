@@ -22,3 +22,9 @@
 		width: 100%;
 	}
 }
+
+.user-comment {
+	font-size: 16px;
+	overflow-wrap: break-word;
+	font-family: 'Roboto Flex', sans-serif;
+}
