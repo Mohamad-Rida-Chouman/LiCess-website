@@ -26,6 +26,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::resource('tasks', TaskController::class);
+Route::resource('posts', PostController::class);
 Route::post('tasks/{id}', [TaskController::class, 'update']);
 Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
