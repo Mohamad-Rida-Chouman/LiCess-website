@@ -94,8 +94,9 @@ const Dashboard = () => {
 		}
 	};
 
+	const [shareableTaskId, setShareableTaskId] = useState();
 	const handleShareClick = (task_id) => {
-		console.log(task_id);
+		setShareableTaskId(task_id);
 		setShareModalOpen(true);
 	};
 
@@ -189,7 +190,7 @@ const Dashboard = () => {
 						isOpen={shareModalOpen}
 						onClose={() => setShareModalOpen(false)}
 					>
-						<PostForm />
+						<PostForm taskId={shareableTaskId} />
 					</Modal>
 				)}
 			</div>
