@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::all();
+        $post = Post::orderBy('created_at', 'DESC')->get();
         return response()->json($post);
     }
 
