@@ -88,7 +88,7 @@ class TaskController extends Controller
 
         $data = [
             'user_id' => $user_id,
-            'task_name' => 'Data Preprocessing',
+            'task_name' => 'Preprocessed Window Size: '.$windowSize,
             'date' => Carbon::now()->format("Y-m-d H:i:s"), //date("Y-m-d"),
             'state' => 'Pending',
         ];
