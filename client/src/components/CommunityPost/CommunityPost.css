@@ -1,0 +1,29 @@
+.user-comment-community {
+	background-color: #f0f8ff;
+	color: #000000;
+}
+
+.left-post-container,
+.right-post-container {
+	flex: 1 0 0;
+}
+
+.main-post-container,
+.left-post-container {
+	min-height: 35vh;
+}
+
+.curve-container {
+	height: 35vh;
+}
+
+@media (max-width: 768px) {
+	.main-post-container {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.curve-container {
+		width: 100%;
+	}
+}
