@@ -17,3 +17,8 @@
 	color: black;
 	border-radius: 2px 2px 0px 0px;
 }
+.user-comment {
+	font-size: 16px;
+	overflow-wrap: break-word;
+	font-family: 'Roboto Flex', sans-serif;
+}
