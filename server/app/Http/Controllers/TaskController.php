@@ -151,33 +151,13 @@ class TaskController extends Controller
 
         $data = [
             'user_id' => $user_id,
-            'task_name' => 'Feature Extraction',
+            'task_name' => 'Feature Extraction: '.strtoupper($feature),
             'date' => Carbon::now()->format("Y-m-d H:i:s"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
         $task_id = json_decode($task, true)['id'];
-        
-        // $new_client = new \GuzzleHttp\Client();
-        // // auth()->user()->access_token
-        // $request = $new_client->postAsync( 'http://127.0.0.1:5000/'.$feature, [
-        //     'headers' => [
-        //         'Accept' => 'application/json',
-        //         'Authorization' => 'Bearer ' . Session::get('SesTok'),
-        //     ],
-        //     'multipart' => [
-        //         [
-        //             'name'     => 'fileContent',
-        //             'filename' => 'preprocessedData.csv',
-        //             'contents' => fopen( $fileContentpath, 'r' ),
-        //         ],
-        //         [
-        //             'name'     => 'windowSize',
-        //             'contents' => $windowSize,
-        //         ],
-        //     ]
-        // ]);
-        // $client = new \GuzzleHttp\Client();
+
         $client = new Client();
 
         $promise = $client->postAsync('http://127.0.0.1:5000/'.$feature, [
