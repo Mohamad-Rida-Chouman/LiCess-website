@@ -54,10 +54,11 @@ const Model = () => {
 		setSelectedRadioRunOption(label);
 	};
 
-	const radioRunOptions = [
-		{ value: 'trainTest', label: 'Train + Test' },
-		{ value: 'testOnly', label: 'Test Only' },
-	];
+	// Optimization to be added later instead of test only
+	// const radioRunOptions = [
+	// 	{ value: 'trainTest', label: 'Train + Test' },
+	// 	{ value: 'testOnly', label: 'Test Only' },
+	// ];
 
 	const API_URL = process.env.REACT_APP_API_URL;
 
@@ -157,6 +158,7 @@ const Model = () => {
 						</div>
 					</div>
 					<div className="model-content-mid-lower flex flex-col justify-between">
+						{/* Optimization to be added later on instead of test only 
 						<div className="model-train-test-container">
 							<Radio
 								className="radio"
@@ -166,7 +168,7 @@ const Model = () => {
 								title="Run Type"
 								name="runType"
 							/>
-						</div>
+						</div> */}
 						<div className="model-button-container">
 							<Button
 								className="button button-m flex justify-center width-100"
