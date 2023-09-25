@@ -224,12 +224,14 @@ class TaskController extends Controller
         }
     }
 
-    public function createLGBMTask(Request $request) {
+    public function createModelTask(Request $request) {
         $user_id=1;
+        // const API_URL = process.env.REACT_APP_API_URL;
 
         $filesArray = [];
 
         $preprocessedData = $request->file('dataFile');
+        $model = $request->model;
 
         $filesArray[] = [
             'name' => 'files',
@@ -247,7 +249,7 @@ class TaskController extends Controller
 
         $data = [
             'user_id' => $user_id,
-            'task_name' => 'Model: LGBM',
+            'task_name' => 'Model: '.$model,
             'date' => date("Y-m-d"),
             'state' => 'Pending',
         ];
@@ -256,7 +258,7 @@ class TaskController extends Controller
 
         $client = new Client();
 
-        $promise = $client->postAsync( 'http://127.0.0.1:6000/python-api', [
+        $promise = $client->postAsync( 'http://127.0.0.1:6000/'.$model.'-api', [
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . Session::get('SesTok'),
