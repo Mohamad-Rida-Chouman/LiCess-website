@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Task;
 use App\Models\Result;
 use Illuminate\Http\Request;
@@ -9,6 +10,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Client;
+
 
 class TaskController extends Controller
 {
@@ -71,7 +75,7 @@ class TaskController extends Controller
     public function getTasksByUserId()
     {
         $user_id = 1;
-        $tasks = Task::where('user_id', $user_id)->get();
+        $tasks = Task::where('user_id', $user_id)->orderBy('created_at', 'DESC')->get();
         return response()->json($tasks);
     }
 
@@ -85,7 +89,7 @@ class TaskController extends Controller
         $data = [
             'user_id' => $user_id,
             'task_name' => 'Data Preprocessing',
-            'date' => date("Y-m-d"),
+            'date' => Carbon::now()->format("Y-m-d H:i:s"), //date("Y-m-d"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
@@ -148,15 +152,35 @@ class TaskController extends Controller
         $data = [
             'user_id' => $user_id,
             'task_name' => 'Feature Extraction',
-            'date' => date("Y-m-d"),
+            'date' => Carbon::now()->format("Y-m-d H:i:s"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
         $task_id = json_decode($task, true)['id'];
+        
+        // $new_client = new \GuzzleHttp\Client();
+        // // auth()->user()->access_token
+        // $request = $new_client->postAsync( 'http://127.0.0.1:5000/'.$feature, [
+        //     'headers' => [
+        //         'Accept' => 'application/json',
+        //         'Authorization' => 'Bearer ' . Session::get('SesTok'),
+        //     ],
+        //     'multipart' => [
+        //         [
+        //             'name'     => 'fileContent',
+        //             'filename' => 'preprocessedData.csv',
+        //             'contents' => fopen( $fileContentpath, 'r' ),
+        //         ],
+        //         [
+        //             'name'     => 'windowSize',
+        //             'contents' => $windowSize,
+        //         ],
+        //     ]
+        // ]);
+        // $client = new \GuzzleHttp\Client();
+        $client = new Client();
 
-        $new_client = new \GuzzleHttp\Client();
-
-        $response = $new_client->post( 'http://127.0.0.1:5000/'.$feature, [
+        $promise = $client->postAsync('http://127.0.0.1:5000/'.$feature, [
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . Session::get('SesTok'),
@@ -166,23 +190,32 @@ class TaskController extends Controller
                     'name'     => 'fileContent',
                     'filename' => 'preprocessedData.csv',
                     'contents' => fopen( $fileContentpath, 'r' ),
+                    // 'contents' => Psr7\Utils::tryFopen($fileContentpath, 'r' )
                 ],
                 [
                     'name'     => 'windowSize',
                     'contents' => $windowSize,
                 ],
             ]
-        ]);
+            ])->then(
+                function ($response) {
+                    $res = json_decode($response->getBody()->getContents(), true);
+                    return($res);
+                },
+                function ($exception) {
+                    $res = array('output' => $exception->getMessage(), 'code' => 500);
+                    return($res);
+                }
+            );
 
-        if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
+        $response = $promise->wait();
+        $code = $response["code"];
+        if($code == 500){
             $task -> state = 'Failed';
             $task -> save();
-
             return ($task);
-        }
-        else
-        {
-            $output = json_decode($response ->getBody(), true)['output'][0];
+        }else{
+            $output = $response['output'];
 
             $resultData = [
                 'task_id' => $task_id,
@@ -195,8 +228,35 @@ class TaskController extends Controller
             $task -> state = 'Completed';
             $task -> save();
 
-            return ($result);
+            return ($task);
         }
+        // return json_decode($response);
+
+        // return ($task);
+
+        // if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
+            // $task -> state = 'Failed';
+            // $task -> save();
+
+            // return ($task);
+        // }
+        // else
+        // {
+        //     $output = json_decode($response ->getBody(), true)['output'][0];
+
+        //     $resultData = [
+        //         'task_id' => $task_id,
+        //         'data_type' => 'csv',
+        //         'label' => $feature.'_'.$windowSize.'.csv',
+        //         'data' => serialize($output)
+        //     ];
+        //     $result = Result::create($resultData);
+            
+        //     $task -> state = 'Completed';
+        //     $task -> save();
+
+        //     return ($result);
+        // }
     }
 
     public function createLGBMTask(Request $request) {
