@@ -12,6 +12,30 @@ const Community = () => {
 
 	const [posts, setPosts] = useState([]);
 
+	async function loadPosts() {
+		axios
+			.get(URL)
+			.then((response) => {
+				const posts_array = response.data.map((post) => ({
+					date: post.date,
+					email: post.user_email,
+					model: post.model,
+					sn: post.sensitivity,
+					sp: post.specificity,
+					acc: post.accuracy,
+					mcc: post.mcc,
+					auc: post.auc,
+					fpr: post.fpr,
+					tpr: post.tpr,
+					comment: post.comment,
+				}));
+				setPosts(posts_array);
+			})
+			.catch((error) => {
+				return error;
+			});
+	}
+
 	const postData = [
 		{
 			date: '2023-09-11',
