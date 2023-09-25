@@ -54,6 +54,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user->role = 'user';
+
         return response()->json([
             'message' => 'User created successfully',
             'user' => $user
