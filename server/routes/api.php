@@ -32,8 +32,11 @@ Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
 Route::post('modelLGBM', [TaskController::class, 'createLGBMTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
 Route::get('resultByTask/{task_id}', [TaskController::class, 'getResultByTaskId']);
-Route::get('send-mail',[MailController::class,'index']);
+Route::get('shareableResult/{task_id}', [TaskController::class, 'getShareableResult']);
 
+
+
+// Route::get('send-mail',[MailController::class,'index']);
 
 // Route::get('/email/verify', function () {
 //     return view('auth.verify-email');
