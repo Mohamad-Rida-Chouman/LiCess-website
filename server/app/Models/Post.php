@@ -12,6 +12,7 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'date',
+        'model',
         'user_email',
         'sensitivity',
         'specificity',
@@ -21,5 +22,9 @@ class Post extends Model
         'fpr',
         'tpr',
         'comment',
+    ];
+    protected $attributes = [
+        'user_id' => 0,
+        'comment' => 'These are the results of my run, check them out!',
     ];
 }
