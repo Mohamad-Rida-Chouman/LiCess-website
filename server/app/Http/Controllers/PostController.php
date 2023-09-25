@@ -21,10 +21,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $user_id = 1;
         $validator = Validator::make( $request->all(), [
-            'user_id' => 'required|numeric',
             'date' => 'required|date',
             'user_email' => 'required|email',
+            'model' => 'required|string',
             'sensitivity' => 'required|numeric',
             'specificity' => 'required|numeric',
             'accuracy' => 'required|numeric',
@@ -32,14 +33,15 @@ class PostController extends Controller
             'auc' => 'required|numeric',
             'fpr' => 'required|string',
             'tpr' => 'required|string',
-            'comment' => 'required|string',
+            'comment' => 'string',
         ]);
-
         if ( $validator->fails() ) {
             return response()->json($validator->errors(), 500);
         }
 
         $post = Post::create($request->all());
+        $post ->user_id = $user_id;
+        $post -> save();
         return response()->json($post, 200);
     }
 
