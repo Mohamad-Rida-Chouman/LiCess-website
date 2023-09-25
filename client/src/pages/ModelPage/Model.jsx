@@ -74,23 +74,38 @@ const Model = () => {
 		) {
 			setModalOpenEmptyParams(true);
 		}
+
+		let model = '';
+
 		if (selectedRadioModelOption == 'Light-Gradient Boosting') {
-			const URL = API_URL + '/api/modelLGBM';
-			setModalOpen(true);
-			const dataFileCopy = dataFile;
-			const featureFileCopy = featureFile;
-			setDataFile();
-			setFeatureFile([]);
-			setDataFileUploaded(false);
-			setFeatureFileUploaded(false);
-			let formData = new FormData();
-			featureFileCopy.forEach((file) => {
-				formData.append('files[]', file);
-			});
-			formData.append('dataFile', dataFileCopy);
-			const response = await axios.post(URL, formData);
-			console.log(response.data);
+			model = 'LGB';
 		}
+		if (selectedRadioModelOption == 'Extreme-Gradient Boosting') {
+			model = 'XGB';
+		}
+		if (selectedRadioModelOption == 'Random Forest') {
+			model = 'RF';
+		}
+		if (selectedRadioModelOption == 'Ensemble') {
+			model = 'ENSEMBLE';
+		}
+		const URL = API_URL + '/api/model';
+		setModalOpen(true);
+		const dataFileCopy = dataFile;
+		const featureFileCopy = featureFile;
+		setDataFile();
+		setFeatureFile([]);
+		setDataFileUploaded(false);
+		setFeatureFileUploaded(false);
+		let formData = new FormData();
+		featureFileCopy.forEach((file) => {
+			formData.append('files[]', file);
+		});
+		formData.append('dataFile', dataFileCopy);
+		console.log('model:' + model);
+		formData.append('model', model);
+		const response = await axios.post(URL, formData);
+		console.log(response.data);
 	};
 
 	return (
