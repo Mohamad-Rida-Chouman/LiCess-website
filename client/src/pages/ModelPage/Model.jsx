@@ -59,6 +59,8 @@ const Model = () => {
 		{ value: 'testOnly', label: 'Test Only' },
 	];
 
+	const API_URL = process.env.REACT_APP_API_URL;
+
 	//Functions related to modal:
 	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
@@ -66,31 +68,29 @@ const Model = () => {
 	const handleModelClick = async () => {
 		if (
 			selectedRadioModelOption == '' ||
-			selectedRadioRunOption == '' ||
 			featureFile == [] ||
 			dataFile == null
 		) {
 			setModalOpenEmptyParams(true);
 		}
-		if (
-			selectedRadioModelOption == 'Light-Gradient Boosting' &&
-			selectedRadioRunOption == 'Train + Test'
-		) {
-			const URL = 'http://127.0.0.1:8000/api/modelLGBM';
+		if (selectedRadioModelOption == 'Light-Gradient Boosting') {
+			const URL = API_URL + '/api/modelLGBM';
 			setModalOpen(true);
-			let formData = new FormData();
-			featureFile.forEach((file) => {
-				formData.append('files[]', file);
-			});
-			formData.append('dataFile', dataFile);
-			const response = await axios.post(URL, formData);
-			console.log(response.data);
+			const dataFileCopy = dataFile;
+			const featureFileCopy = featureFile;
 			setDataFile();
 			setFeatureFile();
 			setDataFileUploaded(false);
 			setFeatureFileUploaded(false);
 			dataFileContent.current = null;
 			featureFilesContent.current = null;
+			let formData = new FormData();
+			featureFileCopy.forEach((file) => {
+				formData.append('files[]', file);
+			});
+			formData.append('dataFile', dataFileCopy);
+			const response = await axios.post(URL, formData);
+			console.log(response.data);
 		}
 	};
 
