@@ -5,8 +5,13 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import CommunityPost from '../../components/CommunityPost/CommunityPost';
+import axios from 'axios';
 
 const Community = () => {
+	useEffect(() => {
+		loadPosts();
+	}, []);
+
 	const API_URL = process.env.REACT_APP_API_URL;
 	const URL = API_URL + '/api/posts';
 
@@ -86,7 +91,7 @@ const Community = () => {
 				<PageTitle title="Community" />
 			</div>
 			<div className="community-content-container gap-m flex flex-col padding-l">
-				{postData.map((data, index) => (
+				{posts.map((data, index) => (
 					<div className="community-content flex flex-col gap-m padding-s">
 						<div className="community-post">
 							<CommunityPost
