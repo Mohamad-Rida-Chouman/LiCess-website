@@ -7,6 +7,9 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import CommunityPost from '../../components/CommunityPost/CommunityPost';
 
 const Community = () => {
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL = API_URL + '/api/posts';
+
 	const postData = [
 		{
 			date: '2023-09-11',
