@@ -41,7 +41,9 @@ const PostForm = (props) => {
 		bodyFormData.append('auc', parseFloat(resultsToShare.data[5]).toFixed(2));
 		bodyFormData.append('fpr', resultsToShare.data[6]);
 		bodyFormData.append('tpr', resultsToShare.data[7]);
-		bodyFormData.append('comment', document.getElementById('comment').value);
+		if (document.getElementById('comment').value != '') {
+			bodyFormData.append('comment', document.getElementById('comment').value);
+		}
 
 		axios({
 			method: 'post',
