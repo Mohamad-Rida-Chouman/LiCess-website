@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../../base.css';
 import './Dashboard.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -7,31 +8,52 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import axios from 'axios';
 import Button from '../../components/Button/Button';
 import { saveAs } from 'file-saver';
+import Modal from '../../components/Modal/Modal';
+import PostForm from '../../components/PostForm/PostForm';
 
 const Dashboard = () => {
 	const [tasks, setTasks] = useState([]);
 	useEffect(() => {
+		console.log('dashboard');
 		loadTasks();
 	}, []);
 
-	const URL = 'http://127.0.0.1:8000/api/taskByUser';
+	const location = useLocation();
+	const URL = 'http://backend.licess.test/api/taskByUser';
 
 	async function loadTasks() {
-		try {
-			const response = await axios.get(URL);
-			if (response) {
+		console.log('loading tasks');
+		axios
+			.get(URL)
+			.then((response) => {
 				const tasks_array = response.data.map((task) => ({
 					task_id: task.id,
 					task_name: task.task_name,
 					date: task.date,
 					state: task.state,
 				}));
-				tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
+				// tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
 				setTasks(tasks_array);
-			}
-		} catch {
-			console.log('failed to load tasks');
-		}
+			})
+			.catch((error) => {
+				return error;
+			});
+
+		// try {
+		// 	const response = await axios.get(URL);
+		// 	if (response) {
+		// const tasks_array = response.data.map((task) => ({
+		// 	task_id: task.id,
+		// 	task_name: task.task_name,
+		// 	date: task.date,
+		// 	state: task.state,
+		// }));
+		// tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
+		// setTasks(tasks_array);
+		// 	}
+		// } catch {
+		// 	console.log('failed to load tasks');
+		// }
 	}
 
 	const URL_SingleTask = 'http://127.0.0.1:8000/api/resultByTask/';
@@ -87,6 +109,13 @@ const Dashboard = () => {
 			console.log('failed to load tasks');
 		}
 	};
+
+	const handleShareClick = (task_id) => {
+		console.log(task_id);
+		setShareModalOpen(true);
+	};
+
+	const [shareModalOpen, setShareModalOpen] = useState(false);
 
 	return (
 		<div className="dashboard-main-container width-100 flex flex-col gap-l padding-l">
@@ -149,7 +178,12 @@ const Dashboard = () => {
 								<td className="flex justify-start align-center width-100">
 									{rowData.task_name.startsWith('Model') &&
 									rowData.state === 'Completed' ? (
-										<Button className="button button-s">Share Results</Button>
+										<Button
+											className="button button-s"
+											onClick={() => handleShareClick(rowData.task_id)}
+										>
+											Share Results
+										</Button>
 									) : (rowData.task_name.startsWith('Model') &&
 											rowData.state == 'Pending') ||
 									  rowData.state == 'Failed' ? (
@@ -166,6 +200,14 @@ const Dashboard = () => {
 						))}
 					</tbody>
 				</table>
+				{shareModalOpen && (
+					<Modal
+						isOpen={shareModalOpen}
+						onClose={() => setShareModalOpen(false)}
+					>
+						<PostForm />
+					</Modal>
+				)}
 			</div>
 			<div className="dashboard-footer-container width-100">
 				<Footer />
