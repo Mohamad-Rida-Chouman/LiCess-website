@@ -79,7 +79,8 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, auc, fpr, tpr }) => {
 				</div>
 				<div className="post-content-results">
 					I would like to share with everyone the results I obtained after using
-					the <span className="bold">{model}</span> model: <br />
+					the <span className="bold">{model}</span>
+					<br />
 					<span className="bold">Accuracy:</span> {accuracy},<br />
 					<span className="bold">Sensitivity:</span> {sensitivity},<br />
 					<span className="bold">Specificity:</span> {Specificity},<br />
