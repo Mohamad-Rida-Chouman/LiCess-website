@@ -27,27 +27,21 @@ const PostForm = () => {
 	return (
 		<div className="main-post-form-container">
 			<div className="post-template-main-container flex flex-col gap-m padding-m">
-				<div className="post-template-title">
-					<h3>Your post will look like this:</h3>
+				<div className="post-template width-100 padding-s gap-m">
+					{postData.map((data) => (
+						<Post
+							date={data.date}
+							email={data.email}
+							model={data.model}
+							sn={data.sn}
+							sp={data.sp}
+							acc={data.acc}
+							mcc={data.mcc}
+							curve={data.curve}
+						/>
+					))}
 				</div>
-				<div className="post-template-container">
-					<div className="post-template width-100 border padding-s gap-m">
-						{postData.map((data) => (
-							<Post
-								date={data.date}
-								email={data.email}
-								model={data.model}
-								sn={data.sn}
-								sp={data.sp}
-								acc={data.acc}
-								mcc={data.mcc}
-								curve={data.curve}
-							/>
-						))}
-					</div>
-				</div>
-
-				<div className="post-submit-container flex width-100">
+				<div className="post-submit-container flex justify-center width-100">
 					<Button
 						className="button button-m width-100"
 						onClick={handleSubmitClick}
