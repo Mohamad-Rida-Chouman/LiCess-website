@@ -19,7 +19,8 @@ const Dashboard = () => {
 	}, []);
 
 	const location = useLocation();
-	const URL = 'http://backend.licess.test/api/taskByUser';
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL = API_URL + '/api/taskByUser';
 
 	async function loadTasks() {
 		console.log('loading tasks');
@@ -32,31 +33,14 @@ const Dashboard = () => {
 					date: task.date,
 					state: task.state,
 				}));
-				// tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
 				setTasks(tasks_array);
 			})
 			.catch((error) => {
 				return error;
 			});
-
-		// try {
-		// 	const response = await axios.get(URL);
-		// 	if (response) {
-		// const tasks_array = response.data.map((task) => ({
-		// 	task_id: task.id,
-		// 	task_name: task.task_name,
-		// 	date: task.date,
-		// 	state: task.state,
-		// }));
-		// tasks_array.sort((a, b) => new Date(b.date) - new Date(a.date));
-		// setTasks(tasks_array);
-		// 	}
-		// } catch {
-		// 	console.log('failed to load tasks');
-		// }
 	}
 
-	const URL_SingleTask = 'http://127.0.0.1:8000/api/resultByTask/';
+	const URL_SingleTask = API_URL + '/api/resultByTask/';
 
 	const handleDownloadClick = async (task_id) => {
 		try {
