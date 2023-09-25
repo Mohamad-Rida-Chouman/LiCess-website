@@ -16,11 +16,12 @@ return new class extends Migration
             $table->integer('user_id');
             $table->timestamp('date');
             $table->string('user_email');
-            $table->integer('sensitivity');
-            $table->integer('specificity');
-            $table->integer('accuracy');
-            $table->integer('mcc');
-            $table->integer('auc');
+            $table->string('model');
+            $table->float('sensitivity', 5, 2);
+            $table->float('specificity', 5, 2);
+            $table->float('accuracy', 5, 2);
+            $table->float('mcc', 5, 2);
+            $table->float('auc', 5, 2);
             $table->string('fpr');
             $table->string('tpr');
             $table->string('comment');
