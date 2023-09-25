@@ -44,7 +44,8 @@ const Preprocess = () => {
 		{ label: '41', value: 'window41' },
 	];
 
-	const URL = 'http://127.0.0.1:8000/api/preprocess';
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL = API_URL + '/api/preprocess';
 
 	const [dataFile, setDataFile] = useState();
 
@@ -56,24 +57,25 @@ const Preprocess = () => {
 		} else {
 			setModalOpen(true);
 			const selectedLabels = selectedWindows.map((option) => option.label);
-
-			await Promise.all(
-				selectedLabels.map((w) => {
-					let formData = new FormData();
-					formData.append('sitesCsv', dataFile);
-					formData.append('fasta', fastaFile);
-					formData.append('windowSize', w);
-					return axios.post(URL, formData).then((res) => {
-						console.log(res);
-					});
-				})
-			);
+			const dataFileCopy = dataFile;
+			const fastaFileCopy = fastaFile;
 			setDataFile();
 			setFastaFile();
 			setDataFileUploaded(false);
 			setFastaFileUploaded(false);
 			document.getElementById('inputDataButton').value = null;
 			document.getElementById('inputFastaButton').value = null;
+			await Promise.all(
+				selectedLabels.map((w) => {
+					let formData = new FormData();
+					formData.append('sitesCsv', dataFileCopy);
+					formData.append('fasta', fastaFileCopy);
+					formData.append('windowSize', w);
+					return axios.post(URL, formData).then((res) => {
+						console.log(res);
+					});
+				})
+			);
 		}
 	};
 
