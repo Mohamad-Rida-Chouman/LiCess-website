@@ -17,7 +17,9 @@ const Community = () => {
 			acc: 0.88,
 			mcc: 0.75,
 			comment: 'This model performed exceptionally well on the test dataset.',
-			curve: <img src="path" alt="Curve 1" />,
+			auc: 0.9,
+			fpr: '[0.0, 0.46, 1.0]',
+			tpr: '[0.0, 0.7, 1.0]',
 		},
 		{
 			date: '2023-09-12',
@@ -27,8 +29,10 @@ const Community = () => {
 			sp: 0.95,
 			acc: 0.91,
 			mcc: 0.82,
+			auc: 0.9,
+			fpr: '[0.0, 0.46, 1.0]',
+			tpr: '[0.0, 0.7, 1.0]',
 			comment: 'The model achieved high accuracy and specificity.',
-			curve: <img src="path" alt="Curve 2" />,
 		},
 		{
 			date: '2023-09-13',
@@ -39,7 +43,9 @@ const Community = () => {
 			acc: 0.89,
 			mcc: 0.79,
 			comment: 'The sensitivity and accuracy are noteworthy.',
-			curve: <img src="path" alt="Curve 3" />,
+			auc: 0.9,
+			fpr: '[0.0, 0.46, 1.0]',
+			tpr: '[0.0, 0.7, 1.0]',
 		},
 	];
 	return (
@@ -64,7 +70,9 @@ const Community = () => {
 								acc={data.acc}
 								mcc={data.mcc}
 								comment={data.comment}
-								curve={data.curve}
+								auc={data.auc}
+								fpr={data.fpr}
+								tpr={data.tpr}
 							/>
 						</div>
 					</div>
