@@ -23,6 +23,9 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         'email',
         'password',
     ];
+    protected $attributes = [
+        'role' => 'user',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
