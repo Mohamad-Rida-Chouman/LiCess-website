@@ -19,20 +19,43 @@ const PostForm = (props) => {
 
 	const URL_Posts = API_URL + '/api/posts';
 
-	const handleSubmitClick = async () => {
-		console.log('hihi');
-		// await Promise.all(
-		// 	selectedLabels.map((w) => {
-		// 		let formData = new FormData();
-		// 		formData.append('sitesCsv', dataFileCopy);
-		// 		formData.append('fasta', fastaFileCopy);
-		// 		formData.append('windowSize', w);
-		// 		return axios.post(URL, formData).then((res) => {
-		// 			console.log(res);
-		// 		});
-		// 	})
-		// );
-	};
+	async function handleSubmitClick() {
+		console.log(document.getElementById('comment').value);
+		const bodyFormData = new FormData();
+		bodyFormData.append('date', resultsToShare.date);
+		bodyFormData.append('user_email', resultsToShare.email);
+		bodyFormData.append('model', resultsToShare.model);
+		bodyFormData.append(
+			'sensitivity',
+			parseFloat(resultsToShare.data[2]).toFixed(2)
+		);
+		bodyFormData.append(
+			'specificity',
+			parseFloat(resultsToShare.data[3]).toFixed(2)
+		);
+		bodyFormData.append(
+			'accuracy',
+			parseFloat(resultsToShare.data[1]).toFixed(2)
+		);
+		bodyFormData.append('mcc', parseFloat(resultsToShare.data[4]).toFixed(2));
+		bodyFormData.append('auc', parseFloat(resultsToShare.data[5]).toFixed(2));
+		bodyFormData.append('fpr', resultsToShare.data[6]);
+		bodyFormData.append('tpr', resultsToShare.data[7]);
+		bodyFormData.append('comment', document.getElementById('comment').value);
+
+		axios({
+			method: 'post',
+			url: URL_Posts,
+			data: bodyFormData,
+			headers: { 'Content-Type': 'multipart/form-data' },
+		})
+			.then((response) => {
+				console.log('hii');
+			})
+			.catch((error) => {
+				return error;
+			});
+	}
 
 	const URL_ShareableResults = API_URL + '/api/shareableResult/' + task_id;
 
