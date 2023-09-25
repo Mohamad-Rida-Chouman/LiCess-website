@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Task;
 use App\Models\Result;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -308,6 +309,23 @@ class TaskController extends Controller
         }
         $result = Result::where('task_id', $task_id)->get();
         return ($result[0]);
+    }
+
+    public function getShareableResult($task_id)
+    {
+        $user_id = 1;
+        $result = Task::join('results', 'tasks.id', '=', 'results.task_id')
+            ->join('users', 'tasks.user_id', '=', 'users.id')
+            ->where('tasks.id', $task_id)
+            -> select(
+                'users.email as email',
+                'tasks.date as date',
+                'tasks.task_name as model',
+                'results.data as data',
+            )
+            ->get();
+
+        return($result);
     }
 
 }
