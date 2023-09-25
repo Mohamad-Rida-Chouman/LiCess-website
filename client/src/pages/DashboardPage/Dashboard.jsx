@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import '../../base.css';
 import './Dashboard.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -18,7 +17,6 @@ const Dashboard = () => {
 		loadTasks();
 	}, []);
 
-	const location = useLocation();
 	const API_URL = process.env.REACT_APP_API_URL;
 	const URL = API_URL + '/api/taskByUser';
 
