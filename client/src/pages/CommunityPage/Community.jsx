@@ -4,7 +4,7 @@ import '../../base.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import Post from '../../components/Post/Post';
+import CommunityPost from '../../components/CommunityPost/CommunityPost';
 
 const Community = () => {
 	const postData = [
@@ -52,9 +52,9 @@ const Community = () => {
 			</div>
 			<div className="community-content-container gap-m flex flex-col padding-l">
 				{postData.map((data, index) => (
-					<div className="community-content flex flex-col gap-m padding-s border">
+					<div className="community-content flex flex-col gap-m padding-s">
 						<div className="community-post">
-							<Post
+							<CommunityPost
 								key={index}
 								date={data.date}
 								email={data.email}
