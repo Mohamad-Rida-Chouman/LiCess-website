@@ -27,7 +27,7 @@ class PostController extends Controller
             'user_email' => 'required|email',
             'sensitivity' => 'required|numeric',
             'specificity' => 'required|numeric',
-            'acc' => 'required|numeric',
+            'accuracy' => 'required|numeric',
             'mcc' => 'required|numeric',
             'auc' => 'required|numeric',
             'fpr' => 'required|string',

@@ -15,7 +15,7 @@ class Post extends Model
         'user_email',
         'sensitivity',
         'specificity',
-        'acc',
+        'accuracy',
         'mcc',
         'auc',
         'fpr',
