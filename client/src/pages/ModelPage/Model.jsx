@@ -237,7 +237,7 @@ const Model = () => {
 						/>
 						<div className="features-preview-container">
 							<strong>Uploaded Files:</strong>
-							{featureFile != null ? (
+							{featureFile.length != 0 ? (
 								<span>
 									{featureFile.map((file, index) => (
 										<React.Fragment key={index}>
