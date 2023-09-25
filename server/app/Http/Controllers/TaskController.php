@@ -89,15 +89,15 @@ class TaskController extends Controller
         $data = [
             'user_id' => $user_id,
             'task_name' => 'Preprocessed Window Size: '.$windowSize,
-            'date' => Carbon::now()->format("Y-m-d H:i:s"), //date("Y-m-d"),
+            'date' => Carbon::now()->format("Y-m-d H:i:s"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
         $task_id = json_decode($task, true)['id'];
 
-        $new_client = new \GuzzleHttp\Client();
+        $client = new Client();
 
-        $response = $new_client->post( 'http://127.0.0.1:5000/dataset?windowSize='.$windowSize, [
+        $promise = $client->postAsync( 'http://127.0.0.1:5000/dataset?windowSize='.$windowSize, [
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . Session::get('SesTok'),
@@ -114,17 +114,28 @@ class TaskController extends Controller
                     'contents' => fopen( $sitesCsvPath, 'r' ),
                 ],
             ]
-        ]);
+            ])->then(
+                function ($response) {
+                    $res = json_decode($response->getBody()->getContents(), true);
+                    return($res);
+                },
+                function ($exception) {
+                    $res = array('output' => $exception->getMessage(), 'code' => 500);
+                    return($res);
+                }
+            );
 
-        if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
+        $response = $promise->wait();
+        $code = $response["code"];
+
+        if($code == 500){
             $task -> state = 'Failed';
             $task -> save();
-
             return ($task);
         }
         else
         {
-            $output = json_decode($response ->getBody(), true)['output'][0];
+            $output = $response['output'];
             
             $resultData = [
                 'task_id' => $task_id,
@@ -170,7 +181,6 @@ class TaskController extends Controller
                     'name'     => 'fileContent',
                     'filename' => 'preprocessedData.csv',
                     'contents' => fopen( $fileContentpath, 'r' ),
-                    // 'contents' => Psr7\Utils::tryFopen($fileContentpath, 'r' )
                 ],
                 [
                     'name'     => 'windowSize',
@@ -190,6 +200,7 @@ class TaskController extends Controller
 
         $response = $promise->wait();
         $code = $response["code"];
+        
         if($code == 500){
             $task -> state = 'Failed';
             $task -> save();
@@ -210,33 +221,6 @@ class TaskController extends Controller
 
             return ($task);
         }
-        // return json_decode($response);
-
-        // return ($task);
-
-        // if(json_decode($response ->getBody()->getContents(), true)['code'][0] == 500){
-            // $task -> state = 'Failed';
-            // $task -> save();
-
-            // return ($task);
-        // }
-        // else
-        // {
-        //     $output = json_decode($response ->getBody(), true)['output'][0];
-
-        //     $resultData = [
-        //         'task_id' => $task_id,
-        //         'data_type' => 'csv',
-        //         'label' => $feature.'_'.$windowSize.'.csv',
-        //         'data' => serialize($output)
-        //     ];
-        //     $result = Result::create($resultData);
-            
-        //     $task -> state = 'Completed';
-        //     $task -> save();
-
-        //     return ($result);
-        // }
     }
 
     public function createLGBMTask(Request $request) {
