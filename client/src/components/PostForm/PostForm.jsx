@@ -13,13 +13,27 @@ const PostForm = (props) => {
 		loadShareableResults();
 	}, []);
 
+	const API_URL = process.env.REACT_APP_API_URL;
+
 	const [resultsToShare, setResultsToShare] = useState();
 
-	const handleSubmitClick = () => {
-		console.log('Share button clicked');
+	const URL_Posts = API_URL + '/api/posts';
+
+	const handleSubmitClick = async () => {
+		console.log('hihi');
+		// await Promise.all(
+		// 	selectedLabels.map((w) => {
+		// 		let formData = new FormData();
+		// 		formData.append('sitesCsv', dataFileCopy);
+		// 		formData.append('fasta', fastaFileCopy);
+		// 		formData.append('windowSize', w);
+		// 		return axios.post(URL, formData).then((res) => {
+		// 			console.log(res);
+		// 		});
+		// 	})
+		// );
 	};
 
-	const API_URL = process.env.REACT_APP_API_URL;
 	const URL_ShareableResults = API_URL + '/api/shareableResult/' + task_id;
 
 	const loadShareableResults = async () => {
@@ -45,20 +59,29 @@ const PostForm = (props) => {
 		<div className="main-post-form-container">
 			<div className="post-template-main-container flex flex-col gap-m padding-m">
 				<div className="post-template width-100 padding-s gap-m">
-					{resultsToShare && (
-						<Post
-							date={resultsToShare.date}
-							email={resultsToShare.email}
-							model={resultsToShare.model}
-							sn={resultsToShare.data[2]}
-							sp={resultsToShare.data[3]}
-							acc={resultsToShare.data[1]}
-							mcc={resultsToShare.data[4]}
-							auc={resultsToShare.data[5]}
-							fpr={resultsToShare.data[6]}
-							tpr={resultsToShare.data[7]}
-						/>
-					)}
+					<div className="whole-post-container border">
+						<textarea
+							name="comment"
+							id="comment"
+							wrap="soft"
+							placeholder="Share your thoughts!"
+							className="user-comment width-100 padding-s"
+						></textarea>
+						{resultsToShare && (
+							<Post
+								date={resultsToShare.date}
+								email={resultsToShare.email}
+								model={resultsToShare.model}
+								sn={resultsToShare.data[2]}
+								sp={resultsToShare.data[3]}
+								acc={resultsToShare.data[1]}
+								mcc={resultsToShare.data[4]}
+								auc={resultsToShare.data[5]}
+								fpr={resultsToShare.data[6]}
+								tpr={resultsToShare.data[7]}
+							/>
+						)}
+					</div>
 				</div>
 				<div className="post-submit-container flex justify-center width-100">
 					<Button
