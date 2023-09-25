@@ -1,9 +1,13 @@
 import React from 'react';
 import './Post.css';
 import '../../base.css';
-import Input from '../Input/Input';
 
 const Post = ({ date, email, model, sn, sp, acc, mcc, curve, comment }) => {
+	const accuracy = Math.round(acc * 100) / 100;
+	const sensitivity = Math.round(sn * 100) / 100;
+	const Specificity = Math.round(sp * 100) / 100;
+	const MCC = Math.round(mcc * 100) / 100;
+
 	return (
 		<div className="whole-post-container border">
 			<textarea
@@ -22,10 +26,10 @@ const Post = ({ date, email, model, sn, sp, acc, mcc, curve, comment }) => {
 					<div className="post-content-results">
 						I would like to share with everyone the results I obtained after
 						using the <span className="bold">{model}</span> model: <br />
-						<span className="bold">Sensitivity:</span> {sn},
-						<span className="bold">Specificity:</span> {sp},
-						<span className="bold">Accuracy:</span> {acc},
-						<span className="bold">MCC:</span> {mcc}.
+						<span className="bold">Accuracy:</span> {accuracy},<br />
+						<span className="bold">Sensitivity:</span> {sensitivity},<br />
+						<span className="bold">Specificity:</span> {Specificity},<br />
+						<span className="bold">MCC:</span> {MCC}.
 					</div>
 					<div className="post-footer">
 						For any questions, please reach to me on my email!
