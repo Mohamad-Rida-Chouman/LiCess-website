@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
