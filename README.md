@@ -5,21 +5,23 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> A mobile app for ordering coffee on-the-go, making it easier for coffee lovers to get their favorite beverages without waiting in line.
+> An AI-Powered, Bioinformatics tool for predicting S-Nitrosylation (SNO) sites in proteins, helping in processes including - but not limited to -  the drug design, protein understanding...
 >
-> Coffee Express aims to streamline the coffee-ordering process by providing a user-friendly platform for customers to place orders and pick up their coffee at their convenience. We believe in enhancing the coffee experience by saving time and ensuring customer satisfaction.
+> LiCess aims to provide a user-friendly experience for researchers interested in SNO-related studies and researches. It predicts the site of SNO in proteins using real-life data.
 
 ### User Stories
-- As a user, I want to browse the menu, so I can find my favorite coffee drinks.
-- As a user, I want to customize my order, so I can add or remove ingredients according to my preferences.
-- As a user, I want to pay for my order through the app, so I can avoid waiting in line at the store.
-
+- As a user, I want to share my results on the website so that others can benefit from and compare my results.
+- As a user, I want to upload my data to the server so that the model tests it.
+- As a user, I want to download my results so that I can have them offline.
+- As a user, I want to upload my data to the server so that the model tests it.
+- As a user, I want to register to an account so that I can save my runs.
+- As a user, I want to login to an account so that I can check my runs’ history.
 <br><br>
 
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> We designed Coffee Express using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> We designed LiCess using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
 | Login screen  | Register screen |  Landing screen |
