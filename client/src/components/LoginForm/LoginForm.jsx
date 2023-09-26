@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 const LoginForm = ({ switchToRegister }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [alert, setAlert] = useState(false);
 
 	const handleEmailChange = (value) => {
 		setEmail(value);
@@ -47,6 +48,9 @@ const LoginForm = ({ switchToRegister }) => {
 					value={password}
 					onChange={handlePasswordChange}
 				/>
+				{alert && (
+					<span className="alert red-text">* Please Enter All Fields.</span>
+				)}
 				<div className="width-100">
 					<Button
 						className="button button-s width-100"
