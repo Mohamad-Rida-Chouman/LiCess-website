@@ -8,6 +8,7 @@ import { createRoutesFromChildren } from 'react-router';
 
 const PostForm = (props) => {
 	const task_id = props.taskId;
+	const token = localStorage.getItem('token');
 	useEffect(() => {
 		console.log('task id is: ' + task_id);
 		loadShareableResults();
@@ -49,7 +50,10 @@ const PostForm = (props) => {
 			method: 'post',
 			url: URL_Posts,
 			data: bodyFormData,
-			headers: { 'Content-Type': 'multipart/form-data' },
+			headers: {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'multipart/form-data',
+			},
 		})
 			.then((response) => {
 				console.log('hii');
