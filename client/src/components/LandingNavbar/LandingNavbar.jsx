@@ -17,9 +17,7 @@ const LandingNavbar = () => {
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
-			console.log(localStorage.getItem('token'));
 		}
-		// localStorage.removeItem('token');
 	}, []);
 
 	const openModal = () => {
@@ -39,7 +37,6 @@ const LandingNavbar = () => {
 			.then((response) => {
 				localStorage.removeItem('token');
 				setToken('');
-				console.log('logged out!');
 			})
 			.catch((error) => {
 				return error;
