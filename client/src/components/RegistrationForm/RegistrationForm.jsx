@@ -5,15 +5,19 @@ import Input from '../Input/Input';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Logo from '../../assets/logo.svg';
 import Button from '../Button/Button';
+import axios from 'axios';
+import LoginForm from '../LoginForm/LoginForm';
 
 const RegistrationForm = ({ switchToLogin }) => {
-	const [name, setName] = useState('');
+	const [username, setUserame] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [verify, setVerify] = useState('');
+	const [alert, setAlert] = useState(false);
+	const [showLoginModal, setShowLoginModal] = useState(false);
 
 	const handleNameChange = (value) => {
-		setName(value);
+		setUserame(value);
 	};
 	const handleEmailChange = (value) => {
 		setEmail(value);
@@ -25,9 +29,32 @@ const RegistrationForm = ({ switchToLogin }) => {
 		setVerify(value);
 	};
 
-	const handleClick = () => {
-		console.log('Register button clicked');
-	};
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL_REGISTER = API_URL + '/api/auth/register';
+
+	async function handleClick() {
+		if (username == '' || email == '' || password == '' || verify == '') {
+			setAlert(true);
+		} else {
+			const bodyFormData = new FormData();
+			bodyFormData.append('username', username);
+			bodyFormData.append('email', email);
+			bodyFormData.append('password', password);
+			bodyFormData.append('password_confirmation', verify);
+			axios({
+				method: 'post',
+				url: URL_REGISTER,
+				data: bodyFormData,
+				headers: { 'Content-Type': 'multipart/form-data' },
+			})
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					return error;
+				});
+		}
+	}
 
 	return (
 		<div className="main-registration-container flex gap-s padding-l">
@@ -45,7 +72,7 @@ const RegistrationForm = ({ switchToLogin }) => {
 					className="input-stroke padding-s"
 					label="Username"
 					type="text"
-					value={name}
+					value={username}
 					onChange={handleNameChange}
 				/>
 				<Input
@@ -69,11 +96,12 @@ const RegistrationForm = ({ switchToLogin }) => {
 					value={verify}
 					onChange={handleVerifyChange}
 				/>
+
 				<div className="width-100">
 					<Button
 						className="button button-s width-100"
 						onClick={handleClick}
-						linkTo="/dashboard"
+						linkTo="/login"
 					>
 						Register
 					</Button>
