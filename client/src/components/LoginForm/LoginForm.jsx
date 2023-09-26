@@ -39,7 +39,7 @@ const LoginForm = ({ switchToRegister }) => {
 				headers: { 'Content-Type': 'multipart/form-data' },
 			})
 				.then((response) => {
-					console.log(response);
+					localStorage.setItem('token', response.data.access_token);
 					navigate('/dashboard');
 				})
 				.catch((error) => {
