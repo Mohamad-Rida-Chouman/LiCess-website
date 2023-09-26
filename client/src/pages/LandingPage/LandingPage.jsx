@@ -11,18 +11,33 @@ import Email from '../../assets/email.svg';
 import Github from '../../assets/github.svg';
 import LinkedIn from '../../assets/linkedin.svg';
 import KeyFeatureCard from '../../components/KeyFeatureCard/KeyFeatureCard';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
+	const navigate = useNavigate();
+	const token = localStorage.getItem('token');
 	const handleDataButtonClick = () => {
-		console.log('Data Button clicked!');
+		if (token) {
+			navigate('/data_preprocess');
+		} else {
+			console.log('login first');
+		}
 	};
 
 	const handleFeatureButtonClick = () => {
-		console.log('Feature Button clicked!');
+		if (token) {
+			navigate('/feature_extraction');
+		} else {
+			console.log('login first');
+		}
 	};
 
 	const handleModelButtonClick = () => {
-		console.log('Model Button clicked!');
+		if (token) {
+			navigate('/model_run');
+		} else {
+			console.log('login first');
+		}
 	};
 
 	const ref = useRef(null);
@@ -105,7 +120,7 @@ const LandingPage = () => {
 								body="Split data into different window sizes of interest"
 								buttonText="Preprocess Data"
 								onButtonClick={handleDataButtonClick}
-								linkTo="/data_preprocess"
+								// linkTo="/data_preprocess"
 							/>
 						</div>
 
@@ -115,7 +130,7 @@ const LandingPage = () => {
 								body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
 								buttonText="Extract Features"
 								onButtonClick={handleFeatureButtonClick}
-								linkTo="/feature_extraction"
+								// linkTo="/feature_extraction"
 							/>
 						</div>
 
@@ -125,7 +140,7 @@ const LandingPage = () => {
 								body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
 								buttonText="Run Model"
 								onButtonClick={handleModelButtonClick}
-								linkTo="/model_run"
+								// linkTo="/model_run"
 							/>
 						</div>
 					</div>
