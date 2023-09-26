@@ -33,15 +33,13 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);  
-    Route::resource('/tasks', TaskController::class);  
-    Route::post('/preprocess', [TaskController::class, 'createPreprocessingTask']);
+    
 });
-
-
 
 Route::resource('posts', PostController::class);
 Route::post('tasks/{id}', [TaskController::class, 'update']);
-
+Route::resource('/tasks', TaskController::class);  
+Route::post('/preprocess', [TaskController::class, 'createPreprocessingTask']);
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
 Route::post('model', [TaskController::class, 'createModelTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
