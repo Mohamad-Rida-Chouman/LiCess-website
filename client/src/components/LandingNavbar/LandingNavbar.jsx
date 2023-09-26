@@ -12,12 +12,14 @@ import axios from 'axios';
 const LandingNavbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showRegistrationModal, setShowRegistrationModal] = useState(false);
-	const [token, setToken] = useState('');
+	const [token, setToken] = useState(null);
 
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
+			console.log(localStorage.getItem('token'));
 		}
+		// localStorage.removeItem('token');
 	}, []);
 
 	const openModal = () => {
@@ -37,7 +39,7 @@ const LandingNavbar = () => {
 			.then((response) => {
 				localStorage.removeItem('token');
 				setToken('');
-				console('logged out!');
+				console.log('logged out!');
 			})
 			.catch((error) => {
 				return error;
@@ -68,11 +70,12 @@ const LandingNavbar = () => {
 				<h3>LiCess</h3>
 			</div>
 			<div className="right-landing-navbar-container flex align-center">
-				{token != '' ? (
+				{token && (
 					<Button className="button button-m" onClick={logout}>
 						Logout
 					</Button>
-				) : (
+				)}
+				{!token && (
 					<Button className="button button-m" onClick={openModal}>
 						Get Started
 					</Button>
