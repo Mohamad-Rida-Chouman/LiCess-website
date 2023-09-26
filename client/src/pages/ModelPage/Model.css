@@ -21,22 +21,22 @@
 	overflow-y: auto;
 }
 
-.model-content-left {
+.model-instructions {
 	overflow-y: auto;
 }
 
 .model-radio-container::-webkit-scrollbar,
-.model-content-left::-webkit-scrollbar {
+.model-instructions::-webkit-scrollbar {
 	width: 0.2rem;
 }
 
 .model-radio-container::-webkit-scrollbar-track,
-.model-content-left::-webkit-scrollbar-track {
+.model-instructions::-webkit-scrollbar-track {
 	background: transparent;
 }
 
 .model-radio-container::-webkit-scrollbar-thumb,
-.model-content-left::-webkit-scrollbar-thumb {
+.model-instructions::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
 
