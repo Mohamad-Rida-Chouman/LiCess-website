@@ -122,6 +122,19 @@ const Navbar = () => {
 			click: handleLogoutButtonClick,
 		},
 	];
+	const guestOptions = [
+		{
+			label: 'Community',
+			value: 'community',
+			link: '/community',
+			click: handleCommunityButtonClick,
+		},
+		{
+			label: 'Login',
+			value: 'login',
+			click: openModal,
+		},
+	];
 
 	return (
 		<div className="main-navbar-container flex justify-between width-100 padding-l">
@@ -194,7 +207,7 @@ const Navbar = () => {
 
 			<div className="right-navbar-container flex align-center">
 				{token && <NavbarDropdown options={userOptions} />}
-				{!token && <NavbarDropdown options={userOptions} />}
+				{!token && <NavbarDropdown options={guestOptions} />}
 			</div>
 			<Modal isOpen={isOpen} onClose={closeModal}>
 				{showRegistrationModal ? (
