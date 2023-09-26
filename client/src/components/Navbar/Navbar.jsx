@@ -22,11 +22,23 @@ const Navbar = () => {
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
 			console.log(localStorage.getItem('token'));
+			checkTokenExpired();
 		}
-		// localStorage.removeItem('token');
 	}, []);
 
-	// const [token, setToken] = useState(localStorage.getItem('token'));
+	const checkTokenExpired = () => {
+		const savedDatetimeString = localStorage.getItem('tokenTime');
+		if (savedDatetimeString) {
+			const savedDatetime = new Date(savedDatetimeString);
+			const currentDatetime = new Date();
+			const timeDifference = currentDatetime - savedDatetime;
+			const secondsPassed = Math.floor(timeDifference / 1000);
+			if (secondsPassed > 3600) {
+				handleLogoutButtonClick();
+			}
+		}
+	};
+
 	const handleDashboardButtonClick = () => {
 		console.log('Dashboard Button clicked!');
 	};
@@ -47,8 +59,8 @@ const Navbar = () => {
 			})
 			.then((response) => {
 				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
 				setToken('');
-				console.log('logged out!');
 				navigate('/');
 			})
 			.catch((error) => {
