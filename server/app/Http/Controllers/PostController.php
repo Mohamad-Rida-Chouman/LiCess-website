@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
     public function index()
     {
+        $user_id = Auth::id();
         $post = Post::orderBy('created_at', 'DESC')->get();
         return response()->json($post);
     }
@@ -21,7 +23,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $user_id = 1;
+        $user_id = Auth::id();
         $validator = Validator::make( $request->all(), [
             'date' => 'required|date',
             'user_email' => 'required|email',

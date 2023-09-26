@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Task;
-use App\Models\Result;
 use App\Models\User;
+use GuzzleHttp\Psr7;
+use App\Models\Result;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use GuzzleHttp\Psr7;
-use GuzzleHttp\Client;
-
 
 class TaskController extends Controller
 {
+
     public function index()
     {
         $tasks = Task::all();
@@ -30,8 +31,9 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
+        $user_id = Auth::id();
         $validator = Validator::make( $request->all(), [
-            'user_id' => 'required|numeric',
+            // 'user_id' => 'required|numeric',
             'task_name' => 'required|string',
             'date' => 'required|date',
             'state' => 'required|string',
@@ -40,8 +42,12 @@ class TaskController extends Controller
         if ( $validator->fails() ) {
             return response()->json($validator->errors(), 500);
         }
+        
 
         $task = Task::create($request->all());
+        $task ->user_id = $user_id;
+        $task -> save();
+
         return response()->json($task, 200);
     }
 
@@ -75,13 +81,13 @@ class TaskController extends Controller
 
     public function getTasksByUserId()
     {
-        $user_id = 1;
+        $user_id = Auth::id();
         $tasks = Task::where('user_id', $user_id)->orderBy('created_at', 'DESC')->get();
         return response()->json($tasks);
     }
 
     public function createPreprocessingTask(Request $request) {
-        $user_id=1;
+        $user_id = Auth::id();
 
         $fastapath = $request -> fasta -> path();
         $sitesCsvPath = $request -> sitesCsv -> path();
@@ -94,6 +100,8 @@ class TaskController extends Controller
             'state' => 'Pending',
         ];
         $task = Task::create($data);
+        $task -> user_id = $user_id;
+        $task -> save();
         $task_id = json_decode($task, true)['id'];
 
         $client = new Client();
@@ -155,7 +163,8 @@ class TaskController extends Controller
     }
 
     public function createFeatureTask(Request $request) {
-        $user_id=1;
+        // $user_id=1;
+        $user_id = Auth::id();
 
         $fileContentpath = $request -> fileContent -> path();
         $windowSize = $request -> windowSize;
@@ -225,7 +234,7 @@ class TaskController extends Controller
     }
 
     public function createModelTask(Request $request) {
-        $user_id=1;
+        $user_id = Auth::id();
         // const API_URL = process.env.REACT_APP_API_URL;
 
         $filesArray = [];
@@ -303,7 +312,7 @@ class TaskController extends Controller
 
     public function getResultByTaskId($task_id)
     {
-        $user_id = 1;
+        $user_id = Auth::id();
         $task = Task::where('id', $task_id)->get();
         $task_user = $task[0]->user_id;
         if($task_user != $user_id){
@@ -315,7 +324,7 @@ class TaskController extends Controller
 
     public function getShareableResult($task_id)
     {
-        $user_id = 1;
+        $user_id = Auth::id();
         $result = Task::join('results', 'tasks.id', '=', 'results.task_id')
             ->join('users', 'tasks.user_id', '=', 'users.id')
             ->where('tasks.id', $task_id)
