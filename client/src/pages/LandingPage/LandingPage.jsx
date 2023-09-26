@@ -53,6 +53,10 @@ const LandingPage = () => {
 		}
 	};
 
+	const passFunction = () => {
+		console.log('navigated');
+	};
+
 	const ref = useRef(null);
 
 	const handleScrollClick = () => {
@@ -133,7 +137,7 @@ const LandingPage = () => {
 									title="Data Preprocessing"
 									body="Split data into different window sizes of interest"
 									buttonText="Preprocess Data"
-									// onButtonClick={handleDataButtonClick}
+									onButtonClick={passFunction}
 									linkTo="/data_preprocess"
 								/>
 							</div>
@@ -143,7 +147,7 @@ const LandingPage = () => {
 									title="Features Extraction"
 									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
 									buttonText="Extract Features"
-									onButtonClick={handleFeatureButtonClick}
+									onButtonClick={passFunction}
 									linkTo="/feature_extraction"
 								/>
 							</div>
@@ -153,7 +157,7 @@ const LandingPage = () => {
 									title="S-Nitrosylation Site Prediction"
 									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
 									buttonText="Run Model"
-									onButtonClick={handleModelButtonClick}
+									onButtonClick={passFunction}
 									linkTo="/model_run"
 								/>
 							</div>
