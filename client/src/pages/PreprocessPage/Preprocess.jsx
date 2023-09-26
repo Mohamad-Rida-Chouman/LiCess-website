@@ -9,6 +9,7 @@ import Instructions from '../../components/Instructions/Instructions';
 import ReactSelectDropdown from '../../components/ReactSelectDropdown/ReactSelectDropdown';
 import axios from 'axios';
 import Modal from '../../components/Modal/Modal';
+import DemoFasta from '../../components/DemoFasta/DemoFasta';
 
 const Preprocess = () => {
 	const [dataFileUploaded, setDataFileUploaded] = useState(false);
@@ -112,44 +113,49 @@ const Preprocess = () => {
 			</div>
 
 			<div className="preprocess-content-container gap-s flex">
-				<div className="preprocess-content-left grey-background padding-s">
-					<Instructions>
-						This is a brief instruction on how to preprocess the data:
-						<br />
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eaque
-						corrupti neque molestiae quod, possimus enim unde ab. Facilis
-						exercitationem quaerat excepturi! Nam modi natus omnis earum sit
-						deserunt minus. Deserunt vitae corporis atque ratione iure qui quia,
-						ipsam perferendis rem, dolorem a! Praesentium tempore similique
-						reiciendis unde, iste deleniti illum doloremque ab harum numquam
-						totam, odio qui fugiat quia! Enim laudantium architecto praesentium
-						labore quod iure pariatur asperiores minima molestias necessitatibus
-						illum voluptatem porro, amet unde excepturi facere error nobis quasi
-						magnam ab cupiditate et! Reprehenderit sequi facilis eaque? Facilis,
-						explicabo. Ullam necessitatibus, debitis ab harum dignissimos dicta
-						alias fugiat optio nam velit quibusdam distinctio quaerat vitae
-						sunt, dolorem consequatur quam repudiandae et veritatis repellat
-						rerum, ipsum ipsam officia. Sequi saepe beatae error ullam modi
-						veritatis repellat optio culpa hic ipsum natus asperiores, dolores
-						quia! Ad, recusandae atque odit, voluptate provident vel odio natus
-						eveniet maxime quam dolor qui? Itaque soluta fugiat laborum officia
-						modi veritatis esse facilis, repudiandae culpa quisquam totam
-						architecto sint aut doloribus ipsum corporis cumque ea! Quaerat
-						magnam perferendis ea debitis eos delectus quae incidunt. Dolores
-						laboriosam quod dolorem praesentium nisi deserunt voluptates impedit
-						quidem a quis voluptas soluta hic, ipsum laborum suscipit maiores
-						doloremque, in cumque ea aliquam amet quos temporibus? Ad, numquam
-						modi. Ab, consequuntur sapiente? Eaque ipsum est amet rem quas illo
-						nam dolorem. A ex sapiente minima possimus debitis asperiores, illo
-						fuga eveniet aperiam nesciunt quasi provident, non voluptatem iste
-						rerum. Id corporis iusto, numquam corrupti nam obcaecati, expedita
-						soluta aliquam, aperiam accusantium porro officiis non at maxime.
-						Maiores laborum porro reiciendis quibusdam, quis, inventore qui
-						facilis aperiam quas voluptas deleniti? Deserunt quas quos cum nobis
-						voluptas, est temporibus eos nihil alias dignissimos in et ratione,
-						tenetur amet placeat, id incidunt esse molestias. Maxime quis nam,
-						nisi asperiores dolore voluptatem quos.
-					</Instructions>
+				<div className="preprocess-content-left flex flex-col justify-between gap-s">
+					<DemoFasta></DemoFasta>
+					<div className="preprocess-instructions grey-background padding-s">
+						<Instructions>
+							This is a brief instruction on how to preprocess the data:
+							<br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+							eaque corrupti neque molestiae quod, possimus enim unde ab.
+							Facilis exercitationem quaerat excepturi! Nam modi natus omnis
+							earum sit deserunt minus. Deserunt vitae corporis atque ratione
+							iure qui quia, ipsam perferendis rem, dolorem a! Praesentium
+							tempore similique reiciendis unde, iste deleniti illum doloremque
+							ab harum numquam totam, odio qui fugiat quia! Enim laudantium
+							architecto praesentium labore quod iure pariatur asperiores minima
+							molestias necessitatibus illum voluptatem porro, amet unde
+							excepturi facere error nobis quasi magnam ab cupiditate et!
+							Reprehenderit sequi facilis eaque? Facilis, explicabo. Ullam
+							necessitatibus, debitis ab harum dignissimos dicta alias fugiat
+							optio nam velit quibusdam distinctio quaerat vitae sunt, dolorem
+							consequatur quam repudiandae et veritatis repellat rerum, ipsum
+							ipsam officia. Sequi saepe beatae error ullam modi veritatis
+							repellat optio culpa hic ipsum natus asperiores, dolores quia! Ad,
+							recusandae atque odit, voluptate provident vel odio natus eveniet
+							maxime quam dolor qui? Itaque soluta fugiat laborum officia modi
+							veritatis esse facilis, repudiandae culpa quisquam totam
+							architecto sint aut doloribus ipsum corporis cumque ea! Quaerat
+							magnam perferendis ea debitis eos delectus quae incidunt. Dolores
+							laboriosam quod dolorem praesentium nisi deserunt voluptates
+							impedit quidem a quis voluptas soluta hic, ipsum laborum suscipit
+							maiores doloremque, in cumque ea aliquam amet quos temporibus? Ad,
+							numquam modi. Ab, consequuntur sapiente? Eaque ipsum est amet rem
+							quas illo nam dolorem. A ex sapiente minima possimus debitis
+							asperiores, illo fuga eveniet aperiam nesciunt quasi provident,
+							non voluptatem iste rerum. Id corporis iusto, numquam corrupti nam
+							obcaecati, expedita soluta aliquam, aperiam accusantium porro
+							officiis non at maxime. Maiores laborum porro reiciendis
+							quibusdam, quis, inventore qui facilis aperiam quas voluptas
+							deleniti? Deserunt quas quos cum nobis voluptas, est temporibus
+							eos nihil alias dignissimos in et ratione, tenetur amet placeat,
+							id incidunt esse molestias. Maxime quis nam, nisi asperiores
+							dolore voluptatem quos.
+						</Instructions>
+					</div>
 				</div>
 
 				<div className="preprocess-content-mid flex flex-col justify-between">
