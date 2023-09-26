@@ -17,6 +17,8 @@ const Features = () => {
 	const [windowSize, setWindowSize] = useState();
 	const [dataFileUploaded, setDataFileUploaded] = useState(false);
 
+	const token = localStorage.getItem('token');
+
 	const handleCallback = (childData) => {
 		setSelectedFeatures(childData);
 	};
@@ -72,9 +74,15 @@ const Features = () => {
 					formData.append('fileContent', fileContentCopy);
 					formData.append('windowSize', windowSize);
 					formData.append('feature', feature);
-					return axios.post(BASE_URL, formData).then((res) => {
-						console.log(res);
-					});
+					return axios
+						.post(BASE_URL, formData, {
+							headers: {
+								Authorization: `Bearer ${token}`,
+							},
+						})
+						.then((res) => {
+							console.log(res);
+						});
 				})
 			);
 		}
