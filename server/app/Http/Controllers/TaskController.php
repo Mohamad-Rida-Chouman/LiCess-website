@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
+
 class TaskController extends Controller
 {
 
@@ -94,7 +95,6 @@ class TaskController extends Controller
         $windowSize = $request -> windowSize;
 
         $data = [
-            'user_id' => $user_id,
             'task_name' => 'Preprocessed Window Size: '.$windowSize,
             'date' => Carbon::now()->format("Y-m-d H:i:s"),
             'state' => 'Pending',
@@ -171,12 +171,13 @@ class TaskController extends Controller
         $feature = $request -> feature;
 
         $data = [
-            'user_id' => $user_id,
             'task_name' => 'Feature Extraction: '.strtoupper($feature),
             'date' => Carbon::now()->format("Y-m-d H:i:s"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
+        $task -> user_id = $user_id;
+        $task -> save();
         $task_id = json_decode($task, true)['id'];
 
         $client = new Client();
@@ -257,12 +258,13 @@ class TaskController extends Controller
         }
 
         $data = [
-            'user_id' => $user_id,
             'task_name' => 'Model: '.$model,
             'date' => date("Y-m-d"),
             'state' => 'Pending',
         ];
         $task = Task::create($data);
+        $task -> user_id = $user_id;
+        $task -> save();
         $task_id = json_decode($task, true)['id'];
 
         $client = new Client();
