@@ -5,18 +5,19 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> An AI-Powered, Bioinformatics tool for predicting S-Nitrosylation (SNO) sites in proteins, helping in processes including - but not limited to -  the drug design, protein understanding...
+> An AI-Powered, Bioinformatics tool for predicting S-Nitrosylation (SNO) sites in proteins, helping in processes including - but not limited to - drug design, protein understanding...
 >
 > LiCess aims to provide a user-friendly experience for researchers interested in SNO-related studies and researches. It predicts the site of SNO in proteins using real-life data.
 
 ### User Stories
+
 - As a user, I want to share my results on the website so that others can benefit from and compare my results.
 - As a user, I want to upload my data to the server so that the model tests it.
 - As a user, I want to download my results so that I can have them offline.
 - As a user, I want to upload my data to the server so that the model tests it.
 - As a user, I want to register to an account so that I can save my runs.
 - As a user, I want to login to an account so that I can check my runs’ history.
-<br><br>
+  <br><br>
 
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
@@ -24,13 +25,15 @@
 > We designed LiCess using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
+
+| Login screen                            | Register screen                       | Landing screen                        |
+| --------------------------------------- | ------------------------------------- | ------------------------------------- |
 | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
+
+| Home screen                             | Menu Screen                           | Order Screen                          |
+| --------------------------------------- | ------------------------------------- | ------------------------------------- |
 | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 <br><br>
@@ -38,28 +41,33 @@
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-> Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
+> Using the wireframes and mockups as a guide, we implemented the LiCess Project with the following features:
 
-### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
-| ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+### User Screens
 
-### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Login screen                                          | Register screen                                             | Landing screen (hero)                                                   |
+| ----------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
+| ![Login](./readme/demo/login-screen-final.png)        | ![Register](./readme/demo/register-screen-final.png)        | ![Landing (Hero)](./readme/demo/landing-hero-final.png)                 |
+| Data Preprocessing Screen                             | Feature Extraction Screen                                   | Model Run Screen                                                        |
+| ![Data Preprocess](./readme/demo/data-preprocess.png) | ![Feature Extraction](./readme/demo/feature-extraction.png) | ![Model Run](./readme/demo/model-run.png)                               |
+| ----------------------------------------------------- | ----------------------------------------------------------- | -----------------------------------------                               |
+| Dashboard Screen                                      | Community Screen                                            |
+| Landing screen (key features)                         |
+| ----------------------------------------------------- | ----------------------------------------------------------- | -----------------------------------------                               |
+| ![Dashboard](./readme/demo/dashboard.png)             | ![Community](./readme/demo/community.png)                   | ![Landing (Key Features)](./readme/demo/landing-key-features-final.png) |
+
+### Admin Screens
+
+| Admin Dashboard screen                                |
+| ----------------------------------------------------- |
+| ![Admin Dashboard](./readme/demo/dashboard-admin.png) |
 
 <br><br>
 
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
-###  Coffee Express is built using the following technologies:
+### Coffee Express is built using the following technologies:
 
 - This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
 - For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
@@ -77,7 +85,8 @@
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+
+- npm
   ```sh
   npm install npm@latest -g
   ```
