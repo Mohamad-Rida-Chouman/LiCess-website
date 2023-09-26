@@ -2,11 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\API\AuthController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +17,31 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
-    Route::post('register', 'register');
-    Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
+// Route::controller(AuthController::class)->group(function () {
+//     Route::post('login', 'login');
+//     Route::post('register', 'register');
+//     Route::post('logout', 'logout');
+//     Route::post('refresh', 'refresh');
+// });
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);  
+    Route::resource('/tasks', TaskController::class);  
+    Route::post('/preprocess', [TaskController::class, 'createPreprocessingTask']);
 });
 
-Route::resource('tasks', TaskController::class);
+
+
 Route::resource('posts', PostController::class);
 Route::post('tasks/{id}', [TaskController::class, 'update']);
-Route::post('preprocess', [TaskController::class, 'createPreprocessingTask']);
+
 Route::post('featureExtract', [TaskController::class, 'createFeatureTask']);
 Route::post('model', [TaskController::class, 'createModelTask']);
 Route::get('taskByUser', [TaskController::class, 'getTasksByUserId']);
