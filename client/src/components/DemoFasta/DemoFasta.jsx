@@ -14,7 +14,7 @@ const DemoFasta = () => {
 				return response.text();
 			})
 			.then(function (data) {
-				var n = 500;
+				var n = 100;
 				var matches = data.match(/>sp\|.*\|.*\n[^>]+/g);
 				function shuffleArray(array) {
 					for (let i = array.length - 1; i > 0; i--) {
