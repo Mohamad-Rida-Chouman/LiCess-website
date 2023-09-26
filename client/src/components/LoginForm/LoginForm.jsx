@@ -5,6 +5,7 @@ import Input from '../Input/Input';
 import SvgIcon from '../SvgIcon/SvgIcon';
 import Logo from '../../assets/logo.svg';
 import Button from '../Button/Button';
+import axios from 'axios';
 
 const LoginForm = ({ switchToRegister }) => {
 	const [email, setEmail] = useState('');
@@ -18,9 +19,30 @@ const LoginForm = ({ switchToRegister }) => {
 		setPassword(value);
 	};
 
-	const handleClick = () => {
-		console.log('Login button clicked');
-	};
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL_REGISTER = API_URL + '/api/auth/login';
+
+	async function handleClick() {
+		if (email == '' || password == '') {
+			setAlert(true);
+		} else {
+			const bodyFormData = new FormData();
+			bodyFormData.append('email', email);
+			bodyFormData.append('password', password);
+			axios({
+				method: 'post',
+				url: URL_REGISTER,
+				data: bodyFormData,
+				headers: { 'Content-Type': 'multipart/form-data' },
+			})
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((error) => {
+					return error;
+				});
+		}
+	}
 
 	return (
 		<div className="main-login-container flex gap-s padding-l">
@@ -55,7 +77,7 @@ const LoginForm = ({ switchToRegister }) => {
 					<Button
 						className="button button-s width-100"
 						onClick={handleClick}
-						linkTo="/dashboard"
+						// linkTo="/dashboard"
 					>
 						Login
 					</Button>
