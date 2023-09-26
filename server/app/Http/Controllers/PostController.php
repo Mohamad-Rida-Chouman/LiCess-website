@@ -11,7 +11,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        $user_id = Auth::id();
         $post = Post::orderBy('created_at', 'DESC')->get();
         return response()->json($post);
     }
