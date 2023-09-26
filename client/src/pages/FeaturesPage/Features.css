@@ -27,17 +27,17 @@
 }
 
 .features-dropdown-container::-webkit-scrollbar,
-.features-content-left::-webkit-scrollbar {
+.preprocess-instructions::-webkit-scrollbar {
 	width: 0.2rem;
 }
 
 .features-dropdown-container::-webkit-scrollbar-track,
-.features-content-left::-webkit-scrollbar-track {
+.preprocess-instructions::-webkit-scrollbar-track {
 	background: transparent;
 }
 
 .features-dropdown-container::-webkit-scrollbar-thumb,
-.features-content-left::-webkit-scrollbar-thumb {
+.preprocess-instructions::-webkit-scrollbar-thumb {
 	background: aliceblue;
 }
 
