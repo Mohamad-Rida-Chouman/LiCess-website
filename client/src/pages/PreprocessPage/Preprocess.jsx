@@ -19,6 +19,8 @@ const Preprocess = () => {
 
 	const [selectedWindows, setSelectedWindows] = useState([]);
 
+	const token = localStorage.getItem('token');
+
 	const handleCallback = (childData) => {
 		setSelectedWindows(childData);
 	};
@@ -71,9 +73,15 @@ const Preprocess = () => {
 					formData.append('sitesCsv', dataFileCopy);
 					formData.append('fasta', fastaFileCopy);
 					formData.append('windowSize', w);
-					return axios.post(URL, formData).then((res) => {
-						console.log(res);
-					});
+					return axios
+						.post(URL, formData, {
+							headers: {
+								Authorization: `Bearer ${token}`,
+							},
+						})
+						.then((res) => {
+							console.log(res);
+						});
 				})
 			);
 		}
