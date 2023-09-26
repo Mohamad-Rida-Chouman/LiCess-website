@@ -39,7 +39,10 @@ const DemoFasta = () => {
 	};
 	return (
 		<div>
-			<Button onClick={downloadDemo} className="button button-m">
+			<Button
+				className="button-dropdown button-s justify-center flex width-100"
+				onClick={downloadDemo}
+			>
 				Download Demo Files
 			</Button>
 		</div>
