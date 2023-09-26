@@ -66,6 +66,8 @@ const Model = () => {
 	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
 
+	const token = localStorage.getItem('token');
+
 	const handleModelClick = async () => {
 		if (
 			selectedRadioModelOption == '' ||
@@ -104,8 +106,15 @@ const Model = () => {
 		formData.append('dataFile', dataFileCopy);
 		console.log('model:' + model);
 		formData.append('model', model);
-		const response = await axios.post(URL, formData);
-		console.log(response.data);
+		await axios
+			.post(URL, formData, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
+			.then((res) => {
+				console.log(res.data);
+			});
 	};
 
 	return (
