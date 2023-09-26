@@ -17,14 +17,21 @@ const Dashboard = () => {
 		loadTasks();
 	}, []);
 
+	const token = localStorage.getItem('token');
+
 	const API_URL = process.env.REACT_APP_API_URL;
 	const URL = API_URL + '/api/taskByUser';
 
 	async function loadTasks() {
 		console.log('loading tasks');
 		axios
-			.get(URL)
+			.get(URL, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
 			.then((response) => {
+				console.log(response);
 				const tasks_array = response.data.map((task) => ({
 					task_id: task.id,
 					task_name: task.task_name,
@@ -41,9 +48,13 @@ const Dashboard = () => {
 	const URL_SingleTask = API_URL + '/api/resultByTask/';
 
 	const handleDownloadClick = async (task_id) => {
-		try {
-			const response = await axios.get(URL_SingleTask + task_id);
-			if (response) {
+		axios
+			.get(URL_SingleTask + task_id, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
+			.then((response) => {
 				if (response.data.data_type == 'json') {
 					const array = response.data.data.split('|').slice(0, 9);
 					const resultsText =
@@ -86,10 +97,10 @@ const Dashboard = () => {
 					const blob = new Blob([csvContent], { type: 'text/csv' });
 					saveAs(blob, response.data.label);
 				}
-			}
-		} catch {
-			console.log('failed to load tasks');
-		}
+			})
+			.catch((error) => {
+				return error;
+			});
 	};
 
 	const [shareableTaskId, setShareableTaskId] = useState();
