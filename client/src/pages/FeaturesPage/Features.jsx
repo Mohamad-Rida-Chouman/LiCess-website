@@ -26,11 +26,8 @@ const Features = () => {
 
 	const optionList = [
 		{ label: 'AAC', value: 'aac' },
-		{ label: 'DPC', value: 'dpc' },
 		{ label: 'APAAC', value: 'apaac' },
 		{ label: 'QSO', value: 'qso' },
-		{ label: 'CKSAAP-4', value: 'cksaap4' },
-		{ label: 'CKSAAP-5', value: 'cksaap5' },
 		{ label: 'Binary', value: 'binary' },
 		{ label: 'AAI', value: 'aai' },
 	];
@@ -109,41 +106,24 @@ const Features = () => {
 								This is a brief instruction on how to extract features:
 							</span>
 							<br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-							eaque corrupti neque molestiae quod, possimus enim unde ab.
-							Facilis exercitationem quaerat excepturi! Nam modi natus omnis
-							earum sit deserunt minus. Deserunt vitae corporis atque ratione
-							iure qui quia, ipsam perferendis rem, dolorem a! Praesentium
-							tempore similique reiciendis unde, iste deleniti illum doloremque
-							ab harum numquam totam, odio qui fugiat quia! Enim laudantium
-							architecto praesentium labore quod iure pariatur asperiores minima
-							molestias necessitatibus illum voluptatem porro, amet unde
-							excepturi facere error nobis quasi magnam ab cupiditate et!
-							Reprehenderit sequi facilis eaque? Facilis, explicabo. Ullam
-							necessitatibus, debitis ab harum dignissimos dicta alias fugiat
-							optio nam velit quibusdam distinctio quaerat vitae sunt, dolorem
-							consequatur quam repudiandae et veritatis repellat rerum, ipsum
-							ipsam officia. Sequi saepe beatae error ullam modi veritatis
-							repellat optio culpa hic ipsum natus asperiores, dolores quia! Ad,
-							recusandae atque odit, voluptate provident vel odio natus eveniet
-							maxime quam dolor qui? Itaque soluta fugiat laborum officia modi
-							veritatis esse facilis, repudiandae culpa quisquam totam
-							architecto sint aut doloribus ipsum corporis cumque ea! Quaerat
-							magnam perferendis ea debitis eos delectus quae incidunt. Dolores
-							laboriosam quod dolorem praesentium nisi deserunt voluptates
-							impedit quidem a quis voluptas soluta hic, ipsum laborum suscipit
-							maiores doloremque, in cumque ea aliquam amet quos temporibus? Ad,
-							numquam modi. Ab, consequuntur sapiente? Eaque ipsum est amet rem
-							quas illo nam dolorem. A ex sapiente minima possimus debitis
-							asperiores, illo fuga eveniet aperiam nesciunt quasi provident,
-							non voluptatem iste rerum. Id corporis iusto, numquam corrupti nam
-							obcaecati, expedita soluta aliquam, aperiam accusantium porro
-							officiis non at maxime. Maiores laborum porro reiciendis
-							quibusdam, quis, inventore qui facilis aperiam quas voluptas
-							deleniti? Deserunt quas quos cum nobis voluptas, est temporibus
-							eos nihil alias dignissimos in et ratione, tenetur amet placeat,
-							id incidunt esse molestias. Maxime quis nam, nisi asperiores
-							dolore voluptatem quos.
+							<p>
+								In order to start feature extraction, you can use the files
+								previously obtained through the data preprocessing step, or use
+								your own files if you already have preprocessed your data.
+								<br />
+								<br />
+								The file to be uploaded here is the preprocessed data. Note that
+								there is a certain structure for the file, so if you have
+								preprocessed your data without using{' '}
+								<span className="bold">LiCess</span>, kindly download the demo
+								file from the <span className="bold">Download Demo Files</span>{' '}
+								button above.
+								<br />
+								<br />
+								After uploading the necessary files, choose your feature(s) of
+								interest and click on{' '}
+								<span className="bold">Extract Features</span> button.
+							</p>
 						</Instructions>
 					</div>
 				</div>
