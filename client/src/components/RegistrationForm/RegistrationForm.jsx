@@ -33,6 +33,7 @@ const RegistrationForm = ({ switchToLogin }) => {
 
 	async function handleClick() {
 		if (username == '' || email == '' || password == '' || verify == '') {
+			console.log(alert);
 			setAlert(true);
 		} else {
 			const bodyFormData = new FormData();
@@ -96,7 +97,9 @@ const RegistrationForm = ({ switchToLogin }) => {
 					value={verify}
 					onChange={handleVerifyChange}
 				/>
-
+				{alert && (
+					<span className="alert red-text">* Please Enter All Fields.</span>
+				)}
 				<div className="width-100">
 					<Button className="button button-s width-100" onClick={handleClick}>
 						Register
