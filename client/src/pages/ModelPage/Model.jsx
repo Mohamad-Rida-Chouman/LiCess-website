@@ -131,43 +131,36 @@ const Model = () => {
 					<DemoFeatures></DemoFeatures>
 					<div className="model-instructions grey-background padding-s">
 						<Instructions>
-							This is a brief instruction on how to use model:
+							<span className="bold">
+								This is a brief instruction on how to use the model:
+							</span>
 							<br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-							eaque corrupti neque molestiae quod, possimus enim unde ab.
-							Facilis exercitationem quaerat excepturi! Nam modi natus omnis
-							earum sit deserunt minus. Deserunt vitae corporis atque ratione
-							iure qui quia, ipsam perferendis rem, dolorem a! Praesentium
-							tempore similique reiciendis unde, iste deleniti illum doloremque
-							ab harum numquam totam, odio qui fugiat quia! Enim laudantium
-							architecto praesentium labore quod iure pariatur asperiores minima
-							molestias necessitatibus illum voluptatem porro, amet unde
-							excepturi facere error nobis quasi magnam ab cupiditate et!
-							Reprehenderit sequi facilis eaque? Facilis, explicabo. Ullam
-							necessitatibus, debitis ab harum dignissimos dicta alias fugiat
-							optio nam velit quibusdam distinctio quaerat vitae sunt, dolorem
-							consequatur quam repudiandae et veritatis repellat rerum, ipsum
-							ipsam officia. Sequi saepe beatae error ullam modi veritatis
-							repellat optio culpa hic ipsum natus asperiores, dolores quia! Ad,
-							recusandae atque odit, voluptate provident vel odio natus eveniet
-							maxime quam dolor qui? Itaque soluta fugiat laborum officia modi
-							veritatis esse facilis, repudiandae culpa quisquam totam
-							architecto sint aut doloribus ipsum corporis cumque ea! Quaerat
-							magnam perferendis ea debitis eos delectus quae incidunt. Dolores
-							laboriosam quod dolorem praesentium nisi deserunt voluptates
-							impedit quidem a quis voluptas soluta hic, ipsum laborum suscipit
-							maiores doloremque, in cumque ea aliquam amet quos temporibus? Ad,
-							numquam modi. Ab, consequuntur sapiente? Eaque ipsum est amet rem
-							quas illo nam dolorem. A ex sapiente minima possimus debitis
-							asperiores, illo fuga eveniet aperiam nesciunt quasi provident,
-							non voluptatem iste rerum. Id corporis iusto, numquam corrupti nam
-							obcaecati, expedita soluta aliquam, aperiam accusantium porro
-							officiis non at maxime. Maiores laborum porro reiciendis
-							quibusdam, quis, inventore qui facilis aperiam quas voluptas
-							deleniti? Deserunt quas quos cum nobis voluptas, est temporibus
-							eos nihil alias dignissimos in et ratione, tenetur amet placeat,
-							id incidunt esse molestias. Maxime quis nam, nisi asperiores
-							dolore voluptatem quos.
+							<p>
+								In order to run the model, you will need:
+								<br />
+								1- Preprocessed data file, containing the protein subsequences
+								and the sites.
+								<br />
+								2- Extracted feature(s) file(s), containing the extracted
+								features related to the preprocessed data file.
+								<br />
+								<br />
+								For more details on the structure of the files, please download
+								the demo files using the above{' '}
+								<span className="bold">Download Demo Files</span> button.
+								<br />
+								<br />
+								After uploading the necessary files, you can choose a model from
+								the list in the middle.
+								<br />
+								<br />
+								Finally, click on the <span className="bold">
+									Run Model
+								</span>{' '}
+								button to run the model of choice. The results will be available
+								to download when the run finishes and can be shared to the
+								community. Let's do something great!
+							</p>
 						</Instructions>
 					</div>
 				</div>
