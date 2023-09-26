@@ -9,16 +9,12 @@ import Button from '../Button/Button';
 const LoginForm = ({ switchToRegister }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [verify, setVerify] = useState('');
 
 	const handleEmailChange = (value) => {
 		setEmail(value);
 	};
 	const handlePasswordChange = (value) => {
 		setPassword(value);
-	};
-	const handleVerifyChange = (value) => {
-		setVerify(value);
 	};
 
 	const handleClick = () => {
@@ -50,13 +46,6 @@ const LoginForm = ({ switchToRegister }) => {
 					type="password"
 					value={password}
 					onChange={handlePasswordChange}
-				/>
-				<Input
-					className="input-stroke padding-s"
-					label="Re-enter Password"
-					type="password"
-					value={verify}
-					onChange={handleVerifyChange}
 				/>
 				<div className="width-100">
 					<Button
