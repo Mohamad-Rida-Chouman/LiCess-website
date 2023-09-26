@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '../../base.css';
 import './LandingPage.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
@@ -12,31 +12,44 @@ import Github from '../../assets/github.svg';
 import LinkedIn from '../../assets/linkedin.svg';
 import KeyFeatureCard from '../../components/KeyFeatureCard/KeyFeatureCard';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../../components/Modal/Modal';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 const LandingPage = () => {
 	const navigate = useNavigate();
 	const token = localStorage.getItem('token');
+	const [isOpen, setIsOpen] = useState(false);
+	const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+
+	const closeModal = () => {
+		setIsOpen(false);
+		setShowRegistrationModal(false);
+	};
+	const openRegistrationModal = () => {
+		setShowRegistrationModal(true);
+	};
+
+	const openLoginModal = () => {
+		setShowRegistrationModal(false);
+		setIsOpen(true);
+	};
+
 	const handleDataButtonClick = () => {
-		if (token) {
-			navigate('/data_preprocess');
-		} else {
-			console.log('login first');
+		if (!token) {
+			setIsOpen(true);
 		}
 	};
 
 	const handleFeatureButtonClick = () => {
-		if (token) {
-			navigate('/feature_extraction');
-		} else {
-			console.log('login first');
+		if (!token) {
+			setIsOpen(true);
 		}
 	};
 
 	const handleModelButtonClick = () => {
-		if (token) {
-			navigate('/model_run');
-		} else {
-			console.log('login first');
+		if (!token) {
+			setIsOpen(true);
 		}
 	};
 
@@ -113,37 +126,68 @@ const LandingPage = () => {
 							What We Provide
 						</h2>
 					</div>
-					<div className="key-features-container flex justify-center wrap gap-m padding-l">
-						<div className="key-feature-container">
-							<KeyFeatureCard
-								title="Data Preprocessing"
-								body="Split data into different window sizes of interest"
-								buttonText="Preprocess Data"
-								onButtonClick={handleDataButtonClick}
-								// linkTo="/data_preprocess"
-							/>
-						</div>
+					{token ? (
+						<div className="key-features-container flex justify-center wrap gap-m padding-l">
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="Data Preprocessing"
+									body="Split data into different window sizes of interest"
+									buttonText="Preprocess Data"
+									// onButtonClick={handleDataButtonClick}
+									linkTo="/data_preprocess"
+								/>
+							</div>
 
-						<div className="key-feature-container">
-							<KeyFeatureCard
-								title="Features Extraction"
-								body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
-								buttonText="Extract Features"
-								onButtonClick={handleFeatureButtonClick}
-								// linkTo="/feature_extraction"
-							/>
-						</div>
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="Features Extraction"
+									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+									buttonText="Extract Features"
+									onButtonClick={handleFeatureButtonClick}
+									linkTo="/feature_extraction"
+								/>
+							</div>
 
-						<div className="key-feature-container">
-							<KeyFeatureCard
-								title="S-Nitrosylation Site Prediction"
-								body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
-								buttonText="Run Model"
-								onButtonClick={handleModelButtonClick}
-								// linkTo="/model_run"
-							/>
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="S-Nitrosylation Site Prediction"
+									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+									buttonText="Run Model"
+									onButtonClick={handleModelButtonClick}
+									linkTo="/model_run"
+								/>
+							</div>
 						</div>
-					</div>
+					) : (
+						<div className="key-features-container flex justify-center wrap gap-m padding-l">
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="Data Preprocessing"
+									body="Split data into different window sizes of interest"
+									buttonText="Preprocess Data"
+									onButtonClick={handleDataButtonClick}
+								/>
+							</div>
+
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="Features Extraction"
+									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+									buttonText="Extract Features"
+									onButtonClick={handleFeatureButtonClick}
+								/>
+							</div>
+
+							<div className="key-feature-container">
+								<KeyFeatureCard
+									title="S-Nitrosylation Site Prediction"
+									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+									buttonText="Run Model"
+									onButtonClick={handleModelButtonClick}
+								/>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 
@@ -160,6 +204,13 @@ const LandingPage = () => {
 					</div>
 				</div>
 			</div>
+			<Modal isOpen={isOpen} onClose={closeModal}>
+				{showRegistrationModal ? (
+					<RegistrationForm switchToLogin={openLoginModal} />
+				) : (
+					<LoginForm switchToRegister={openRegistrationModal} />
+				)}
+			</Modal>
 		</div>
 	);
 };
