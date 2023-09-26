@@ -29,6 +29,7 @@ const LandingNavbar = () => {
 			const timeDifference = currentDatetime - savedDatetime;
 			const secondsPassed = Math.floor(timeDifference / 1000);
 			if (secondsPassed > 3600) {
+				console.log(secondsPassed);
 				logout();
 			}
 		}
@@ -54,6 +55,9 @@ const LandingNavbar = () => {
 				setToken('');
 			})
 			.catch((error) => {
+				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
+				setToken('');
 				return error;
 			});
 	};

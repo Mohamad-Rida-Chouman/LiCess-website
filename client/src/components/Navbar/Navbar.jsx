@@ -64,6 +64,10 @@ const Navbar = () => {
 				navigate('/');
 			})
 			.catch((error) => {
+				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
+				setToken('');
+				navigate('/');
 				return error;
 			});
 	};
