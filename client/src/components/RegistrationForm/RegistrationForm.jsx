@@ -6,7 +6,6 @@ import SvgIcon from '../SvgIcon/SvgIcon';
 import Logo from '../../assets/logo.svg';
 import Button from '../Button/Button';
 import axios from 'axios';
-import LoginForm from '../LoginForm/LoginForm';
 
 const RegistrationForm = ({ switchToLogin }) => {
 	const [username, setUserame] = useState('');
@@ -49,6 +48,7 @@ const RegistrationForm = ({ switchToLogin }) => {
 			})
 				.then((response) => {
 					console.log(response);
+					switchToLogin();
 				})
 				.catch((error) => {
 					return error;
@@ -98,11 +98,7 @@ const RegistrationForm = ({ switchToLogin }) => {
 				/>
 
 				<div className="width-100">
-					<Button
-						className="button button-s width-100"
-						onClick={handleClick}
-						linkTo="/login"
-					>
+					<Button className="button button-s width-100" onClick={handleClick}>
 						Register
 					</Button>
 				</div>
