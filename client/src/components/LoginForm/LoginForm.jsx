@@ -40,6 +40,8 @@ const LoginForm = ({ switchToRegister }) => {
 			})
 				.then((response) => {
 					localStorage.setItem('token', response.data.access_token);
+					const currentDatetime = new Date();
+					localStorage.setItem('tokenTime', currentDatetime.toISOString());
 					navigate('/dashboard');
 				})
 				.catch((error) => {

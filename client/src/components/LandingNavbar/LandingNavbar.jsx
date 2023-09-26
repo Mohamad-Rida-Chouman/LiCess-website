@@ -17,8 +17,22 @@ const LandingNavbar = () => {
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
+			checkTokenExpired();
 		}
 	}, []);
+
+	const checkTokenExpired = () => {
+		const savedDatetimeString = localStorage.getItem('tokenTime');
+		if (savedDatetimeString) {
+			const savedDatetime = new Date(savedDatetimeString);
+			const currentDatetime = new Date();
+			const timeDifference = currentDatetime - savedDatetime;
+			const secondsPassed = Math.floor(timeDifference / 1000);
+			if (secondsPassed > 3600) {
+				logout();
+			}
+		}
+	};
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -36,6 +50,7 @@ const LandingNavbar = () => {
 			})
 			.then((response) => {
 				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
 				setToken('');
 			})
 			.catch((error) => {
