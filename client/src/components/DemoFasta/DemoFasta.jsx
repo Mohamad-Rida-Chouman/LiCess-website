@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import '../../base.css';
 import { saveAs } from 'file-saver';
 import Fasta from '../../assets/Proteins.fasta';
+import Sites from '../../assets/sites_proteins.csv';
 
 const DemoFasta = () => {
 	const fastaFile = Fasta;
@@ -30,6 +31,10 @@ const DemoFasta = () => {
 				});
 
 				saveAs(blob, 'proteins_demo' + '.fasta');
+				const link = document.createElement('a');
+				link.download = 'sites_proteins';
+				link.href = Sites;
+				link.click();
 			});
 	};
 	return (
