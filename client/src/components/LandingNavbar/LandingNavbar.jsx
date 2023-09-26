@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LandingNavbar.css';
 import '../../base.css';
 import SvgIcon from '../SvgIcon/SvgIcon';
@@ -7,13 +7,41 @@ import LogoSvg from '../../assets/logo.svg';
 import Modal from '../Modal/Modal';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LoginForm from '../LoginForm/LoginForm';
+import axios from 'axios';
 
 const LandingNavbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+	const [token, setToken] = useState('');
+
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			setToken(localStorage.getItem('token'));
+		}
+	}, []);
 
 	const openModal = () => {
 		setIsOpen(true);
+	};
+
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL = API_URL + '/api/auth/logout';
+
+	const logout = () => {
+		axios
+			.get(URL, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
+			.then((response) => {
+				localStorage.removeItem('token');
+				setToken('');
+				console('logged out!');
+			})
+			.catch((error) => {
+				return error;
+			});
 	};
 
 	const closeModal = () => {
@@ -40,9 +68,16 @@ const LandingNavbar = () => {
 				<h3>LiCess</h3>
 			</div>
 			<div className="right-landing-navbar-container flex align-center">
-				<Button className="button button-m" onClick={openModal}>
-					Get Started
-				</Button>
+				{token != '' ? (
+					<Button className="button button-m" onClick={logout}>
+						Logout
+					</Button>
+				) : (
+					<Button className="button button-m" onClick={openModal}>
+						Get Started
+					</Button>
+				)}
+
 				<Modal isOpen={isOpen} onClose={closeModal}>
 					{showRegistrationModal ? (
 						<RegistrationForm switchToLogin={openLoginModal} />
