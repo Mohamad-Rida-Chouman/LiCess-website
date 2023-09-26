@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 import '../../base.css';
 import Input from '../Input/Input';
@@ -11,6 +12,8 @@ const LoginForm = ({ switchToRegister }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [alert, setAlert] = useState(false);
+
+	const navigate = useNavigate();
 
 	const handleEmailChange = (value) => {
 		setEmail(value);
@@ -37,6 +40,7 @@ const LoginForm = ({ switchToRegister }) => {
 			})
 				.then((response) => {
 					console.log(response);
+					navigate('/dashboard');
 				})
 				.catch((error) => {
 					return error;
@@ -74,11 +78,7 @@ const LoginForm = ({ switchToRegister }) => {
 					<span className="alert red-text">* Please Enter All Fields.</span>
 				)}
 				<div className="width-100">
-					<Button
-						className="button button-s width-100"
-						onClick={handleClick}
-						// linkTo="/dashboard"
-					>
+					<Button className="button button-s width-100" onClick={handleClick}>
 						Login
 					</Button>
 				</div>
