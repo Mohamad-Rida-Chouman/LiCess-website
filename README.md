@@ -49,7 +49,7 @@
 | ----------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
 | ![Login](./readme/demo/login-screen-final.png)        | ![Register](./readme/demo/register-screen-final.png)        | ![Landing (Hero)](./readme/demo/landing-hero-final.png)                 |
 | Data Preprocessing Screen                             | Feature Extraction Screen                                   | Model Run Screen                                                        |
-| ![Data Preprocess](./readme/demo/preprocess.png)      | ![Feature Extraction](./readme/demo/features.png)           | ![Model Run](./readme/demo/models.png)                                  |
+| ![Data Preprocess](./readme/demo/preprocessing.png)   | ![Feature Extraction](./readme/demo/features.png)           | ![Model Run](./readme/demo/models.png)                                  |
 | ----------------------------------------------------- | ----------------------------------------------------------- | -----------------------------------------                               |
 | Dashboard Screen                                      | Community Screen                                            |
 | Landing screen (key features)                         |
