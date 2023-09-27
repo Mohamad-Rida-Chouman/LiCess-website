@@ -50,14 +50,11 @@ const AdminPage = () => {
 
 	async function loadTasks() {
 		axios
-			.get(
-				TASKS_URL
-				// 	{
-				// 	headers: {
-				// 		Authorization: `Bearer ${token}`,
-				// 	},
-				// }
-			)
+			.get(TASKS_URL, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`,
+				},
+			})
 			.then((response) => {
 				const tasks = response.data;
 				const currentDate = new Date();
