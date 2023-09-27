@@ -26,15 +26,15 @@
 
 ### Wireframes
 
-| Login screen                            | Register screen                       | Landing screen                        |
-| --------------------------------------- | ------------------------------------- | ------------------------------------- |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Landing screen                            | Features screen                       |
+| --------------------------------------- | ------------------------------------- |
+| ![Landing](./readme/demo/landing-wireframe.png) | ![Features](./readme/demo/features-wireframe.png) |
 
 ### Mockups
 
-| Home screen                             | Menu Screen                           | Order Screen                          |
-| --------------------------------------- | ------------------------------------- | ------------------------------------- |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Landing screen                             | Features Screen                           |
+| --------------------------------------- | ------------------------------------- |
+| ![Landing](./readme/demo/landing-mockup.png) | ![fsdaf](./readme/demo/features-mockup.png) |
 
 <br><br>
 
