@@ -31,7 +31,40 @@ const AdminPage = () => {
 				// }
 			)
 			.then((response) => {
-				console.log(response.data);
+				const tasks = response.data;
+				console.log(tasks);
+				const currentDate = new Date();
+				currentDate.setHours(0, 0, 0, 0);
+
+				const startOfWeek = new Date(currentDate);
+				startOfWeek.setDate(
+					currentDate.getDate() - ((currentDate.getDay() + 2) % 7)
+				);
+				const endOfWeek = new Date(currentDate);
+				endOfWeek.setDate(
+					currentDate.getDate() - ((currentDate.getDay() + 5) % 7)
+				);
+
+				const dayCounts = {
+					Monday: 0,
+					Tuesday: 0,
+					Wednesday: 0,
+					Thursday: 0,
+					Friday: 0,
+					Saturday: 0,
+					Sunday: 0,
+				};
+				tasks.forEach((task) => {
+					const taskDate = new Date(task.date);
+					taskDate.setHours(0, 0, 0, 0);
+					if (taskDate >= startOfWeek && taskDate <= endOfWeek) {
+						const dayOfWeek = taskDate.toLocaleDateString('en-US', {
+							weekday: 'long',
+						});
+						dayCounts[dayOfWeek] += 1;
+					}
+				});
+				setTasksCount(dayCounts);
 			})
 			.catch((error) => {
 				return error;
