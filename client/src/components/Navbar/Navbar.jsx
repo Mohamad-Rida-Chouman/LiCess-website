@@ -39,14 +39,6 @@ const Navbar = () => {
 		}
 	};
 
-	const handleDashboardButtonClick = () => {
-		console.log('Dashboard Button clicked!');
-	};
-
-	const handleCommunityButtonClick = () => {
-		console.log('Community Button clicked!');
-	};
-
 	const API_URL = process.env.REACT_APP_API_URL;
 	const URL = API_URL + '/api/auth/logout';
 
@@ -72,16 +64,8 @@ const Navbar = () => {
 			});
 	};
 
-	const handleDataButtonClick = () => {
-		console.log('Data Button clicked!');
-	};
-
-	const handleFeatureButtonClick = () => {
-		console.log('Feature Button clicked!');
-	};
-
-	const handleModelButtonClick = () => {
-		console.log('Model Button clicked!');
+	const passOnClick = () => {
+		console.log('Button clicked!');
 	};
 
 	const openModal = () => {
@@ -106,31 +90,31 @@ const Navbar = () => {
 			label: 'Preprocess Data',
 			value: 'preprocessData',
 			link: '/data_preprocess',
-			click: handleLogoutButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Extract Features',
 			value: 'extractFeatures',
 			link: '/feature_extraction',
-			click: handleLogoutButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Run Model',
 			value: 'runModel',
 			link: '/model_run',
-			click: handleLogoutButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Dashboard',
 			value: 'dashboard',
 			link: '/dashboard',
-			click: handleDashboardButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Community',
 			value: 'community',
 			link: '/community',
-			click: handleCommunityButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Logout',
@@ -143,7 +127,7 @@ const Navbar = () => {
 			label: 'Community',
 			value: 'community',
 			link: '/community',
-			click: handleCommunityButtonClick,
+			click: passOnClick,
 		},
 		{
 			label: 'Login',
@@ -168,28 +152,28 @@ const Navbar = () => {
 					<div className="flex justify-center align-center">
 						<Button
 							className="button-navbar button-s"
-							onClick={handleDataButtonClick}
+							onClick={passOnClick}
 							linkTo="/data_preprocess"
 						>
 							Preprocess Data
 						</Button>
 						<Button
 							className="button-navbar button-s"
-							onClick={handleFeatureButtonClick}
+							onClick={passOnClick}
 							linkTo="/feature_extraction"
 						>
 							Extract Features
 						</Button>
 						<Button
 							className="button-navbar button-s"
-							onClick={handleModelButtonClick}
+							onClick={passOnClick}
 							linkTo="/model_run"
 						>
 							Run Model
 						</Button>
 						<Button
 							className="button-navbar button-s width-100"
-							onClick={handleDashboardButtonClick}
+							onClick={passOnClick}
 							linkTo="/dashboard"
 						>
 							Dashboard
@@ -198,7 +182,7 @@ const Navbar = () => {
 				)}
 				<Button
 					className="button-navbar button-s width-100"
-					onClick={handleCommunityButtonClick}
+					onClick={passOnClick}
 					linkTo="/community"
 				>
 					Community
