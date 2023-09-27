@@ -57,7 +57,7 @@
 
 | Admin Dashboard screen                                |
 | ----------------------------------------------------- |
-| ![Admin Dashboard](./readme/demo/admin=dashboard.png) |
+| ![Admin Dashboard](./readme/demo/admin-dashboard.png) |
 
 <br><br>
 
@@ -78,7 +78,7 @@
 > To set up LiCess locally, follow these steps:
 
 ### Prerequisites
-https://getcomposer.org/download/
+
 - Node.js:
   [https://nodejs.org/en/download](https://nodejs.org/en/download)
 - XAMPP:
@@ -88,6 +88,7 @@ https://getcomposer.org/download/
 
 ### Installation
 
+Frontend-related steps:
 1. Clone the repo
    ```sh
    git clone https://github.com/Mohamad-Rida-Chouman/LiCess-website.git
@@ -96,9 +97,27 @@ https://getcomposer.org/download/
    ```sh
    cd client
    ```
-3. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Install the required dependencies:
+   ```sh
+   npm install
+   ```
+4. Run React's start-up command:
+   ```sh
+   npm run start
+   ```
+
+Backend-related steps:
+1. Navigate to the server folder:
+   ```sh
+   cd ../server
+   ```
+2. Install the required dependencies:
+   ```sh
+   composer install
+   ```
+3. Run Laravel's start up command:
+   ```sh
+   php artisan serve
    ```
 
 Now, you should be able to run LiCess locally and explore its features.
