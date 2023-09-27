@@ -57,7 +57,7 @@
 
 | Admin Dashboard screen                                |
 | ----------------------------------------------------- |
-| ![Admin Dashboard](./readme/demo/dashboard-admin.png) |
+| ![Admin Dashboard](./readme/demo/admin=dashboard.png) |
 
 <br><br>
 
@@ -75,33 +75,30 @@
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up LiCess locally, follow these steps:
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+https://getcomposer.org/download/
+- Node.js:
+  [https://nodejs.org/en/download](https://nodejs.org/en/download)
+- XAMPP:
+  [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
+- Composer:
+  [https://getcomposer.org/download/](https://getcomposer.org/download/)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Mohamad-Rida-Chouman/LiCess-website.git
    ```
-3. Install NPM packages
+2. From the root folder, navigate to the client folder:
    ```sh
-   npm install
+   cd client
    ```
-4. Enter your API in `config.js`
+3. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
 
-Now, you should be able to run Coffee Express locally and explore its features.
+Now, you should be able to run LiCess locally and explore its features.
