@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Model from './pages/ModelPage/Model';
 import Community from './pages/CommunityPage/Community';
 import PostForm from './components/PostForm/PostForm';
+import AdminPage from './pages/AdminPage/AdminPage';
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/community" element={<Community />} />
 					<Route path="/post" element={<PostForm />} />
+					<Route path="/admin_dashboard" element={<AdminPage />}></Route>
 				</Routes>
 			</div>
 		</Router>

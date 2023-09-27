@@ -42,7 +42,11 @@ const LoginForm = ({ switchToRegister }) => {
 					localStorage.setItem('token', response.data.access_token);
 					const currentDatetime = new Date();
 					localStorage.setItem('tokenTime', currentDatetime.toISOString());
-					navigate('/dashboard');
+					if (response.data.user.role == 'user') {
+						navigate('/dashboard');
+					} else {
+						navigate('/admin_dashboard');
+					}
 				})
 				.catch((error) => {
 					return error;
