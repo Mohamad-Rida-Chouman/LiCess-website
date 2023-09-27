@@ -18,6 +18,8 @@ const AdminPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		document.body.style.backgroundColor = '#020d17';
+		document.body.style.color = 'white';
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
 			checkTokenExpired();

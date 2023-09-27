@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import '../../base.css';
 import './LandingPage.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
@@ -17,6 +17,11 @@ import RegistrationForm from '../../components/RegistrationForm/RegistrationForm
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 const LandingPage = () => {
+	useEffect(() => {
+		document.body.style.backgroundColor = '#020d17';
+		document.body.style.color = 'white';
+	}, []);
+
 	const navigate = useNavigate();
 	const token = localStorage.getItem('token');
 	const [isOpen, setIsOpen] = useState(false);
