@@ -5,6 +5,7 @@ import SvgIcon from '../SvgIcon/SvgIcon';
 import GithubSvg from '../../assets/github.svg';
 import EmailSvg from '../../assets/email.svg';
 import LinkedInSvg from '../../assets/linkedin.svg';
+import ToggleDN from '../ToggleDN/ToggleDN';
 
 const Footer = () => {
 	return (
@@ -25,6 +26,7 @@ const Footer = () => {
 					/>
 				</a>
 			</div>
+			<ToggleDN></ToggleDN>
 		</div>
 	);
 };
