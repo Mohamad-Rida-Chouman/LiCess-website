@@ -19,7 +19,7 @@ const LineChartComp = (props) => {
 				<YAxis></YAxis>
 				<Legend />
 				<Tooltip />
-				<Line dataKey="value" stroke="#ffbb28" activeDot={{ r: 8 }} />
+				<Line dataKey="tasks" stroke="#ffbb28" activeDot={{ r: 8 }} />
 			</LineChart>
 		</ResponsiveContainer>
 	);

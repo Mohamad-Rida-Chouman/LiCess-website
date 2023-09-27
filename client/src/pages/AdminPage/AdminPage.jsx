@@ -18,21 +18,21 @@ const AdminPage = () => {
 		{ name: 'Ensemble', value: 500 },
 	];
 	const pieData3 = [
-		{ name: 'AAC', value: 400 },
-		{ name: 'AAI', value: 700 },
-		{ name: 'Binary', value: 200 },
-		{ name: 'QSO', value: 1000 },
-		{ name: 'APAAC', value: 1000 },
+		{ name: 'AAC', value: 50 },
+		{ name: 'AAI', value: 60 },
+		{ name: 'Binary', value: 20 },
+		{ name: 'QSO', value: 30 },
+		{ name: 'APAAC', value: 40 },
 	];
 
 	const lineData1 = [
-		{ name: 'Monday', value: 11 },
-		{ name: 'Tuesday', value: 15 },
-		{ name: 'Wednesday', value: 8 },
-		{ name: 'Thursday', value: 8 },
-		{ name: 'Friday', value: 5 },
-		{ name: 'Saturday', value: 2 },
-		{ name: 'Sunday', value: 0 },
+		{ name: 'Monday', tasks: 11 },
+		{ name: 'Tuesday', tasks: 15 },
+		{ name: 'Wednesday', tasks: 8 },
+		{ name: 'Thursday', tasks: 8 },
+		{ name: 'Friday', tasks: 5 },
+		{ name: 'Saturday', tasks: 2 },
+		{ name: 'Sunday', tasks: 0 },
 	];
 	return (
 		<div className="admin-main-container flex flex-col gap-l padding-s width-90">
