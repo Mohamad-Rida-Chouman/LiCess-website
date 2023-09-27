@@ -202,9 +202,19 @@ const LandingPage = () => {
 						<h1>Where to find me?</h1>
 					</div>
 					<div className="footer-icons flex justify-center gap-m">
-						<SvgIcon className="big-icon" src={Email} alt="email icon" />
-						<SvgIcon className="big-icon" src={Github} alt="github icon" />
-						<SvgIcon className="big-icon" src={LinkedIn} alt="linkedin icon" />
+						<a href="mailto:shumanmohammadrida@gmail.com">
+							<SvgIcon className="big-icon" src={Email} alt="email icon" />
+						</a>
+						<a href="https://github.com/Mohamad-Rida-Chouman/">
+							<SvgIcon className="big-icon" src={Github} alt="github icon" />
+						</a>
+						<a href="https://www.linkedin.com/in/mohamad-rida-chouman/">
+							<SvgIcon
+								className="big-icon"
+								src={LinkedIn}
+								alt="linkedin icon"
+							/>
+						</a>
 					</div>
 				</div>
 			</div>
