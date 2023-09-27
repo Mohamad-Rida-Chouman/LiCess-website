@@ -5,7 +5,7 @@ const PieChartComp = (props) => {
 	const COLORS = ['#8884d8', '#82ca9d', '#FFBB28', '#FF8042', '#AF19FF'];
 	const pieData = props.data;
 	return (
-		<PieChart className="piechart" width={350} height={350}>
+		<PieChart className="piechart" width={250} height={250}>
 			<Pie
 				data={pieData}
 				color="#000000"
