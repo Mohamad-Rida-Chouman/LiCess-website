@@ -33,7 +33,7 @@ Route::group([
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);  
-    
+    Route::get('/authorize-user', [AuthController::class, 'authorizeUser']); 
 });
 
 Route::resource('posts', PostController::class);
