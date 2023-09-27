@@ -105,4 +105,15 @@ class AuthController extends Controller
         $user->save();
         return response()->json($user);
     }
+
+    public function checkAuthority() {
+        $user = auth()->user();
+        $result = FALSE;
+        if( $user->role == 'admin'){
+            $result = TRUE;
+        }
+
+        return $result;
+        
+    }
 }

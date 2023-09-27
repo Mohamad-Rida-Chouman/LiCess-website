@@ -34,6 +34,7 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);  
     Route::get('/authorize-user', [AuthController::class, 'authorizeUser']); 
+    Route::get('/check-authority', [AuthController::class, 'checkAuthority']); 
 });
 
 Route::resource('posts', PostController::class);
