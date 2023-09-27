@@ -36,10 +36,8 @@
 }
 
 .button-stroke {
-	color: #ffffff;
 	font-size: 16px;
 	font-weight: bold;
-	background-color: transparent;
 	border: 1px solid #a39a9b;
 	border-radius: 5px;
 }
