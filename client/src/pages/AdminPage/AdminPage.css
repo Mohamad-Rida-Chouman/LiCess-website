@@ -1,4 +1,18 @@
-.pie-container {
+.piecharts-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.piechart-container {
+	background-color: #1d2d3b;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+}
+
+.linecharts-container {
+	background-color: #1d2d3b;
+	border-radius: 5px;
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
