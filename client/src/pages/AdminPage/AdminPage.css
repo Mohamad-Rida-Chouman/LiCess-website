@@ -5,6 +5,7 @@
 }
 
 .piechart-container {
+	flex: 1 0 0;
 	background-color: #1d2d3b;
 	border-radius: 5px;
 	padding: 0.5rem 1rem;
