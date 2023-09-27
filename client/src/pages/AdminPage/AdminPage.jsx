@@ -9,6 +9,7 @@ import Button from '../../components/Button/Button';
 import axios from 'axios';
 
 const AdminPage = () => {
+	const API_URL = process.env.REACT_APP_API_URL;
 	const [tasksWeekCount, setTasksWeekCount] = useState([]);
 	const [tasksTypeCount, setTasksTypeCount] = useState([]);
 	const [modelTypeCount, setModelTypeCount] = useState([]);
@@ -17,20 +18,40 @@ const AdminPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		loadTasks();
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
 			checkTokenExpired();
 		}
+		loadTasks();
+		CHECK_Auth();
 	}, []);
 
-	const API_URL = process.env.REACT_APP_API_URL;
-	const URL = API_URL + '/api/tasks';
+	const CHECK_AUTH_URL = API_URL + '/api/auth/check-authority';
+
+	async function CHECK_Auth() {
+		axios
+			.get(CHECK_AUTH_URL, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`,
+				},
+			})
+			.then((response) => {
+				if (!response.data) {
+					console.log('Unauthorized User');
+					navigate('/');
+				}
+			})
+			.catch((error) => {
+				return error;
+			});
+	}
+
+	const TASKS_URL = API_URL + '/api/tasks';
 
 	async function loadTasks() {
 		axios
 			.get(
-				URL
+				TASKS_URL
 				// 	{
 				// 	headers: {
 				// 		Authorization: `Bearer ${token}`,
@@ -91,7 +112,6 @@ const AdminPage = () => {
 					tasks: dayCounts[day],
 				}));
 
-				console.log(lineData);
 				setTasksWeekCount(lineData);
 
 				const prefixes = [
@@ -160,7 +180,7 @@ const AdminPage = () => {
 
 	const LOGOUT_URL = API_URL + '/api/auth/logout';
 
-	const logout = () => {
+	async function logout() {
 		axios
 			.get(LOGOUT_URL, {
 				headers: {
@@ -180,7 +200,7 @@ const AdminPage = () => {
 				navigate('/');
 				return error;
 			});
-	};
+	}
 
 	const checkTokenExpired = () => {
 		const savedDatetimeString = localStorage.getItem('tokenTime');
