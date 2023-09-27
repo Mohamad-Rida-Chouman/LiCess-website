@@ -11,7 +11,6 @@ import Email from '../../assets/email.svg';
 import Github from '../../assets/github.svg';
 import LinkedIn from '../../assets/linkedin.svg';
 import KeyFeatureCard from '../../components/KeyFeatureCard/KeyFeatureCard';
-import { useNavigate } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -22,7 +21,6 @@ const LandingPage = () => {
 		document.body.style.color = 'white';
 	}, []);
 
-	const navigate = useNavigate();
 	const token = localStorage.getItem('token');
 	const [isOpen, setIsOpen] = useState(false);
 	const [showRegistrationModal, setShowRegistrationModal] = useState(false);

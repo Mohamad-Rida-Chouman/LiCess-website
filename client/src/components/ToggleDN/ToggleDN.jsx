@@ -38,7 +38,6 @@ const ToggleDN = () => {
 			document.cookie = 'Licess-day=true';
 			changeColorsDay();
 		}
-		console.log(e.target.checked);
 	};
 	return (
 		<div className="toggle-button">

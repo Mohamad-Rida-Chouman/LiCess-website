@@ -39,7 +39,6 @@ const AdminPage = () => {
 			})
 			.then((response) => {
 				if (!response.data) {
-					console.log('Unauthorized User');
 					navigate('/');
 				}
 			})
@@ -209,7 +208,6 @@ const AdminPage = () => {
 			const timeDifference = currentDatetime - savedDatetime;
 			const secondsPassed = Math.floor(timeDifference / 1000);
 			if (secondsPassed > 3600) {
-				console.log(secondsPassed);
 				logout();
 			}
 		}

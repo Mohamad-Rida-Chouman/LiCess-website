@@ -105,7 +105,6 @@ const Model = () => {
 			formData.append('files[]', file);
 		});
 		formData.append('dataFile', dataFileCopy);
-		console.log('model:' + model);
 		formData.append('model', model);
 		await axios
 			.post(URL, formData, {
@@ -114,7 +113,7 @@ const Model = () => {
 				},
 			})
 			.then((res) => {
-				console.log(res.data);
+				console.log('Model Run Executed');
 			});
 	};
 

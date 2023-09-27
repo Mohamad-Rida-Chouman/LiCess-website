@@ -13,7 +13,6 @@ const RegistrationForm = ({ switchToLogin }) => {
 	const [password, setPassword] = useState('');
 	const [verify, setVerify] = useState('');
 	const [alert, setAlert] = useState(false);
-	const [showLoginModal, setShowLoginModal] = useState(false);
 
 	const handleNameChange = (value) => {
 		setUserame(value);
@@ -33,7 +32,6 @@ const RegistrationForm = ({ switchToLogin }) => {
 
 	async function handleClick() {
 		if (username == '' || email == '' || password == '' || verify == '') {
-			console.log(alert);
 			setAlert(true);
 		} else {
 			const bodyFormData = new FormData();
@@ -48,7 +46,6 @@ const RegistrationForm = ({ switchToLogin }) => {
 				headers: { 'Content-Type': 'multipart/form-data' },
 			})
 				.then((response) => {
-					console.log(response);
 					switchToLogin();
 				})
 				.catch((error) => {

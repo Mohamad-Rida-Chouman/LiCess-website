@@ -21,7 +21,6 @@ const Navbar = () => {
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
 			setToken(localStorage.getItem('token'));
-			console.log(localStorage.getItem('token'));
 			checkTokenExpired();
 		}
 	}, []);

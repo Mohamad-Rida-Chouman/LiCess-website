@@ -11,7 +11,6 @@ const PieChartComp = (props) => {
 				color="#000000"
 				dataKey="value"
 				nameKey="name"
-				// outerRadius={120}
 				fill="green"
 				label
 			>

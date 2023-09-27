@@ -13,7 +13,6 @@ import PostForm from '../../components/PostForm/PostForm';
 const Dashboard = () => {
 	const [tasks, setTasks] = useState([]);
 	useEffect(() => {
-		console.log('dashboard');
 		loadTasks();
 	}, []);
 
@@ -23,7 +22,6 @@ const Dashboard = () => {
 	const URL = API_URL + '/api/taskByUser';
 
 	async function loadTasks() {
-		console.log('loading tasks');
 		axios
 			.get(URL, {
 				headers: {
@@ -31,7 +29,6 @@ const Dashboard = () => {
 				},
 			})
 			.then((response) => {
-				console.log(response);
 				const tasks_array = response.data.map((task) => ({
 					task_id: task.id,
 					task_name: task.task_name,

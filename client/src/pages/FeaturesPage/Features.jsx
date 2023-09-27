@@ -52,9 +52,7 @@ const Features = () => {
 
 	const inputFileContent = useRef(null);
 
-	const location = useLocation();
 	const handleFeaturesClick = async () => {
-		console.log(selectedFeatures.length);
 		if (selectedFeatures.length == 0 || fileContent == null) {
 			setModalOpenEmptyParams(true);
 		} else {
@@ -79,7 +77,7 @@ const Features = () => {
 							},
 						})
 						.then((res) => {
-							console.log(res);
+							console.log('Feature Selection Done');
 						});
 				})
 			);

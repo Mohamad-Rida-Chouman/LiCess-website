@@ -4,13 +4,11 @@ import '../../base.css';
 import Post from '../Post/Post';
 import Button from '../Button/Button';
 import axios from 'axios';
-import { createRoutesFromChildren } from 'react-router';
 
 const PostForm = (props) => {
 	const task_id = props.taskId;
 	const token = localStorage.getItem('token');
 	useEffect(() => {
-		console.log('task id is: ' + task_id);
 		loadShareableResults();
 	}, []);
 
@@ -21,7 +19,6 @@ const PostForm = (props) => {
 	const URL_Posts = API_URL + '/api/posts';
 
 	async function handleSubmitClick() {
-		console.log(document.getElementById('comment').value);
 		const bodyFormData = new FormData();
 		bodyFormData.append('date', resultsToShare.date);
 		bodyFormData.append('user_email', resultsToShare.email);
@@ -56,7 +53,7 @@ const PostForm = (props) => {
 			},
 		})
 			.then((response) => {
-				console.log('hii');
+				console.log('Post Submitted');
 			})
 			.catch((error) => {
 				return error;

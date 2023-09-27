@@ -14,8 +14,8 @@ const DemoFasta = () => {
 				return response.text();
 			})
 			.then(function (data) {
-				var n = 100;
-				var matches = data.match(/>sp\|.*\|.*\n[^>]+/g);
+				const n = 100;
+				const matches = data.match(/>sp\|.*\|.*\n[^>]+/g);
 				function shuffleArray(array) {
 					for (let i = array.length - 1; i > 0; i--) {
 						const j = Math.floor(Math.random() * (i + 1));
@@ -23,8 +23,8 @@ const DemoFasta = () => {
 					}
 				}
 				shuffleArray(matches);
-				var selectedProteins = matches.slice(0, n);
-				var newProteinString = selectedProteins.join('\n');
+				const selectedProteins = matches.slice(0, n);
+				const newProteinString = selectedProteins.join('\n');
 
 				const blob = new Blob([newProteinString], {
 					type: 'text/plain;charset=utf-8',
