@@ -21,8 +21,14 @@ class TaskController extends Controller
 
     public function index()
     {
-        $tasks = Task::all();
-        return response()->json($tasks);
+        $user = auth()->user();
+        if( $user->role == 'admin'){
+            $tasks = Task::all();
+            return response()->json($tasks);
+        }
+        else{
+            return json_encode(json_decode ("{}"));
+        }
     }
 
     public function create()
