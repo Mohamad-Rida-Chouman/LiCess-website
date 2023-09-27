@@ -64,7 +64,29 @@ const AdminPage = () => {
 						dayCounts[dayOfWeek] += 1;
 					}
 				});
-				setTasksWeekCount(dayCounts);
+				const today = currentDate.toLocaleDateString('en-US', {
+					weekday: 'long',
+				});
+				const daysOfWeek = [
+					'Monday',
+					'Tuesday',
+					'Wednesday',
+					'Thursday',
+					'Friday',
+					'Saturday',
+					'Sunday',
+				];
+				const reorderedDays = [
+					...daysOfWeek.slice(daysOfWeek.indexOf(today)),
+					...daysOfWeek.slice(0, daysOfWeek.indexOf(today)),
+				];
+				const lineData = reorderedDays.map((day) => ({
+					name: day,
+					tasks: dayCounts[day],
+				}));
+
+				console.log(lineData);
+				setTasksWeekCount(lineData);
 
 				const prefixes = [
 					{ prefix: 'Preprocessed', category: 'Data Preprocessing' },
@@ -180,10 +202,12 @@ const AdminPage = () => {
 					<PieChartComp data={pieData3}></PieChartComp>
 				</div>
 			</div>
-			<div className="linecharts-container flex justify-center align-center flex-wrap padding-s">
-				<h2>Recent Week Tasks Count</h2>
-				<LineChartComp data={lineData1}></LineChartComp>
-			</div>
+			{tasksWeekCount && (
+				<div className="linecharts-container flex justify-center align-center flex-wrap padding-s">
+					<h2>Recent Week Tasks Count</h2>
+					<LineChartComp data={tasksWeekCount}></LineChartComp>
+				</div>
+			)}
 		</div>
 	);
 };
