@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PieChartComp from '../../components/PieChartComp/PieChartComp';
 import './AdminPage.css';
 import '../../base.css';
@@ -12,10 +13,15 @@ const AdminPage = () => {
 	const [tasksTypeCount, setTasksTypeCount] = useState([]);
 	const [modelTypeCount, setModelTypeCount] = useState([]);
 	const [featuresCount, setFeaturesCount] = useState([]);
-	// const token = localStorage.getItem('token');
+	const [token, setToken] = useState(null);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		loadTasks();
+		if (localStorage.getItem('token')) {
+			setToken(localStorage.getItem('token'));
+			checkTokenExpired();
+		}
 	}, []);
 
 	const API_URL = process.env.REACT_APP_API_URL;
@@ -152,11 +158,52 @@ const AdminPage = () => {
 			});
 	}
 
+	const LOGOUT_URL = API_URL + '/api/auth/logout';
+
+	const logout = () => {
+		axios
+			.get(LOGOUT_URL, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
+			.then((response) => {
+				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
+				setToken('');
+				navigate('/');
+			})
+			.catch((error) => {
+				localStorage.removeItem('token');
+				localStorage.removeItem('tokenTime');
+				setToken('');
+				navigate('/');
+				return error;
+			});
+	};
+
+	const checkTokenExpired = () => {
+		const savedDatetimeString = localStorage.getItem('tokenTime');
+		if (savedDatetimeString) {
+			const savedDatetime = new Date(savedDatetimeString);
+			const currentDatetime = new Date();
+			const timeDifference = currentDatetime - savedDatetime;
+			const secondsPassed = Math.floor(timeDifference / 1000);
+			if (secondsPassed > 3600) {
+				console.log(secondsPassed);
+				logout();
+			}
+		}
+	};
+
 	return (
 		<div className="admin-main-container flex flex-col gap-l padding-s width-90">
 			<div className="flex">
 				<PageTitle title="Admin Dashboard"></PageTitle>
-				<Button className="button-dropdown button-s justify-center flex">
+				<Button
+					className="button-dropdown button-s justify-center flex"
+					onClick={logout}
+				>
 					Logout
 				</Button>
 			</div>
