@@ -10,6 +10,7 @@ import axios from 'axios';
 const AdminPage = () => {
 	const [tasksWeekCount, setTasksWeekCount] = useState([]);
 	const [tasksTypeCount, setTasksTypeCount] = useState([]);
+	const [modelTypeCount, setModelTypeCount] = useState([]);
 	// const token = localStorage.getItem('token');
 
 	useEffect(() => {
@@ -69,13 +70,28 @@ const AdminPage = () => {
 					{ prefix: 'Feature', category: 'Feature Extraction' },
 					{ prefix: 'Model', category: 'Model Run' },
 				];
+				const taskNames = [
+					{ taskName: 'Model: LGB', category: 'LGB' },
+					{ taskName: 'Model: XGB', category: 'XGB' },
+					{ taskName: 'Model: RF', category: 'RF' },
+					{ taskName: 'Model: ENSEMBLE', category: 'Ensemble' }, // Note the uppercase here
+				];
+
 				const categoryCounts = {};
+				const TaskCategoryCounts = {};
 				tasks.forEach((task) => {
 					const taskName = task.task_name;
-					prefixes.forEach((prefixObj) => {
-						const { prefix, category } = prefixObj;
+					prefixes.forEach((taskNameObj) => {
+						const { prefix, category } = taskNameObj;
 						if (taskName.startsWith(prefix)) {
 							categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+						}
+					});
+					taskNames.forEach((taskNameObj) => {
+						const { taskName: targetTaskName, category } = taskNameObj;
+						if (taskName.toUpperCase() === targetTaskName.toUpperCase()) {
+							TaskCategoryCounts[category] =
+								(TaskCategoryCounts[category] || 0) + 1;
 						}
 					});
 				});
@@ -83,6 +99,10 @@ const AdminPage = () => {
 					categoryCounts
 				).map(([name, value]) => ({ name, value }));
 				setTasksTypeCount(pieData1);
+				const pieData2 = Object.entries(
+					TaskCategoryCounts
+				).map(([name, value]) => ({ name, value }));
+				setModelTypeCount(pieData2);
 			})
 			.catch((error) => {
 				return error;
