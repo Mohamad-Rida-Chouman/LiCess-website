@@ -1,11 +1,43 @@
+import React, { useEffect, useState } from 'react';
 import PieChartComp from '../../components/PieChartComp/PieChartComp';
 import './AdminPage.css';
 import '../../base.css';
 import LineChartComp from '../../components/LineChartComp/LineChartComp';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
+import axios from 'axios';
 
 const AdminPage = () => {
+	const [tasksCount, setTasksCount] = useState([]);
+	// const token = localStorage.getItem('token');
+
+	useEffect(() => {
+		console.log('dashboard');
+		loadTasks();
+	}, []);
+
+	const API_URL = process.env.REACT_APP_API_URL;
+	const URL = API_URL + '/api/tasks';
+
+	async function loadTasks() {
+		console.log('loading tasks');
+		axios
+			.get(
+				URL
+				// 	{
+				// 	headers: {
+				// 		Authorization: `Bearer ${token}`,
+				// 	},
+				// }
+			)
+			.then((response) => {
+				console.log(response.data);
+			})
+			.catch((error) => {
+				return error;
+			});
+	}
+
 	const pieData1 = [
 		{ name: 'Data Preprocessing', value: 400 },
 		{ name: 'Feature Extraction', value: 700 },
