@@ -8,11 +8,11 @@ import Button from '../../components/Button/Button';
 import axios from 'axios';
 
 const AdminPage = () => {
-	const [tasksCount, setTasksCount] = useState([]);
+	const [tasksWeekCount, setTasksWeekCount] = useState([]);
+	const [tasksTypeCount, setTasksTypeCount] = useState([]);
 	// const token = localStorage.getItem('token');
 
 	useEffect(() => {
-		console.log('dashboard');
 		loadTasks();
 	}, []);
 
@@ -20,7 +20,6 @@ const AdminPage = () => {
 	const URL = API_URL + '/api/tasks';
 
 	async function loadTasks() {
-		console.log('loading tasks');
 		axios
 			.get(
 				URL
@@ -32,7 +31,6 @@ const AdminPage = () => {
 			)
 			.then((response) => {
 				const tasks = response.data;
-				console.log(tasks);
 				const currentDate = new Date();
 				currentDate.setHours(0, 0, 0, 0);
 
@@ -64,7 +62,27 @@ const AdminPage = () => {
 						dayCounts[dayOfWeek] += 1;
 					}
 				});
-				setTasksCount(dayCounts);
+				setTasksWeekCount(dayCounts);
+
+				const prefixes = [
+					{ prefix: 'Preprocessed', category: 'Data Preprocessing' },
+					{ prefix: 'Feature', category: 'Feature Extraction' },
+					{ prefix: 'Model', category: 'Model Run' },
+				];
+				const categoryCounts = {};
+				tasks.forEach((task) => {
+					const taskName = task.task_name;
+					prefixes.forEach((prefixObj) => {
+						const { prefix, category } = prefixObj;
+						if (taskName.startsWith(prefix)) {
+							categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+						}
+					});
+				});
+				const pieData1 = Object.entries(
+					categoryCounts
+				).map(([name, value]) => ({ name, value }));
+				setTasksTypeCount(pieData1);
 			})
 			.catch((error) => {
 				return error;
