@@ -11,6 +11,7 @@ const AdminPage = () => {
 	const [tasksWeekCount, setTasksWeekCount] = useState([]);
 	const [tasksTypeCount, setTasksTypeCount] = useState([]);
 	const [modelTypeCount, setModelTypeCount] = useState([]);
+	const [featuresCount, setFeaturesCount] = useState([]);
 	// const token = localStorage.getItem('token');
 
 	useEffect(() => {
@@ -76,9 +77,18 @@ const AdminPage = () => {
 					{ taskName: 'Model: RF', category: 'RF' },
 					{ taskName: 'Model: ENSEMBLE', category: 'Ensemble' }, // Note the uppercase here
 				];
+				const substrings = [
+					{ substring: 'AAC', category: 'AAC' },
+					{ substring: 'AAI', category: 'AAI' },
+					{ substring: 'Binary', category: 'Binary' },
+					{ substring: 'QSO', category: 'QSO' },
+					{ substring: 'APAAC', category: 'APAAC' },
+				];
 
 				const categoryCounts = {};
 				const TaskCategoryCounts = {};
+				const featureCounts = {};
+
 				tasks.forEach((task) => {
 					const taskName = task.task_name;
 					prefixes.forEach((taskNameObj) => {
@@ -94,6 +104,12 @@ const AdminPage = () => {
 								(TaskCategoryCounts[category] || 0) + 1;
 						}
 					});
+					substrings.forEach((substringObj) => {
+						const { substring, category } = substringObj;
+						if (taskName.includes(substring)) {
+							featureCounts[category] = (featureCounts[category] || 0) + 1;
+						}
+					});
 				});
 				const pieData1 = Object.entries(
 					categoryCounts
@@ -103,6 +119,11 @@ const AdminPage = () => {
 					TaskCategoryCounts
 				).map(([name, value]) => ({ name, value }));
 				setModelTypeCount(pieData2);
+				const pieData3 = Object.entries(featureCounts).map(([name, value]) => ({
+					name,
+					value,
+				}));
+				setFeaturesCount(pieData3);
 			})
 			.catch((error) => {
 				return error;
