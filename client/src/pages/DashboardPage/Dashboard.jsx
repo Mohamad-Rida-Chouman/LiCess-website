@@ -152,10 +152,10 @@ const Dashboard = () => {
 										<span className="red-text">{rowData.state}</span>
 									)}
 								</td>
-								<td className="flex justify-center align-center width-100">
+								<td className="flex justify-center align-center width-100 gap-s">
 									{rowData.state === 'Completed' ? (
 										<Button
-											className="button-no-bg button-s"
+											className="button-svg button-xs"
 											onClick={() => handleDownloadClick(rowData.task_id)}
 										>
 											<SvgIcon
@@ -168,7 +168,7 @@ const Dashboard = () => {
 									{rowData.task_name.startsWith('Model') &&
 									rowData.state === 'Completed' ? (
 										<Button
-											className="button-no-bg button-s"
+											className="button-svg button-xs"
 											onClick={() => handleShareClick(rowData.task_id)}
 										>
 											<SvgIcon
