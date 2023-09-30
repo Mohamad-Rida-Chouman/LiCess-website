@@ -214,7 +214,7 @@ const AdminPage = () => {
 	};
 
 	return (
-		<div className="admin-main-container flex flex-col gap-l padding-s width-90">
+		<div className="admin-main-container flex flex-col gap-l padding-l width-90">
 			<div className="flex">
 				<PageTitle title="Admin Dashboard"></PageTitle>
 				<Button
