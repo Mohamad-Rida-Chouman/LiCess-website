@@ -114,7 +114,7 @@ const LandingPage = () => {
 							<SvgIcon className="big-icon" src={Chip} alt="Chip icon" />
 							<p className="briefing-text">
 								LiCess aims to make the process of researching on
-								S-Nitrosylation site prediction easier using AI
+								S-Nitrosylation site prediction easier using AI.
 							</p>
 						</div>
 						<div className="briefing-container flex justify-center align-center gap-m">
@@ -122,7 +122,7 @@ const LandingPage = () => {
 							<p className="briefing-text">
 								Predicting S-Nitrosylation sites in proteins helps in
 								understanding the behaviour of certain diseases and thus
-								designing effective drugs
+								designing effective drugs.
 							</p>
 						</div>
 					</div>
@@ -138,7 +138,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="Data Preprocessing"
-									body="Split data into different window sizes of interest"
+									body="Split data into different window sizes of interest."
 									buttonText="Preprocess Data"
 									onButtonClick={passFunction}
 									linkTo="/data_preprocess"
@@ -148,7 +148,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="Features Extraction"
-									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction."
 									buttonText="Extract Features"
 									onButtonClick={passFunction}
 									linkTo="/feature_extraction"
@@ -158,7 +158,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="S-Nitrosylation Site Prediction"
-									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting, etc."
 									buttonText="Run Model"
 									onButtonClick={passFunction}
 									linkTo="/model_run"
@@ -170,7 +170,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="Data Preprocessing"
-									body="Split data into different window sizes of interest"
+									body="Split data into different window sizes of interest."
 									buttonText="Preprocess Data"
 									onButtonClick={handleDataButtonClick}
 								/>
@@ -179,7 +179,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="Features Extraction"
-									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction"
+									body="Extract features which are most common between AI models for different Post-Translational Modifications prediction."
 									buttonText="Extract Features"
 									onButtonClick={handleFeatureButtonClick}
 								/>
@@ -188,7 +188,7 @@ const LandingPage = () => {
 							<div className="key-feature-container">
 								<KeyFeatureCard
 									title="S-Nitrosylation Site Prediction"
-									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting..."
+									body="Predict S-Nitrosylation sites in proteins using machine learning models such as Light-Gradient Boosting, Extreme-Gradient Boosting, etc."
 									buttonText="Run Model"
 									onButtonClick={handleModelButtonClick}
 								/>
@@ -207,9 +207,6 @@ const LandingPage = () => {
 					<div className="footer-icons flex justify-center gap-m">
 						<a href="mailto:shumanmohammadrida@gmail.com">
 							<SvgIcon className="big-icon" src={Email} alt="email icon" />
-						</a>
-						<a href="https://github.com/Mohamad-Rida-Chouman/">
-							<SvgIcon className="big-icon" src={Github} alt="github icon" />
 						</a>
 						<a href="https://www.linkedin.com/in/mohamad-rida-chouman/">
 							<SvgIcon
