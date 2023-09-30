@@ -9,6 +9,9 @@ import Button from '../../components/Button/Button';
 import { saveAs } from 'file-saver';
 import Modal from '../../components/Modal/Modal';
 import PostForm from '../../components/PostForm/PostForm';
+import SvgIcon from '../../components/SvgIcon/SvgIcon';
+import Share from '../../assets/share.svg';
+import Download from '../../assets/download.svg';
 
 const Dashboard = () => {
 	const [tasks, setTasks] = useState([]);
@@ -124,10 +127,11 @@ const Dashboard = () => {
 					<thead className="width-100">
 						<tr className="flex justify-between gap-s width-100 border-underline">
 							<th className="flex justify-start width-100">Type</th>
-							<th className="flex justify-start width-100">Date</th>
-							<th className="flex justify-start width-100">State</th>
-							<th className="flex justify-start width-100">Download</th>
-							<th className="flex justify-start width-100">Share Result</th>
+							<th className="flex justify-center width-100">Date</th>
+							<th className="flex justify-center width-100">State</th>
+							<th className="flex justify-center width-100">
+								Download / Share Results
+							</th>
 						</tr>
 					</thead>
 					<tbody className="table-data flex flex-col gap-m">
@@ -136,10 +140,10 @@ const Dashboard = () => {
 								<td className="flex justify-start align-center width-100">
 									{rowData.task_name}
 								</td>
-								<td className="flex justify-start align-center width-100">
+								<td className="flex justify-center align-center width-100">
 									{rowData.date}
 								</td>
-								<td className="flex justify-start align-center width-100">
+								<td className="flex justify-center align-center width-100">
 									{rowData.state === 'Pending' ? (
 										<span className="yellow-text">{rowData.state}</span>
 									) : rowData.state === 'Completed' ? (
@@ -148,44 +152,32 @@ const Dashboard = () => {
 										<span className="red-text">{rowData.state}</span>
 									)}
 								</td>
-								<td className="flex justify-start align-center width-100">
+								<td className="flex justify-center align-center width-100">
 									{rowData.state === 'Completed' ? (
 										<Button
-											className="button button-s"
+											className="button-no-bg button-s"
 											onClick={() => handleDownloadClick(rowData.task_id)}
 										>
-											Download
+											<SvgIcon
+												className="small-icon"
+												src={Download}
+												alt="Download icon"
+											/>
 										</Button>
-									) : (
-										<Button
-											className="button-disabled button-s"
-											disabled
-											onClick={handleDownloadClick}
-										>
-											Download
-										</Button>
-									)}
-								</td>
-								<td className="flex justify-start align-center width-100">
+									) : null}
 									{rowData.task_name.startsWith('Model') &&
 									rowData.state === 'Completed' ? (
 										<Button
-											className="button button-s"
+											className="button-no-bg button-s"
 											onClick={() => handleShareClick(rowData.task_id)}
 										>
-											Share Results
+											<SvgIcon
+												className="small-icon"
+												src={Share}
+												alt="share icon"
+											/>
 										</Button>
-									) : (rowData.task_name.startsWith('Model') &&
-											rowData.state == 'Pending') ||
-									  rowData.state == 'Failed' ? (
-										<Button className="button-disabled button-s" disabled>
-											Share Results
-										</Button>
-									) : (
-										<Button className="button-stroke button-s" disabled>
-											Not Shareable
-										</Button>
-									)}
+									) : null}
 								</td>
 							</tr>
 						))}
