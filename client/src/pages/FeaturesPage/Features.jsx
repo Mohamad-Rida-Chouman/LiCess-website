@@ -86,6 +86,9 @@ const Features = () => {
 
 	const [modalOpenEmptyParams, setModalOpenEmptyParams] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
+	const handleNavigate = () => {
+		console.log('navigated');
+	};
 
 	return (
 		<div className="features-main-container width-100 flex flex-col gap-l padding-l">
@@ -154,9 +157,18 @@ const Features = () => {
 						)}
 						{modalOpen && (
 							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-								<h3>
-									This process might take a while. Please check the dashboard!
-								</h3>
+								<div className="modal-proceed flex flex-col align-center gap-l">
+									<h3>
+										This process might take a while. Please check the dashboard!
+									</h3>
+									<Button
+										className="button button-s"
+										onClick={handleNavigate}
+										linkTo="/dashboard"
+									>
+										Go to Dashboard
+									</Button>
+								</div>
 							</Modal>
 						)}
 					</div>

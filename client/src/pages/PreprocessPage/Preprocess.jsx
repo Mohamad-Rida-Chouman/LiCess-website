@@ -103,6 +103,10 @@ const Preprocess = () => {
 	const inputDataFile = useRef(null);
 	const inputFastaFile = useRef(null);
 
+	const handleNavigate = () => {
+		console.log('navigated');
+	};
+
 	return (
 		<div className="preprocess-main-container width-100 flex flex-col gap-l padding-l">
 			<div className="preprocess-navbar-container">
@@ -173,9 +177,18 @@ const Preprocess = () => {
 						)}
 						{modalOpen && (
 							<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-								<h3>
-									This process might take a while. Please check the dashboard!
-								</h3>
+								<div className="modal-proceed flex flex-col align-center gap-l">
+									<h3>
+										This process might take a while. Please check the dashboard!
+									</h3>
+									<Button
+										className="button button-s"
+										onClick={handleNavigate}
+										linkTo="/dashboard"
+									>
+										Go to Dashboard
+									</Button>
+								</div>
 							</Modal>
 						)}
 					</div>
