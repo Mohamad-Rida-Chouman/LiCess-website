@@ -22,6 +22,15 @@
 	cursor: pointer;
 }
 
+.button-no-bg {
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: transparent;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 .button:hover {
 	background-color: #279b29;
 }
