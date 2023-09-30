@@ -10,13 +10,10 @@ import ToggleDN from '../ToggleDN/ToggleDN';
 const Footer = () => {
 	return (
 		<div className="main-footer-container flex align-center justify-around width-100 padding-l">
-			<div className="left-footer-container flex">Copyrights</div>
+			<div className="left-footer-container flex">Copyright © LiCess</div>
 			<div className="right-footer-container flex gap-s">
 				<a href="mailto:shumanmohammadrida@gmail.com">
 					<SvgIcon className="small-icon" src={EmailSvg} alt="email icon" />
-				</a>
-				<a href="https://github.com/Mohamad-Rida-Chouman/">
-					<SvgIcon className="small-icon" src={GithubSvg} alt="github icon" />
 				</a>
 				<a href="https://www.linkedin.com/in/mohamad-rida-chouman/">
 					<SvgIcon
