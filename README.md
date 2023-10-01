@@ -144,6 +144,6 @@ Backend-related steps:
    ```
 4. Launch Postman and import the collections to the workspace.
 
-🚨 The source codes for data preprocessing, feature extraction and models are available on demand.
+🚨 The source codes for data preprocessing, feature extraction and models are available on demand (which are external APIs called by Laravel).
 
 Now, you should be able to run LiCess locally and explore its features.
