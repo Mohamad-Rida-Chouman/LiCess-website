@@ -61,10 +61,18 @@
 
 ### Demo GIFs
 
-| Preprocess demo                                       | Feature demo                                                | Model demo                                              |
-| ----------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------- |
-| ![Preprocess](./readme/demo/preprocess.gif)           | ![Feature](./readme/demo/features.gif)                      | ![Model](./readme/demo/model.gif) |
-| ![Dashboard-community](./readme/demo/dashboard-community.gif)           | ![Dark-light](./readme/demo/dark-light.gif)                      |
+| Preprocess demo                                       |
+| ----------------------------------------------------- |
+| ![Preprocess](./readme/demo/preprocess.gif)           |
+| Features demo                                       |
+| ![Features](./readme/demo/features.gif)           |
+| Model demo                                       |
+| ![Model](./readme/demo/model.gif)           |
+| Dashboard-Community demo                                       |
+| ![Dashboard-Community](./readme/demo/dashboard-community.gif)           |
+| Dark-Light demo                                       |
+| ![Dark-Light](./readme/demo/dark-light.gif)           |
+
 
 <br><br>
 
