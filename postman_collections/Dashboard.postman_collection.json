@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "e60eb66d-04e2-4dca-b595-996a590ac273",
+		"name": "Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28626482"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/resultByTask/150",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/resultByTask/150",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"resultByTask",
+						"150"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/taskByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmFja2VuZC5saWNlc3MudGVzdC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY5NTczMjQ2MywiZXhwIjoxNjk1NzM2MDYzLCJuYmYiOjE2OTU3MzI0NjMsImp0aSI6InVTZkNoNGtQN0EyaFlCbjIiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.pCcTBoJ6SIAgyR12GaWkhIngm-hIAZprZ_QZAMjcRVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/taskByUser",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"taskByUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shareableResult/617",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://backend.licess.test/api/shareableResult/617",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"licess",
+						"test"
+					],
+					"path": [
+						"api",
+						"shareableResult",
+						"617"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "6de0f0df-2f1f-464e-aa13-aa8680566e8f",
+		"name": "Prediction_Model",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28626482"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:6000/LGB-api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/AAC_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/aai_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/w_7.csv"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:6000/LGB-api",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "6000",
+					"path": [
+						"LGB-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/modelLGBM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files[]",
+							"type": "file",
+							"src": [
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/AAC_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/aai_7.csv"
+							]
+						},
+						{
+							"key": "dataFile",
+							"type": "file",
+							"src": "/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/w_7.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/modelLGBM",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"modelLGBM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:6000/XGB-api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/AAC_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/qso_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/w_7.csv"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:6000/XGB-api",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "6000",
+					"path": [
+						"XGB-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:6000/RF-api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/AAC_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/qso_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/w_7.csv"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:6000/RF-api",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "6000",
+					"path": [
+						"RF-api"
+					],
+					"query": [
+						{
+							"key": "files",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:6000/ENSEMBLE-api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/AAC_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/qso_7.csv",
+								"/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/features/w_7.csv"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:6000/ENSEMBLE-api",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "6000",
+					"path": [
+						"ENSEMBLE-api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

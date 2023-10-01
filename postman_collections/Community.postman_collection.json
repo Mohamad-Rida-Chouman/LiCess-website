@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "b4d637ee-8020-49a5-b96f-97ba3d038214",
+		"name": "Community",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28626482"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmFja2VuZC5saWNlc3MudGVzdC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY5NTcyOTA0NCwiZXhwIjoxNjk1NzMyNjQ0LCJuYmYiOjE2OTU3MjkwNDQsImp0aSI6Imlxc3VjTzUwR29sbTZ6WUYiLCJzdWIiOiI5IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.uSx_raNngpD0-YmiP7CzFbmCSI8gYfIwYycK0zTPR88",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2023-9-25",
+							"type": "text"
+						},
+						{
+							"key": "user_email",
+							"value": "rida@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "sensitivity",
+							"value": "90",
+							"type": "text"
+						},
+						{
+							"key": "specificity",
+							"value": "95",
+							"type": "text"
+						},
+						{
+							"key": "accuracy",
+							"value": "92",
+							"type": "text"
+						},
+						{
+							"key": "mcc",
+							"value": "0.8",
+							"type": "text"
+						},
+						{
+							"key": "auc",
+							"value": "0.85",
+							"type": "text"
+						},
+						{
+							"key": "fpr",
+							"value": "[0.0, 0.4831168831168831, 1.0]",
+							"type": "text"
+						},
+						{
+							"key": "tpr",
+							"value": "[0.0, 0.6025974025974026, 1.0]",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "XGB",
+							"type": "text"
+						},
+						{
+							"key": "comment",
+							"value": "hihihi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/posts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmFja2VuZC5saWNlc3MudGVzdC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY5NTcyNzY0NCwiZXhwIjoxNjk1NzMxMjQ0LCJuYmYiOjE2OTU3Mjc2NDQsImp0aSI6IkRsODJaeWV4eGNrQ1VUQ0MiLCJzdWIiOiI5IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.6jc1Wy-nzOzk1ALc4VjjJNS9TEj3DsPBuBSI230pCkM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/posts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

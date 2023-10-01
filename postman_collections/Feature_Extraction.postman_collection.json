@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "589aba05-065c-4a09-b5a6-f08eaac8f0be",
+		"name": "Feature_Extraction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28626482"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/aac",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "windowSize",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "fileContent",
+							"type": "file",
+							"src": "/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/win_files/w_7demo.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/aac",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"aac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/featureExtract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmFja2VuZC5saWNlc3MudGVzdC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY5NTczMjQ2MywiZXhwIjoxNjk1NzM2MDYzLCJuYmYiOjE2OTU3MzI0NjMsImp0aSI6InVTZkNoNGtQN0EyaFlCbjIiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.pCcTBoJ6SIAgyR12GaWkhIngm-hIAZprZ_QZAMjcRVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileContent",
+							"type": "file",
+							"src": "/C:/Users/MohamadRida/Desktop/external-apis/plumber-apis/win_files/w_7demo.csv"
+						},
+						{
+							"key": "windowSize",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "feature",
+							"value": "qso",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/featureExtract",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"featureExtract"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

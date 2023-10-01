@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "29a87ee7-c721-44ca-8229-f77e671c48cc",
+		"name": "Admin_Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28626482"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/auth/authorize-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYmFja2VuZC5saWNlc3MudGVzdC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTY5NTgyMTIwMiwiZXhwIjoxNjk1ODI0ODAyLCJuYmYiOjE2OTU4MjEyMDIsImp0aSI6IjNheFhORUxYOGFaTW16NWkiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.k6Jrp61fYgMBt4cUGpyEvKBEtxhYXx5UzbcjmfzmVHc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/auth/authorize-user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"auth",
+						"authorize-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
