@@ -59,6 +59,13 @@
 | ----------------------------------------------------- |
 | ![Admin Dashboard](./readme/demo/admin-dashboard.png) |
 
+### Demo GIFs
+
+| Preprocess demo                                       | Feature demo                                                | Model demo                                              |
+| ----------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------- |
+| ![Preprocess](./readme/demo/preprocess.gif)           | ![Feature](./readme/demo/features.gif)                      | ![Model](./readme/demo/model.gif) |
+| ![Dashboard-community](./readme/demo/dashboard-community.gif)           | ![Dark-light](./readme/demo/dark-light.gif)                      |
+
 <br><br>
 
 <!-- Tech stack -->
@@ -85,6 +92,8 @@
   [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
 - Composer:
   [https://getcomposer.org/download/](https://getcomposer.org/download/)
+- Postman:
+  [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
 ### Installation
 
@@ -106,6 +115,12 @@ Frontend-related steps:
    npm run start
    ```
 
+Database-related steps:
+1. Launch XAMPP and start both Apache and MySQL services
+2. Go to phpmyadmin:
+   localhost/phpmyadmin/
+3. Create a database with the name "licess".
+
 Backend-related steps:
 1. Navigate to the server folder:
    ```sh
@@ -119,5 +134,8 @@ Backend-related steps:
    ```sh
    php artisan serve
    ```
+4. Launch Postman and import the collections to the workspace.
+
+🚨 The source codes for data preprocessing, feature extraction and models are available on demand.
 
 Now, you should be able to run LiCess locally and explore its features.
