@@ -19,6 +19,11 @@
 - As a user, I want to login to an account so that I can check my runs’ history.
   <br><br>
 
+### Admin Stories
+
+- As an admin, I want to know the statistics related to all tasks so that I can optimize the models.
+   <br><br>
+
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
@@ -64,14 +69,19 @@
 | Preprocess demo                                       |
 | ----------------------------------------------------- |
 | ![Preprocess](./readme/demo/preprocess.gif)           |
+In the Data-Preprocess screen, the user is provided with instructions on how to use this feature (shown on the left side if the screen). In short, the user can download demo files and then upload them using the respective buttons on the right side of the screen. Then, the user can choose window sizes of interest and click on the call-to-action button, which starts the preprocessing task. A modal pops up, prompting the user to go to the dashboard where the results of the related task can be downloaded. 
 | Features demo                                       |
 | ![Features](./readme/demo/features.gif)           |
+Similar to the preprocessing phase, the user can upload the data obtained from the preprocess action and extract features from it. The features available for the time being are: AAC, AAI, APAAC, Binary and QSO.
 | Model demo                                       |
 | ![Model](./readme/demo/model.gif)           |
+As for the model, the user can upload the data obtained from the previous steps and choose a model to run. Finally, the user can check the results in the dashboard.
 | Dashboard-Community demo                                       |
 | ![Dashboard-Community](./readme/demo/dashboard-community.gif)           |
+The dashboard is where all the results are available for download. Moreover, the model-related results can be shared to a community in the form of a post, showing the obtained results and the model used, and a comment that the user can write above the post.
 | Dark-Light demo                                       |
 | ![Dark-Light](./readme/demo/dark-light.gif)           |
+A simple dark-light theme switch
 
 
 <br><br>
@@ -85,6 +95,26 @@
 - For backend (database), the project uses the [Laravel PHP framework](https://laravel.com/) which follows the Model-View-Controller (MVC) design-pattern and provides a clean and elegant syntax that aims to simplify the development process.
 - The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font.
 
+<br><br>
+
+<!-- Performance -->
+<img src="./readme/title7.svg"/>
+
+| API Test Results                                       |
+| ----------------------------------------------------- |
+| Data Preprocess                                       |
+| ![Preprocess](./readme/demo/api-preprocess.png)           |
+| Feature Extraction                                        |
+| ![Features](./readme/demo/api-feature.png)           |
+| Model Run                                        |
+| ![Model](./readme/demo/api-model.png)           |
+
+The time taken for each task of the key features: Data Preprocessing, Feature Extraction and Model Run provides promising results, varying between 45 seconds and around a minute. This, in fact, provides a great user experience.
+<br>
+🚨
+- The source codes for data preprocessing, feature extraction and models are available on demand (which are external APIs called by Laravel).
+<br>
+- All the related postman collections can be found in the "postman" folder in the root directory.
 <br><br>
 
 <!-- How to run -->
@@ -143,7 +173,5 @@ Backend-related steps:
    php artisan serve
    ```
 4. Launch Postman and import the collections to the workspace.
-
-🚨 The source codes for data preprocessing, feature extraction and models are available on demand (which are external APIs called by Laravel).
 
 Now, you should be able to run LiCess locally and explore its features.
