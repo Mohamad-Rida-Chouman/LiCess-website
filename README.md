@@ -6,7 +6,7 @@
 <img src="./readme/title8.svg"/> 
 
 
-- [Project Description](#project-description)
+- [Project Philosophy](#project-philosophy)
 - [User Types](#user-types)
 - [Features of the Project](#features-of-the-project)
 - [Prototyping](#prototyping)
@@ -20,7 +20,7 @@
   - [Installation](#installation)
 
 <!-- project philosophy -->
-<a name="project-description"></a>
+<a name="project-philosophy"></a>
 <img src="./readme/title2.svg"/>
 
 > An AI-Powered, Bioinformatics tool for predicting S-Nitrosylation (SNO) sites in proteins, helping in processes including - but not limited to - drug design, protein understanding...
