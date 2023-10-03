@@ -2,29 +2,57 @@
 
 <br><br>
 
+<!-- table of contents -->
+<img src="./readme/title8.svg"/> 
+
+
+- [Project Description](#project-description)
+- [User Types](#user-types)
+- [Features of the Project](#features-of-the-project)
+- [Tech Stack](#tech-stack)
+  - [Frontend](#Frontend)
+  - [Backend](#Backend)
+- [Prototyping](#prototyping)
+- [Demo](#Demo)
+- [Performance](#Performance)
+- [How to Run](#how-to-run)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+
 <!-- project philosophy -->
+<a name="project-description"></a>
 <img src="./readme/title2.svg"/>
 
 > An AI-Powered, Bioinformatics tool for predicting S-Nitrosylation (SNO) sites in proteins, helping in processes including - but not limited to - drug design, protein understanding...
 >
 > LiCess aims to provide a user-friendly experience for researchers interested in SNO-related studies and researches. It predicts the site of SNO in proteins using real-life data.
 
-### User Stories
+<a name="user-types"></a>
+### User Types
 
-- As a user, I want to share my results on the website so that others can benefit from and compare my results.
-- As a user, I want to upload my data to the server so that the model tests it.
-- As a user, I want to download my results so that I can have them offline.
-- As a user, I want to upload my data to the server so that the model tests it.
-- As a user, I want to register to an account so that I can save my runs.
-- As a user, I want to login to an account so that I can check my runs’ history.
-  <br><br>
+1. Admin
+2. User
 
-### Admin Stories
+<br>
 
-- As an admin, I want to know the statistics related to all tasks so that I can optimize the models.
+<a name="features-of-the-project"></a>
+### Features of the Project
+
+As a user, I want to:
+- share my results on the website so that others can benefit from and compare my results.
+- upload my data to the server so that the model tests it.
+- download my results so that I can have them offline.
+- upload my data to the server so that the model tests it.
+- register to an account so that I can save my runs.
+- login to an account so that I can check my runs’ history.
+  <br>
+
+As an admin, I want to:
+- know the statistics related to all tasks so that I can optimize the models.
    <br><br>
 
 <!-- Prototyping -->
+<a name="prototyping"></a>
 <img src="./readme/title3.svg"/>
 
 > We designed LiCess using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
@@ -43,8 +71,27 @@
 
 <br><br>
 
-<!-- Implementation -->
-<img src="./readme/title4.svg"/>
+<!-- Tech stack -->
+<a name="tech-stack" ></a>
+<img src="./readme/title5.svg"/>
+
+LiCess is built using the following technologies:
+
+## Frontend (Website)
+<a name="Frontend" ></a>
+- This project uses the **React JavaScript library** (https://react.dev/). React is an open-source, JavaScript library which allows us to building user interfaces based on components.
+<br>
+
+## Backend (Database)
+<a name="Backend" ></a>
+- This project uses the **Laravel PHP framework** (https://laravel.com/) which follows the Model-View-Controller (MVC) design-pattern and provides a clean and elegant syntax that aims to simplify the development process.
+
+<br><br>
+
+
+<!-- Demo -->
+<a name="Demo" ></a>
+<img src="./readme/title9.svg"/>
 
 > Using the wireframes and mockups as a guide, we implemented the LiCess Project with the following features:
 
@@ -86,20 +133,10 @@ A simple dark-light theme switch
 
 <br><br>
 
-<!-- Tech stack -->
-<img src="./readme/title5.svg"/>
-
-### LiCess is built using the following technologies:
-
-- This project uses the [React JavaScript library](https://react.dev/). React is an open-source, JavaScript library which allows us to building user interfaces based on components.
-- For backend (database), the project uses the [Laravel PHP framework](https://laravel.com/) which follows the Model-View-Controller (MVC) design-pattern and provides a clean and elegant syntax that aims to simplify the development process.
-- The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font.
-
-<br><br>
-
 <!-- Performance -->
+<a name="Performance" ></a>
 <img src="./readme/title7.svg"/>
-
+The following test have been conduncted in Postman in order to asses the functionality of the project's main APIs:
 | API Test Results                                       |
 | ----------------------------------------------------- |
 | Data Preprocess                                       |
@@ -118,24 +155,29 @@ The time taken for each task of the key features: Data Preprocessing, Feature Ex
 <br><br>
 
 <!-- How to run -->
+<a name="how-to-run" ></a>
 <img src="./readme/title6.svg"/>
 
 > To set up LiCess locally, follow these steps:
 
+<a name="prerequisites"></a>
+
 ### Prerequisites
 
-- Node.js:
+- **Node.js**:
   [https://nodejs.org/en/download](https://nodejs.org/en/download)
-- XAMPP:
+- **XAMPP**:
   [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
-- Composer:
+- **Composer**:
   [https://getcomposer.org/download/](https://getcomposer.org/download/)
-- Postman:
+- **Postman**:
   [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
+
+<a name="installation"></a>
 
 ### Installation
 
-Frontend-related steps:
+#### Frontend-related steps:
 1. Clone the repo
    ```sh
    git clone https://github.com/Mohamad-Rida-Chouman/LiCess-website.git
@@ -153,13 +195,13 @@ Frontend-related steps:
    npm run start
    ```
 
-Database-related steps:
+#### Database-related steps:
 1. Launch XAMPP and start both Apache and MySQL services
-2. Go to phpmyadmin:
+2. In your browser, go to phpmyadmin:
    localhost/phpmyadmin/
 3. Create a database with the name "licess".
 
-Backend-related steps:
+#### Backend-related steps:
 1. Navigate to the server folder:
    ```sh
    cd ../server
