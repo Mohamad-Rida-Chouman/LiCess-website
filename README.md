@@ -7,8 +7,8 @@
 
 
 - [Project Philosophy](#project-philosophy)
-- [User Types](#user-types)
-- [Features of the Project](#features-of-the-project)
+   - [User Types](#user-types)
+   - [User Stories](#user-stories)
 - [Prototyping](#prototyping)
 - [Tech Stack](#tech-stack)
   - [Frontend](#Frontend)
@@ -33,10 +33,8 @@
 1. Admin
 2. User
 
-<br>
-
-<a name="features-of-the-project"></a>
-### Features of the Project
+<a name="user-stories"></a>
+### User Stories
 
 As a user, I want to:
 - share my results on the website so that others can benefit from and compare my results.
