@@ -9,10 +9,10 @@
 - [Project Description](#project-description)
 - [User Types](#user-types)
 - [Features of the Project](#features-of-the-project)
+- [Prototyping](#prototyping)
 - [Tech Stack](#tech-stack)
   - [Frontend](#Frontend)
   - [Backend](#Backend)
-- [Prototyping](#prototyping)
 - [Demo](#Demo)
 - [Performance](#Performance)
 - [How to Run](#how-to-run)
@@ -51,23 +51,6 @@ As an admin, I want to:
 - know the statistics related to all tasks so that I can optimize the models.
    <br><br>
 
-   <!-- Tech stack -->
-<a name="tech-stack" ></a>
-<img src="./readme/title5.svg"/>
-
-LiCess is built using the following technologies:
-
-<a name="Frontend" ></a>
-## Frontend (Website)
-- This project uses the **React JavaScript library** (https://react.dev/). React is an open-source, JavaScript library which allows us to building user interfaces based on components.
-<br>
-
-<a name="Backend" ></a>
-## Backend (Database)
-- This project uses the **Laravel PHP framework** (https://laravel.com/) which follows the Model-View-Controller (MVC) design-pattern and provides a clean and elegant syntax that aims to simplify the development process.
-
-<br><br>
-
 <!-- Prototyping -->
 <a name="prototyping"></a>
 <img src="./readme/title3.svg"/>
@@ -85,6 +68,23 @@ LiCess is built using the following technologies:
 | Landing screen                             | Features Screen                           |
 | --------------------------------------- | ------------------------------------- |
 | ![Landing](./readme/demo/landing-mockup.png) | ![fsdaf](./readme/demo/features-mockup.png) |
+
+<br><br>
+
+   <!-- Tech stack -->
+<a name="tech-stack" ></a>
+<img src="./readme/title5.svg"/>
+
+LiCess is built using the following technologies:
+
+<a name="Frontend" ></a>
+## Frontend (Website)
+- This project uses the **React JavaScript library** (https://react.dev/). React is an open-source, JavaScript library which allows us to building user interfaces based on components.
+<br>
+
+<a name="Backend" ></a>
+## Backend (Database)
+- This project uses the **Laravel PHP framework** (https://laravel.com/) which follows the Model-View-Controller (MVC) design-pattern and provides a clean and elegant syntax that aims to simplify the development process.
 
 <br><br>
 
